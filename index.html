@@ -281,16 +281,24 @@
   .voc-group{margin-bottom:22px;}
   .voc-group h3{font-size:1.06rem; margin-bottom:4px;}
   .voc-group .vsub{font-size:.8rem; color:var(--muted); margin:0 0 12px;}
-  .voc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px;}
-  .vcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:11px 13px; cursor:pointer; box-shadow:var(--shadow); transition:.12s;}
+  .voc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(238px,1fr)); gap:10px;}
+  .vcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 14px; cursor:pointer; box-shadow:var(--shadow); transition:.12s; display:flex; flex-direction:column;}
   .vcard:hover{border-color:var(--teal); transform:translateY(-2px);}
   .vcard.speaking{border-color:var(--gold); background:var(--gold-tint);}
   .vcard .ven{font-weight:600; color:var(--teal-deep);}
   .vcard .ven::before{content:"🔊 "; font-size:.8em;}
   .vcard .vzh{font-size:.82rem; color:var(--ink-soft); margin-top:1px;}
+  .vcard .vex{
+    margin-top:8px; padding-top:8px; border-top:1px dashed var(--line);
+    font-size:.82rem; color:var(--muted); line-height:1.55; font-style:italic;
+  }
+  .vcard .vex::before{content:"🔊 "; font-style:normal; font-size:.85em;}
+  .vcard .vex:hover{color:var(--teal-deep);}
 
   /* reading */
   .passage{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:18px;}
+  .read-stage{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--gold); font-weight:700; margin:22px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line);}
+  .read-stage:first-child{margin-top:0;}
   .passage .plevel{font-size:.72rem; font-weight:700; letter-spacing:.06em; color:var(--blue); text-transform:uppercase; margin-bottom:8px;}
   .passage h3{font-size:1.15rem; margin-bottom:12px;}
   .passage .ptext{line-height:1.9; color:var(--ink);}
@@ -630,8 +638,11 @@
       <button class="btn ghost" id="exAll" type="button">全部範圍</button>
     </div>
     <div class="ec-row">
-      <label>單字題 <select id="exVocN"><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
-      <label>文法題 <select id="exGramN"><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+      <label>單字選擇 <select id="exVocN"><option>0</option><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+      <label>句子填空 <select id="exClozeN"><option>0</option><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+      <label>文法填空 <select id="exGramN"><option>0</option><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+    </div>
+    <div class="ec-row">
       <label><input type="checkbox" id="exRead" checked> 含閱讀測驗</label>
       <label><input type="checkbox" id="exKey" checked> 附解答卷</label>
     </div>
@@ -1613,45 +1624,45 @@
 
   /* 每週單字(對應 PLAN 的 39 週,難度隨階段爬升) */
   var WEEKLY_VOCAB=[
-    {t:"字母例字",w:[["apple","蘋果"],["ball","球"],["cat","貓"],["dog","狗"],["egg","蛋"],["fish","魚"],["goat","山羊"],["hat","帽子"],["jam","果醬"],["kite","風箏"]]},
-    {t:"CVC 拼讀字族",w:[["cat","貓"],["hat","帽子"],["hen","母雞"],["pen","筆"],["pig","豬"],["big","大的"],["hot","熱的"],["pot","鍋子"],["cup","杯子"],["sun","太陽"]]},
-    {t:"數字 · 顏色 · 家庭",w:[["one","一"],["two","二"],["three","三"],["red","紅色"],["blue","藍色"],["green","綠色"],["father","爸爸"],["mother","媽媽"],["brother","兄弟"],["sister","姊妹"]]},
-    {t:"食物與飲料",w:[["rice","飯"],["noodle","麵"],["bread","麵包"],["meat","肉"],["fruit","水果"],["water","水"],["milk","牛奶"],["juice","果汁"],["tea","茶"],["coffee","咖啡"]]},
-    {t:"日常動作",w:[["eat","吃"],["drink","喝"],["run","跑"],["walk","走"],["sleep","睡覺"],["study","讀書"],["work","工作"],["play","玩"],["get up","起床"],["go to school","上學"]]},
-    {t:"學校用品",w:[["pen","筆"],["pencil","鉛筆"],["book","書"],["bag","書包"],["desk","書桌"],["chair","椅子"],["ruler","尺"],["eraser","橡皮擦"],["notebook","筆記本"],["classroom","教室"]]},
-    {t:"休閒與天氣",w:[["read","閱讀"],["swim","游泳"],["sing","唱歌"],["dance","跳舞"],["draw","畫畫"],["sunny","晴朗的"],["rainy","下雨的"],["cloudy","多雲的"],["windy","有風的"],["snowy","下雪的"]]},
-    {t:"職業與地點",w:[["teacher","老師"],["doctor","醫生"],["nurse","護士"],["cook","廚師"],["driver","司機"],["park","公園"],["store","商店"],["hospital","醫院"],["library","圖書館"],["station","車站"]]},
-    {t:"傢俱與身體",w:[["table","桌子"],["bed","床"],["door","門"],["window","窗戶"],["head","頭"],["hand","手"],["foot","腳"],["eye","眼睛"],["nose","鼻子"],["mouth","嘴巴"]]},
-    {t:"時間詞(過去式必備)",w:[["yesterday","昨天"],["today","今天"],["tomorrow","明天"],["last night","昨晚"],["this morning","今天早上"],["ago","以前"],["then","那時"],["later","後來"],["already","已經"],["just","剛剛"]]},
-    {t:"不規則動詞過去式",w:[["went","去(過去)"],["saw","看見(過去)"],["ate","吃(過去)"],["had","有(過去)"],["did","做(過去)"],["made","製作(過去)"],["came","來(過去)"],["took","拿(過去)"],["got","得到(過去)"],["gave","給(過去)"]]},
-    {t:"未來與計劃",w:[["next week","下週"],["soon","很快"],["later","稍後"],["plan","計劃"],["hope","希望"],["decide","決定"],["prepare","準備"],["future","未來"],["maybe","也許"],["probably","可能"]]},
-    {t:"情緒感受",w:[["happy","快樂的"],["sad","難過的"],["angry","生氣的"],["tired","累的"],["excited","興奮的"],["bored","無聊的"],["scared","害怕的"],["surprised","驚訝的"],["nervous","緊張的"],["proud","驕傲的"]]},
-    {t:"常用過去分詞",w:[["finished","完成"],["lived","居住"],["eaten","吃(p.p.)"],["seen","看見(p.p.)"],["been","是/去過(p.p.)"],["done","做(p.p.)"],["written","寫(p.p.)"],["spoken","說(p.p.)"],["taken","拿(p.p.)"],["given","給(p.p.)"]]},
-    {t:"完成式時間副詞",w:[["already","已經"],["yet","尚未"],["ever","曾經"],["never","從未"],["since","自從"],["for","持續(一段時間)"],["recently","最近"],["lately","近來"],["so far","到目前為止"],["by then","到那時"]]},
-    {t:"製作與使用(被動常用)",w:[["make","製作"],["build","建造"],["write","寫"],["speak","說"],["break","打破"],["use","使用"],["produce","生產"],["design","設計"],["create","創造"],["invent","發明"]]},
-    {t:"人物描述(關代常用)",w:[["person","人"],["man","男人"],["woman","女人"],["friend","朋友"],["neighbor","鄰居"],["stranger","陌生人"],["expert","專家"],["author","作者"],["artist","藝術家"],["scientist","科學家"]]},
-    {t:"接 to V / Ving 的動詞",w:[["want","想要"],["hope","希望"],["decide","決定"],["plan","計劃"],["need","需要"],["enjoy","享受"],["finish","完成"],["keep","持續"],["avoid","避免"],["mind","介意"]]},
-    {t:"會考高頻形容詞",w:[["important","重要的"],["difficult","困難的"],["popular","受歡迎的"],["useful","有用的"],["dangerous","危險的"],["healthy","健康的"],["expensive","昂貴的"],["safe","安全的"],["famous","有名的"],["careful","小心的"]]},
-    {t:"思考與認知動詞",w:[["think","認為"],["believe","相信"],["know","知道"],["realize","意識到"],["understand","理解"],["wonder","想知道"],["doubt","懷疑"],["suppose","假定"],["imagine","想像"],["remember","記得"]]},
-    {t:"轉折與連接詞",w:[["however","然而"],["therefore","因此"],["moreover","此外"],["besides","除此之外"],["although","雖然"],["since","既然/自從"],["while","當…時"],["unless","除非"],["otherwise","否則"],["thus","因而"]]},
-    {t:"願望與可能性",w:[["wish","但願"],["would","將會"],["could","可能/能夠"],["might","也許"],["suppose","假設"],["chance","機會"],["possible","可能的"],["impossible","不可能的"],["likely","可能的"],["unlikely","不太可能的"]]},
-    {t:"分詞形容詞對比",w:[["interesting","令人感興趣的"],["interested","感到有興趣的"],["boring","令人無聊的"],["bored","感到無聊的"],["exciting","令人興奮的"],["excited","感到興奮的"],["surprising","令人驚訝的"],["surprised","感到驚訝的"],["tiring","令人疲倦的"],["confused","感到困惑的"]]},
-    {t:"閱讀題幹用語",w:[["main idea","主旨"],["purpose","目的"],["infer","推論"],["imply","暗示"],["refer to","指的是"],["suggest","顯示/建議"],["according to","根據"],["passage","文章"],["paragraph","段落"],["conclusion","結論"]]},
-    {t:"寫作連接語",w:[["first","首先"],["second","其次"],["finally","最後"],["for example","舉例來說"],["in addition","此外"],["on the other hand","另一方面"],["in conclusion","總結來說"],["as a result","結果"],["in short","簡言之"],["overall","整體而言"]]},
-    {t:"學測核心形容詞",w:[["significant","重要的"],["various","各式各樣的"],["similar","相似的"],["different","不同的"],["common","常見的"],["specific","具體的"],["general","一般的"],["particular","特定的"],["major","主要的"],["minor","次要的"]]},
-    {t:"字首字根實戰",w:[["unhappy","不快樂的"],["disagree","不同意"],["rewrite","重寫"],["preview","預習"],["mislead","誤導"],["export","出口"],["predict","預測"],["inspect","檢查"],["construct","建造"],["reduce","減少"]]},
-    {t:"學術與新聞詞彙",w:[["policy","政策"],["economy","經濟"],["crisis","危機"],["official","官方的"],["research","研究"],["evidence","證據"],["technology","科技"],["data","數據"],["environment","環境"],["society","社會"]]},
-    {t:"語氣與態度",w:[["positive","正面的"],["negative","負面的"],["neutral","中立的"],["critical","批判的"],["objective","客觀的"],["subjective","主觀的"],["optimistic","樂觀的"],["pessimistic","悲觀的"],["supportive","支持的"],["doubtful","懷疑的"]]},
-    {t:"論證用語",w:[["argue","主張"],["claim","宣稱"],["assume","假設"],["conclude","下結論"],["support","支持"],["oppose","反對"],["prove","證明"],["indicate","指出"],["demonstrate","證明"],["reveal","揭露"]]},
-    {t:"邏輯關係詞",w:[["cause","原因"],["effect","結果"],["contrast","對比"],["compare","比較"],["similarly","同樣地"],["in contrast","相反地"],["consequently","因此"],["furthermore","再者"],["nevertheless","儘管如此"],["thus","於是"]]},
-    {t:"高頻動詞片語",w:[["take place","發生"],["carry out","執行"],["bring about","造成"],["look into","調查"],["deal with","處理"],["result in","導致"],["lead to","導致"],["depend on","取決於"],["focus on","專注於"],["come up with","想出"]]},
-    {t:"翻譯必備句型",w:[["not only...but also","不僅…而且"],["as...as","和…一樣"],["too...to","太…以致無法"],["so...that","如此…以致"],["the more...the more","越…越"],["rather than","而不是"],["instead of","代替"],["in order to","為了"],["thanks to","多虧"],["due to","由於"]]},
-    {t:"作文結構用語",w:[["introduction","引言"],["thesis","論點"],["body","主體"],["topic sentence","主題句"],["supporting detail","支持細節"],["evidence","證據"],["conclusion","結論"],["restate","重述"],["transition","轉折"],["outline","大綱"]]},
-    {t:"立場表達",w:[["in my opinion","依我之見"],["I believe","我相信"],["it seems","似乎"],["arguably","可以說"],["undoubtedly","無疑地"],["on the contrary","相反地"],["admittedly","誠然"],["indeed","確實"],["ultimately","最終"],["to sum up","總而言之"]]},
-    {t:"升級字彙(高分作文)",w:[["beneficial","有益的"],["crucial","關鍵的"],["essential","必要的"],["remarkable","顯著的"],["tremendous","巨大的"],["profound","深遠的"],["vital","至關重要的"],["substantial","可觀的"],["considerable","相當大的"],["efficient","有效率的"]]},
-    {t:"考試指令用語",w:[["choose","選擇"],["fill in","填入"],["complete","完成"],["translate","翻譯"],["describe","描述"],["explain","解釋"],["summarize","摘要"],["compare","比較"],["discuss","討論"],["evaluate","評估"]]},
-    {t:"學測高頻動詞",w:[["achieve","達成"],["apply","應用/申請"],["benefit","受益"],["contribute","貢獻"],["establish","建立"],["maintain","維持"],["obtain","獲得"],["provide","提供"],["require","需要"],["various","各種的"]]},
-    {t:"進階抽象名詞",w:[["ability","能力"],["concept","概念"],["factor","因素"],["impact","影響"],["influence","影響力"],["method","方法"],["process","過程"],["purpose","目的"],["result","結果"],["solution","解決方法"]]}
+    {t:"字母例字",w:[["apple","蘋果","I eat an apple every day."],["ball","球","The ball is red."],["cat","貓","The cat is on the bed."],["dog","狗","My dog is very big."],["egg","蛋","I want an egg."],["fish","魚","The fish can swim."],["goat","山羊","The goat eats grass."],["hat","帽子","He has a new hat."],["jam","果醬","I like jam on bread."],["kite","風箏","The kite is in the sky."]]},
+    {t:"CVC 拼讀字族",w:[["cat","貓","The cat sat on a mat."],["hat","帽子","My hat is on the bed."],["hen","母雞","The hen has ten eggs."],["pen","筆","This pen is red."],["pig","豬","The pig is very big."],["big","大的","That box is big."],["hot","熱的","The pot is hot."],["pot","鍋子","The pot is on the fire."],["cup","杯子","I have a cup of tea."],["sun","太陽","The sun is hot today."]]},
+    {t:"數字 · 顏色 · 家庭",w:[["one","一","I have one brother."],["two","二","She has two cats."],["three","三","There are three books."],["red","紅色","My bag is red."],["blue","藍色","The sky is blue."],["green","綠色","The grass is green."],["father","爸爸","My father is a teacher."],["mother","媽媽","My mother likes tea."],["brother","兄弟","My brother is ten."],["sister","姊妹","I have one sister."]]},
+    {t:"食物與飲料",w:[["rice","飯","I eat rice every day."],["noodle","麵","This noodle is very hot."],["bread","麵包","She eats bread for breakfast."],["meat","肉","He does not eat meat."],["fruit","水果","Fruit is good for you."],["water","水","I drink water every morning."],["milk","牛奶","The milk is cold."],["juice","果汁","I want some juice."],["tea","茶","My mother likes tea."],["coffee","咖啡","He drinks coffee at work."]]},
+    {t:"日常動作",w:[["eat","吃","We eat dinner at six."],["drink","喝","I drink milk every day."],["run","跑","He can run very fast."],["walk","走","I walk to school."],["sleep","睡覺","I sleep at ten every night."],["study","讀書","They study English together."],["work","工作","I work five days a week."],["play","玩","The kids play in the park."],["get up","起床","I get up at seven."],["go to school","上學","We go to school by bus."]]},
+    {t:"學校用品",w:[["pen","筆","May I borrow your pen?"],["pencil","鉛筆","This pencil is too short."],["book","書","I read a book every night."],["bag","書包","My bag is very heavy."],["desk","書桌","The book is on the desk."],["chair","椅子","Please sit on the chair."],["ruler","尺","I need a ruler for math."],["eraser","橡皮擦","Where is my eraser?"],["notebook","筆記本","She writes in her notebook."],["classroom","教室","Our classroom is big and bright."]]},
+    {t:"休閒與天氣",w:[["read","閱讀","I read before bed."],["swim","游泳","They swim in the summer."],["sing","唱歌","She likes to sing."],["dance","跳舞","We dance at the party."],["draw","畫畫","He can draw very well."],["sunny","晴朗的","It is sunny today."],["rainy","下雨的","It is a rainy day."],["cloudy","多雲的","The sky is cloudy."],["windy","有風的","It is windy outside."],["snowy","下雪的","Japan is snowy in winter."]]},
+    {t:"職業與地點",w:[["teacher","老師","My teacher is very kind."],["doctor","醫生","The doctor helps sick people."],["nurse","護士","The nurse works at night."],["cook","廚師","He is a very good cook."],["driver","司機","The bus driver is friendly."],["park","公園","We play in the park."],["store","商店","I buy milk at the store."],["hospital","醫院","She works in a hospital."],["library","圖書館","I read books in the library."],["station","車站","The train station is near my home."]]},
+    {t:"傢俱與身體",w:[["table","桌子","Dinner is on the table."],["bed","床","I sleep in my bed."],["door","門","Please close the door."],["window","窗戶","Open the window, please."],["head","頭","My head hurts today."],["hand","手","Please raise your hand."],["foot","腳","My foot is cold."],["eye","眼睛","There is something in my eye."],["nose","鼻子","My nose is red."],["mouth","嘴巴","Open your mouth, please."]]},
+    {t:"時間詞(過去式必備)",w:[["yesterday","昨天","I saw him yesterday."],["today","今天","Today is Monday."],["tomorrow","明天","I will call you tomorrow."],["last night","昨晚","We watched a movie last night."],["this morning","今天早上","I got up early this morning."],["ago","以前","He left two hours ago."],["then","那時","I was a child then."],["later","後來","I will do it later."],["already","已經","She has already left."],["just","剛剛","He just came home."]]},
+    {t:"不規則動詞過去式",w:[["went","去(過去)","I went to Taipei last week."],["saw","看見(過去)","We saw a good movie."],["ate","吃(過去)","He ate three apples."],["had","有(過去)","She had a cold yesterday."],["did","做(過去)","I did my homework."],["made","製作(過去)","My mom made a cake."],["came","來(過去)","He came home late."],["took","拿(過去)","She took my pen."],["got","得到(過去)","I got a gift."],["gave","給(過去)","He gave me a book."]]},
+    {t:"未來與計劃",w:[["next week","下週","I will visit her next week."],["soon","很快","The bus will come soon."],["later","稍後","See you later."],["plan","計劃","We plan to travel this summer."],["hope","希望","I hope you can come."],["decide","決定","She will decide tomorrow."],["prepare","準備","I need to prepare dinner."],["future","未來","Think about your future."],["maybe","也許","Maybe he is busy."],["probably","可能","It will probably rain."]]},
+    {t:"情緒感受",w:[["happy","快樂的","I am happy to see you."],["sad","難過的","She looks sad today."],["angry","生氣的","Do not be angry with me."],["tired","累的","I am very tired."],["excited","興奮的","The kids are excited."],["bored","感到無聊的","He was bored in class."],["scared","害怕的","I am scared of dogs."],["surprised","驚訝的","She was surprised by the gift."],["nervous","緊張的","I feel nervous before a test."],["proud","驕傲的","My parents are proud of me."]]},
+    {t:"常用過去分詞",w:[["finished","完成(p.p.)","I have finished my homework."],["lived","居住(p.p.)","She has lived here for ten years."],["eaten","吃(p.p.)","Have you eaten lunch?"],["seen","看見(p.p.)","I have seen that movie."],["been","去過(p.p.)","He has been to Japan."],["done","做(p.p.)","I have done my best."],["written","寫(p.p.)","She has written three books."],["spoken","說(p.p.)","He has spoken to the manager."],["taken","拿(p.p.)","Someone has taken my seat."],["given","給(p.p.)","They have given us a chance."]]},
+    {t:"完成式時間副詞",w:[["already","已經","I have already eaten."],["yet","尚未","He has not arrived yet."],["ever","曾經","Have you ever been to Japan?"],["never","從未","She has never seen snow."],["since","自從","I have lived here since 2010."],["for","持續(一段時間)","We have waited for two hours."],["recently","最近","He has recently moved."],["lately","近來","I have not slept well lately."],["so far","到目前為止","So far, everything is fine."],["by then","到那時","By then, he had already left."]]},
+    {t:"製作與使用(被動常用)",w:[["make","製作","She will make a cake."],["build","建造","They build houses for a living."],["write","寫","Please write your name here."],["speak","說","Do you speak English?"],["break","打破","Do not break the glass."],["use","使用","May I use your phone?"],["produce","生產","They produce good coffee here."],["design","設計","He will design the poster."],["create","創造","Artists create beautiful things."],["invent","發明","Edison helped invent the light bulb."]]},
+    {t:"人物描述(關代常用)",w:[["person","人","She is a very kind person."],["man","男人","The man who called you is here."],["woman","女人","The woman in red is my teacher."],["friend","朋友","He is my best friend."],["neighbor","鄰居","My neighbor has a big dog."],["stranger","陌生人","Do not talk to a stranger."],["expert","專家","She is an expert in science."],["author","作者","The author wrote ten books."],["artist","藝術家","The artist painted this picture."],["scientist","科學家","The scientist made a discovery."]]},
+    {t:"接 to V / Ving 的動詞",w:[["want","想要","I want to learn English."],["hope","希望","We hope to see you soon."],["decide","決定","I decide to stay home."],["plan","計劃","They plan to move next year."],["need","需要","You need to rest."],["enjoy","享受","I enjoy reading books."],["finish","完成","Please finish eating first."],["keep","持續","Keep trying and you will win."],["avoid","避免","Avoid eating too much sugar."],["mind","介意","Do you mind waiting here?"]]},
+    {t:"會考高頻形容詞",w:[["important","重要的","Health is very important."],["difficult","困難的","This question is difficult."],["popular","受歡迎的","That song is very popular."],["useful","有用的","This app is very useful."],["dangerous","危險的","Driving too fast is dangerous."],["healthy","健康的","We should eat healthy food."],["expensive","昂貴的","This phone is too expensive."],["safe","安全的","This area is safe at night."],["famous","有名的","She is a famous singer."],["careful","小心的","Be careful on the road."]]},
+    {t:"思考與認知動詞",w:[["think","認為","I think that he is right."],["believe","相信","I believe you can do it."],["know","知道","Do you know where he lives?"],["realize","意識到","I realize that I was wrong."],["understand","理解","I understand what you mean."],["wonder","想知道","I wonder why she left."],["doubt","懷疑","I doubt that he will come."],["suppose","假定","I suppose you are right."],["imagine","想像","Imagine what life will be like."],["remember","記得","Remember to lock the door."]]},
+    {t:"轉折與連接詞",w:[["however","然而","It was late; however, he kept working."],["therefore","因此","He was sick; therefore, he stayed home."],["moreover","此外","The room is small; moreover, it is dark."],["besides","除此之外","Besides English, she speaks French."],["although","雖然","Although he is young, he is wise."],["since","既然","Since it is raining, we will stay in."],["while","當…時","While I was cooking, he called."],["unless","除非","You will fail unless you study."],["otherwise","否則","Hurry, otherwise you will be late."],["thus","因而","He practiced daily; thus, he improved."]]},
+    {t:"願望與可能性",w:[["wish","但願","I wish I could fly."],["would","將會","I would help if I could."],["could","能夠","She could swim when she was five."],["might","也許","It might rain later."],["suppose","假設","Suppose you won the prize."],["chance","機會","There is a chance of rain."],["possible","可能的","It is possible to finish today."],["impossible","不可能的","Nothing is impossible."],["likely","可能的","He is likely to come."],["unlikely","不太可能的","It is unlikely that she will agree."]]},
+    {t:"分詞形容詞對比",w:[["interesting","令人感興趣的","This book is very interesting."],["interested","感到有興趣的","I am interested in music."],["boring","令人無聊的","The movie was boring."],["bored","感到無聊的","I was bored during the class."],["exciting","令人興奮的","The game was exciting."],["excited","感到興奮的","The children were excited."],["surprising","令人驚訝的","The result was surprising."],["surprised","感到驚訝的","I was surprised to see her."],["tiring","令人疲倦的","The long trip was tiring."],["confused","感到困惑的","I was confused by the question."]]},
+    {t:"閱讀題幹用語",w:[["main idea","主旨","What is the main idea of the passage?"],["purpose","目的","The purpose of this article is to inform."],["infer","推論","We can infer that he was angry."],["imply","暗示","What does the author imply here?"],["refer to","指的是","What does the word it refer to?"],["suggest","顯示","The data suggest a serious problem."],["according to","根據","According to the passage, reading helps."],["passage","文章","Read the passage carefully."],["paragraph","段落","The second paragraph gives an example."],["conclusion","結論","The conclusion restates the main point."]]},
+    {t:"寫作連接語",w:[["first","首先","First, let me explain the problem."],["second","其次","Second, we should consider the cost."],["finally","最後","Finally, we reached an agreement."],["for example","舉例來說","Many fruits, for example apples, are healthy."],["in addition","此外","In addition, it saves a lot of money."],["on the other hand","另一方面","On the other hand, it takes more time."],["in conclusion","總結來說","In conclusion, reading is important."],["as a result","結果","He studied hard; as a result, he passed."],["in short","簡言之","In short, we need more time."],["overall","整體而言","Overall, the plan works well."]]},
+    {t:"學測核心形容詞",w:[["significant","重要的","There is a significant difference."],["various","各式各樣的","The store sells various products."],["similar","相似的","Their ideas are quite similar."],["different","不同的","We have different opinions."],["common","常見的","This is a common mistake."],["specific","具體的","Give me a specific example."],["general","一般的","The general idea is clear."],["particular","特定的","I have no particular reason."],["major","主要的","Pollution is a major problem."],["minor","次要的","That is only a minor issue."]]},
+    {t:"字首字根實戰",w:[["unhappy","不快樂的","She looked unhappy after the news."],["disagree","不同意","I disagree with your opinion."],["rewrite","重寫","You should rewrite this paragraph."],["preview","預習","Preview the lesson before class."],["mislead","誤導","The ad may mislead customers."],["export","出口","Taiwan will export more goods."],["predict","預測","Nobody can predict the future."],["inspect","檢查","They will inspect the building."],["construct","建造","They plan to construct a bridge."],["reduce","減少","We must reduce waste."]]},
+    {t:"學術與新聞詞彙",w:[["policy","政策","The new policy takes effect today."],["economy","經濟","The economy is growing slowly."],["crisis","危機","The country faces a serious crisis."],["official","官方的","This is the official statement."],["research","研究","The research shows a clear trend."],["evidence","證據","There is strong evidence for it."],["technology","科技","Technology changes our lives."],["data","數據","The data support the theory."],["environment","環境","We must protect the environment."],["society","社會","Society is changing quickly."]]},
+    {t:"語氣與態度",w:[["positive","正面的","The review was very positive."],["negative","負面的","He has a negative attitude."],["neutral","中立的","The report stays neutral."],["critical","批判的","The article is critical of the plan."],["objective","客觀的","A good reporter stays objective."],["subjective","主觀的","Beauty is subjective."],["optimistic","樂觀的","She is optimistic about the future."],["pessimistic","悲觀的","He sounds pessimistic today."],["supportive","支持的","My family is very supportive."],["doubtful","懷疑的","I am doubtful about the plan."]]},
+    {t:"論證用語",w:[["argue","主張","Some people argue that money brings happiness."],["claim","宣稱","They claim to be experts."],["assume","假設","Do not assume that he agrees."],["conclude","下結論","We can conclude that reading helps."],["support","支持","The facts support his idea."],["oppose","反對","Many people oppose the plan."],["prove","證明","He tried to prove his point."],["indicate","指出","The results indicate a problem."],["demonstrate","證明","The results demonstrate a clear effect."],["reveal","揭露","These facts reveal the truth."]]},
+    {t:"邏輯關係詞",w:[["cause","原因","Smoking is a cause of illness."],["effect","結果","The effect was immediate."],["contrast","對比","There is a clear contrast between them."],["compare","比較","Compare the two articles carefully."],["similarly","同樣地","Similarly, exercise improves mood."],["in contrast","相反地","In contrast, prices fell last year."],["consequently","因此","He was late; consequently, he missed the bus."],["furthermore","再者","Furthermore, the cost is too high."],["nevertheless","儘管如此","It was hard; nevertheless, she finished."],["thus","於是","Thus, we reached our goal."]]},
+    {t:"高頻動詞片語",w:[["take place","發生","The meeting will take place on Friday."],["carry out","執行","They will carry out the plan."],["bring about","造成","Technology can bring about great change."],["look into","調查","The police will look into the case."],["deal with","處理","We must deal with this problem."],["result in","導致","Careless driving can result in accidents."],["lead to","導致","Hard work can lead to success."],["depend on","取決於","It will depend on the weather."],["focus on","專注於","Let us focus on the main point."],["come up with","想出","Can you come up with a solution?"]]},
+    {t:"翻譯必備句型",w:[["not only","不僅","He is not only smart but also kind."],["as tall as","和…一樣高","She is as tall as her brother."],["too...to","太…以致無法","He is too young to drive."],["so that","以便、為了","He saved money so that he could travel."],["the more","越…","The more you practice, the more you improve."],["rather than","而不是","I would walk rather than drive."],["instead of","代替","Read a book instead of watching TV."],["in order to","為了","He studies hard in order to pass."],["thanks to","多虧","Thanks to your help, we finished early."],["due to","由於","The game was canceled due to rain."]]},
+    {t:"作文結構用語",w:[["introduction","引言","The introduction should catch attention."],["thesis","論點","State your thesis in the first paragraph."],["body","主體","The body explains your reasons."],["topic sentence","主題句","Each paragraph needs a topic sentence."],["supporting detail","支持細節","Add a supporting detail after your claim."],["evidence","證據","Give evidence to support your point."],["conclusion","結論","The conclusion sums up your ideas."],["restate","重述","Restate your main idea at the end."],["transition","轉折","Use a transition between paragraphs."],["outline","大綱","Write an outline before you start."]]},
+    {t:"立場表達",w:[["in my opinion","依我之見","In my opinion, reading is essential."],["I believe","我相信","I believe that everyone can learn."],["it seems","似乎","It seems that he is right."],["arguably","可以說","This is arguably the best solution."],["undoubtedly","無疑地","Undoubtedly, exercise improves health."],["on the contrary","相反地","On the contrary, it makes things worse."],["admittedly","誠然","Admittedly, the plan has some risks."],["indeed","確實","Indeed, the results were surprising."],["ultimately","最終","Ultimately, the choice is yours."],["to sum up","總而言之","To sum up, we should act now."]]},
+    {t:"升級字彙(高分作文)",w:[["beneficial","有益的","Exercise is beneficial to health."],["crucial","關鍵的","Sleep is crucial for students."],["essential","必要的","Water is essential for life."],["remarkable","顯著的","She made remarkable progress."],["tremendous","巨大的","The team made a tremendous effort."],["profound","深遠的","The book had a profound effect on me."],["vital","至關重要的","Trust is vital in a team."],["substantial","可觀的","They received substantial support."],["considerable","相當大的","It takes considerable time and effort."],["efficient","有效率的","This is a more efficient method."]]},
+    {t:"考試指令用語",w:[["choose","選擇","Choose the best answer."],["fill in","填入","Fill in the blanks with the correct word."],["complete","完成","Complete the sentence below."],["translate","翻譯","Translate the sentence into English."],["describe","描述","Describe the picture in detail."],["explain","解釋","Explain why you agree."],["summarize","摘要","Summarize the passage in one sentence."],["compare","比較","Compare the two opinions."],["discuss","討論","Discuss the advantages and disadvantages."],["evaluate","評估","Evaluate the writer's argument."]]},
+    {t:"學測高頻動詞",w:[["achieve","達成","She worked hard to achieve her goal."],["apply","應用","Apply what you learn to real life."],["benefit","受益","Students benefit from reading widely."],["contribute","貢獻","Everyone can contribute to the team."],["establish","建立","They will establish a new school."],["maintain","維持","It is hard to maintain good habits."],["obtain","獲得","You must obtain permission first."],["provide","提供","Schools provide free lunch to students."],["require","需要","Plants require sunlight and water."],["various","各種的","There are various ways to learn."]]},
+    {t:"進階抽象名詞",w:[["ability","能力","She has the ability to lead."],["concept","概念","The concept is easy to understand."],["factor","因素","Price is an important factor."],["impact","影響","The news had a big impact."],["influence","影響力","Parents have a strong influence on children."],["method","方法","This method saves a lot of time."],["process","過程","Learning is a slow process."],["purpose","目的","What is the purpose of this rule?"],["result","結果","The result was surprising."],["solution","解決方法","We need a better solution."]]}
   ];
 
   var vocPills=document.getElementById('vocPills');
@@ -1670,8 +1681,11 @@
     var grid=document.getElementById('vocGrid'); grid.innerHTML='';
     V.w.forEach(function(w){
       var c=document.createElement('div'); c.className='vcard'; c.setAttribute('data-en',w[0]);
-      c.innerHTML='<div class="ven">'+w[0]+'</div><div class="vzh">'+w[1]+'</div>';
+      c.innerHTML='<div class="ven">'+w[0]+'</div><div class="vzh">'+w[1]+'</div>'+
+        '<div class="vex" title="點例句聽整句">'+w[2]+'</div>';
       c.addEventListener('click',function(){ speak(w[0],0.85,c); });
+      var exEl=c.querySelector('.vex');
+      exEl.addEventListener('click',function(e){ e.stopPropagation(); speak(w[2],0.8,c); });
       grid.appendChild(c);
     });
   }
@@ -1680,24 +1694,88 @@
 
   /* reading */
   var READINGS=[
-    {lv:"初級 · 現在式",title:"My Day",
+    {st:1,lv:"第1階 · 最基礎",title:"My Cat",
+     text:["I have a cat.","Her name is Mimi.","She is small and fat.","She likes to sit on my bed.","She eats fish every day.","At night, she sleeps next to me.","I love my cat."],
+     trans:"我有一隻貓。她的名字叫 Mimi。她又小又胖。她喜歡坐在我的床上。她每天吃魚。晚上,她睡在我旁邊。我愛我的貓。",
+     gloss:[["cat","貓"],["small","小的"],["fat","胖的"],["sit","坐"],["next to","在…旁邊"],["love","愛"]],
+     comp:[{q:"1. What is the cat's name?",a:"Mimi."},{q:"2. What does the cat eat?",a:"Fish.(魚)"},{q:"3. Where does she sleep at night?",a:"Next to the writer.(睡在作者旁邊)"}]},
+
+    {st:1,lv:"第1階 · 最基礎",title:"A Big Red Bus",
+     text:["This is a big red bus.","The bus goes to school.","Ten kids sit on the bus.","The driver is a kind man.","The bus stops at the park.","The kids run and play.","Then they go to class."],
+     trans:"這是一輛紅色的大巴士。這輛巴士開往學校。十個孩子坐在巴士上。司機是個親切的男人。巴士停在公園。孩子們跑跑跳跳地玩。然後他們去上課。",
+     gloss:[["bus","巴士"],["kids","孩子們"],["driver","司機"],["kind","親切的"],["stop","停"],["play","玩"]],
+     comp:[{q:"1. What color is the bus?",a:"Red.(紅色)"},{q:"2. How many kids are on the bus?",a:"Ten.(十個)"},{q:"3. Where does the bus stop?",a:"At the park.(在公園)"}]},
+
+    {st:2,lv:"第2階 · 現在式",title:"My Day",
      text:["Hello! My name is Amy.","I am a student.","I get up at seven every morning.","I eat breakfast with my family.","I go to school by bus.","I like English and music.","After school, I play with my dog.","I am very happy."],
      trans:"哈囉!我叫 Amy。我是學生。我每天早上七點起床。我和家人一起吃早餐。我搭公車上學。我喜歡英文和音樂。放學後,我和我的狗玩。我非常快樂。",
      gloss:[["student","學生"],["breakfast","早餐"],["by bus","搭公車"],["after school","放學後"],["happy","快樂的"]],
      comp:[{q:"1. What time does Amy get up?",a:"At seven.(七點)"},{q:"2. How does she go to school?",a:"By bus.(搭公車)"},{q:"3. What does she do after school?",a:"She plays with her dog.(和狗玩)"}]},
-    {lv:"中級 · 過去式",title:"A Rainy Sunday",
-     text:["Last Sunday, it rained all day.","I wanted to go to the park, but I couldn't.","So I stayed at home.","I read a good book and drank hot tea.","In the afternoon, my friend called me.","We talked for an hour.","Later, I cooked dinner for my family.","It was a quiet but nice day."],
+
+    {st:2,lv:"第2階 · 現在式",title:"My Family",
+     text:["There are four people in my family.","My father is a cook.","He makes great noodles.","My mother works in a hospital.","She is a nurse, and she often works at night.","I have one sister.","She is six years old and she loves to sing.","We live in a small house near the park.","Every Sunday, we walk there together."],
+     trans:"我家有四個人。我爸爸是廚師。他做的麵很棒。我媽媽在醫院工作。她是護士,常常上夜班。我有一個妹妹。她六歲,很愛唱歌。我們住在公園附近的一間小房子。每個星期天,我們一起走去那裡。",
+     gloss:[["family","家庭"],["cook","廚師"],["hospital","醫院"],["nurse","護士"],["near","靠近"],["together","一起"]],
+     comp:[{q:"1. How many people are in the family?",a:"Four.(四個人)"},{q:"2. What does the mother do?",a:"She is a nurse.(她是護士)"},{q:"3. What do they do every Sunday?",a:"They walk to the park together.(一起走去公園)"}]},
+
+    {st:3,lv:"第3階 · 過去式",title:"A Rainy Sunday",
+     text:["Last Sunday, it rained all day.","I wanted to go to the park, but I could not.","So I stayed at home.","I read a good book and drank hot tea.","In the afternoon, my friend called me.","We talked for an hour.","Later, I cooked dinner for my family.","It was a quiet but nice day."],
      trans:"上個星期天,雨下了一整天。我本來想去公園,但沒辦法。所以我待在家。我讀了一本好書,喝了熱茶。下午,我朋友打電話給我。我們聊了一小時。後來,我為家人煮了晚餐。那是安靜但美好的一天。",
-     gloss:[["rained","下雨(過去)"],["couldn't","不能(過去)"],["stayed","停留"],["called","打電話"],["quiet","安靜的"]],
-     comp:[{q:"1. How was the weather?",a:"It rained all day.(下了一整天雨)"},{q:"2. Why did the writer stay home?",a:"Because it rained and she couldn't go to the park.(因為下雨)"},{q:"3. What did she do in the afternoon?",a:"She talked with a friend on the phone.(和朋友講電話)"}]},
-    {lv:"進階 · 學測型",title:"Why Reading Matters",
+     gloss:[["rained","下雨(過去)"],["stayed","停留"],["called","打電話"],["talked","交談"],["cooked","烹煮"],["quiet","安靜的"]],
+     comp:[{q:"1. How was the weather?",a:"It rained all day.(下了一整天雨)"},{q:"2. Why did the writer stay home?",a:"Because it rained and she could not go to the park.(因為下雨)"},{q:"3. What did she do in the afternoon?",a:"She talked with a friend on the phone.(和朋友講電話)"}]},
+
+    {st:3,lv:"第3階 · 過去式 / 未來式",title:"A Trip to the Beach",
+     text:["Last summer, my family went to the beach.","We left home early in the morning.","The water was blue and warm.","My brother and I swam for two hours.","My father took many photos.","At noon, we ate sandwiches under a big umbrella.","In the evening, we watched the sun go down.","It was the best day of my summer.","Next year, we will go there again."],
+     trans:"去年夏天,我家去了海邊。我們一早就出門。海水又藍又溫暖。我和弟弟游了兩個小時。我爸爸拍了很多照片。中午,我們在一把大傘下吃三明治。傍晚,我們看著太陽下山。那是我夏天最棒的一天。明年,我們會再去一次。",
+     gloss:[["beach","海灘"],["left","離開(過去)"],["warm","溫暖的"],["swam","游泳(過去)"],["photo","照片"],["umbrella","傘"],["evening","傍晚"]],
+     comp:[{q:"1. When did they go to the beach?",a:"Last summer.(去年夏天)"},{q:"2. How long did they swim?",a:"For two hours.(兩小時)"},{q:"3. What will they do next year?",a:"They will go to the beach again.(明年再去一次)"}]},
+
+    {st:4,lv:"第4階 · 完成式 / 關代",title:"The Boy Who Never Gave Up",
+     text:["Tom is a boy who loves basketball.","When he was ten, he was the shortest player on his team.","Other kids laughed at him, and he was often left on the bench.","But Tom did not give up.","He has practiced every morning since that year.","He has learned that hard work matters more than height.","Last month, his team won the city game.","The player who scored the final point was Tom."],
+     trans:"Tom 是個熱愛籃球的男孩。他十歲時,是隊上最矮的球員。其他孩子嘲笑他,他常常被留在板凳上。但 Tom 沒有放棄。從那年起,他每天早上都練習。他學到努力比身高更重要。上個月,他的隊伍贏了市賽。投進最後一分的球員,就是 Tom。",
+     gloss:[["give up","放棄"],["shortest","最矮的"],["laugh at","嘲笑"],["bench","板凳"],["practice","練習"],["matter","要緊"],["height","身高"],["score","得分"]],
+     comp:[{q:"1. Why did other kids laugh at Tom?",a:"Because he was the shortest player on the team.(因為他是隊上最矮的)"},{q:"2. What has Tom done every morning since he was ten?",a:"He has practiced basketball.(每天早上練球)"},{q:"3. What did Tom learn?",a:"Hard work matters more than height.(努力比身高更重要)"}]},
+
+    {st:4,lv:"第4階 · 被動語態",title:"How Chocolate Is Made",
+     text:["Chocolate is made from the seeds of the cacao tree.","The seeds are picked by farmers and dried in the sun.","Then they are sent to factories around the world.","At the factory, the seeds are roasted and crushed into a thick paste.","Sugar and milk are added to make the taste sweet.","The mixture is poured into molds and cooled slowly.","Finally, the chocolate bars are wrapped and sold in stores.","The next time you eat a piece of chocolate, think about the long journey it has taken."],
+     trans:"巧克力是用可可樹的種子做成的。種子由農夫採收,並在陽光下曬乾。然後它們被送到世界各地的工廠。在工廠裡,種子被烘烤並壓碎成濃稠的糊。加入糖和牛奶讓味道變甜。混合物被倒入模具中並緩慢冷卻。最後,巧克力棒被包裝並在商店販售。下次你吃一塊巧克力時,想想它走過的漫長旅程。",
+     gloss:[["seed","種子"],["pick","採收"],["dry","曬乾"],["factory","工廠"],["roast","烘烤"],["crush","壓碎"],["mixture","混合物"],["mold","模具"],["wrap","包裝"],["journey","旅程"]],
+     comp:[{q:"1. What is chocolate made from?",a:"The seeds of the cacao tree.(可可樹的種子)"},{q:"2. What is added to make the taste sweet?",a:"Sugar and milk.(糖和牛奶)"},{q:"3. Why does the writer mention a long journey?",a:"提醒讀者一塊巧克力經過許多製程,得來不易。"}]},
+
+    {st:5,lv:"第5階 · 學測型",title:"Why Reading Matters",
      text:["Reading is one of the most important habits a person can have.","When we read, we learn new words and ideas that we may never meet in daily life.","Books also allow us to see the world through other people's eyes, which helps us understand others.","Studies have shown that people who read often think more clearly and feel less stressed.","In a world full of short videos, sitting down with a book may seem old-fashioned.","However, the quiet focus that reading requires is exactly what our busy minds need.","So next time you have a free hour, pick up a book instead of your phone."],
      trans:"閱讀是一個人能擁有的最重要習慣之一。當我們閱讀,會學到日常生活中可能永遠遇不到的新字和新想法。書也讓我們透過別人的眼睛看世界,這幫助我們理解他人。研究顯示,常閱讀的人思考更清晰、壓力更小。在充滿短影片的世界裡,坐下來讀一本書也許顯得過時。然而,閱讀所需要的那份安靜專注,正是我們忙碌的心靈所需要的。所以下次你有空閒的一小時,拿起一本書,而不是手機吧。",
-     gloss:[["habit","習慣"],["ideas","想法"],["through other people's eyes","透過他人的眼睛"],["studies have shown","研究顯示"],["stressed","有壓力的"],["old-fashioned","過時的"],["focus","專注"],["instead of","而不是"]],
-     comp:[{q:"1. What can books help us do?(主旨)",a:"Learn new words / ideas and understand others.(學新字、理解他人)"},{q:"2. What does 'old-fashioned' suggest about reading today?",a:"和短影片相比,讀書看似過時 —— 但作者不認同這個看法。"},{q:"3. What is the writer's main advice?",a:"用空閒時間讀書,而不是滑手機。"}]}
+     gloss:[["habit","習慣"],["idea","想法"],["allow","允許"],["studies have shown","研究顯示"],["stressed","有壓力的"],["old-fashioned","過時的"],["focus","專注"],["require","需要"],["instead of","而不是"]],
+     comp:[{q:"1. What can books help us do?(主旨)",a:"Learn new words and ideas, and understand others.(學新字新想法、理解他人)"},{q:"2. What does 'old-fashioned' suggest about reading today?",a:"和短影片相比,讀書看似過時 —— 但作者不認同這個看法。"},{q:"3. What is the writer's main advice?",a:"用空閒時間讀書,而不是滑手機。"}]},
+
+    {st:5,lv:"第5階 · 學測型",title:"The Power of Small Habits",
+     text:["Most people believe that big changes require big actions.","However, research suggests that small habits often matter more.","If you read just ten pages a day, you will finish about fifteen books a year.","Having practiced for only twenty minutes daily, a beginner can learn a language in a few years.","The reason is simple: small actions are easy to repeat, and repetition builds skill.","What stops most people is not a lack of talent but a lack of patience.","They give up because progress feels slow at first.","But those who keep going will find that small steps add up to a long distance."],
+     trans:"多數人相信,大改變需要大行動。然而,研究顯示,小習慣往往更重要。如果你每天只讀十頁,一年就能讀完大約十五本書。每天只練習二十分鐘,初學者幾年內就能學會一種語言。原因很簡單:小行動容易重複,而重複能建立技能。阻礙多數人的不是缺乏天分,而是缺乏耐心。他們放棄,是因為一開始進步感覺很慢。但持續前進的人會發現,小步伐能累積成很長的距離。",
+     gloss:[["require","需要"],["suggest","顯示"],["habit","習慣"],["repetition","重複"],["talent","天分"],["patience","耐心"],["progress","進步"],["add up to","累積成"]],
+     comp:[{q:"1. What does research suggest?",a:"Small habits often matter more than big actions.(小習慣往往比大行動更重要)"},{q:"2. According to the passage, what stops most people?",a:"A lack of patience, not a lack of talent.(缺乏耐心,不是缺乏天分)"},{q:"3. What is the writer's main point?",a:"持續的小行動會累積成巨大的成果。"}]},
+
+    {st:6,lv:"第6階 · 批判閱讀",title:"Social Media and Our Attention",
+     text:["Every time we open a social media app, we enter a system designed to hold our attention as long as possible.","Engineers study what makes us click, and they build features that reward us with a small burst of pleasure.","This is not an accident; it is the business model.","Critics argue that such platforms are shortening our ability to focus, and studies appear to support this claim.","Students who check their phones during study sessions take significantly longer to finish the same task.","Defenders of social media, on the other hand, point out that the technology itself is neutral.","What matters, they say, is how we choose to use it.","Whichever side is right, one thing seems certain: the ability to direct our own attention may become the most valuable skill of this century."],
+     trans:"每次我們打開社群軟體,就進入一個被設計來盡可能長時間抓住我們注意力的系統。工程師研究什麼會讓我們點擊,並打造出以短暫愉悅感獎勵我們的功能。這不是意外,這就是商業模式。批評者主張,這類平台正在縮短我們專注的能力,而研究似乎支持這個說法。在讀書時查看手機的學生,完成同樣的任務要花費明顯更長的時間。另一方面,社群媒體的擁護者指出,科技本身是中立的。他們說,重要的是我們選擇如何使用它。無論哪一方是對的,有一件事似乎是確定的:引導自己注意力的能力,可能會成為本世紀最有價值的技能。",
+     gloss:[["attention","注意力"],["feature","功能"],["reward","獎勵"],["business model","商業模式"],["critic","批評者"],["shorten","縮短"],["significantly","顯著地"],["defender","擁護者"],["neutral","中立的"],["direct","引導"]],
+     comp:[{q:"1. What is the main idea of the passage?(主旨)",a:"社群平台被刻意設計來抓住注意力;而管理自己注意力的能力將成為關鍵技能。"},{q:"2. What is the author's tone?(語氣)",a:"Balanced / objective —— 兩方說法都呈現,並未一面倒。"},{q:"3. What can be inferred from 'it is the business model'?(推論)",a:"平台讓人上癮並非無心之過,而是刻意的獲利設計。"}]},
+
+    {st:6,lv:"第6階 · 批判閱讀",title:"Learning a Language as an Adult",
+     text:["It is often said that children learn languages easily while adults struggle.","This belief, though widely held, is only partly true.","Children do pick up pronunciation more naturally, largely because their brains remain flexible in ways that adult brains do not.","Adults, however, possess advantages that young learners lack.","Having already mastered one language, they understand how grammar works and can learn rules far more quickly.","They can also study with purpose, choosing the words and topics that matter to their own lives.","Research shows that adult learners who study consistently often reach a useful level faster than children do.","What adults truly lack is not ability but time, and, more often, the patience to keep going when progress feels invisible."],
+     trans:"人們常說孩子學語言很容易,而成人很吃力。這個信念雖然廣為流傳,卻只有部分正確。孩子的確能更自然地掌握發音,主要是因為他們的大腦保有成人所沒有的彈性。然而,成人擁有年輕學習者所缺乏的優勢。由於已經精通一種語言,他們理解文法如何運作,能更快學會規則。他們也能有目的地學習,選擇對自己生活重要的字詞與主題。研究顯示,持續學習的成人學習者,往往比孩子更快達到堪用的程度。成人真正缺乏的不是能力,而是時間 —— 更常見的,是在進步看似看不見時,繼續走下去的耐心。",
+     gloss:[["struggle","吃力、掙扎"],["widely held","廣為接受的"],["pick up","(自然地)學會"],["flexible","有彈性的"],["possess","擁有"],["master","精通"],["consistently","持續地"],["invisible","看不見的"]],
+     comp:[{q:"1. What is the writer's attitude toward adult learners?(態度)",a:"Encouraging / optimistic —— 認為成人有優勢,並非注定劣勢。"},{q:"2. What advantages do adults have over children?",a:"They understand grammar, learn rules faster, and can study with purpose.(懂文法、學規則快、能有目的地學)"},{q:"3. According to the last sentence, what do adults really lack?",a:"Time — and more often, patience.(時間,更常是耐心)"}]}
   ];
   var rlEl=document.getElementById('readingList');
+  var lastSt=0;
   READINGS.forEach(function(P){
+    if(P.st!==lastSt){
+      lastSt=P.st;
+      var hd=document.createElement('h3');
+      hd.className='read-stage';
+      hd.textContent='第 '+P.st+' 階';
+      rlEl.appendChild(hd);
+    }
     var pas=document.createElement('div'); pas.className='passage';
     var sentences=P.text.map(function(s){return '<span data-en="'+s.replace(/"/g,'&quot;')+'">'+s+' </span>';}).join('');
     var gloss=P.gloss.map(function(g){return '<li><b>'+g[0]+'</b> — '+g[1]+'</li>';}).join('');
@@ -1727,10 +1805,18 @@
   function pickN(arr,n){ return shuffle(arr.slice()).slice(0,Math.min(n,arr.length)); }
   function romanize(i){ return ['一','二','三','四'][i]||String(i+1); }
 
+  function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  function blankOut(sent,word){
+    var re=new RegExp('\\b'+escRe(word)+'\\b','i');
+    if(!re.test(sent)) return null;
+    return sent.replace(re,'<span class="blank"></span>');
+  }
+
   function buildPaper(){
     var a=+exFrom.value, b=+exTo.value;
     if(a>b){ var t=a; a=b; b=t; }
     var nVoc=+document.getElementById('exVocN').value;
+    var nCloze=+document.getElementById('exClozeN').value;
     var nGram=+document.getElementById('exGramN').value;
     var wantRead=document.getElementById('exRead').checked;
     var wantKey=document.getElementById('exKey').checked;
@@ -1738,6 +1824,8 @@
     // 單字池:選定週次範圍內的所有單字
     var vocPool=[];
     for(var i=a;i<=b;i++){ WEEKLY_VOCAB[i].w.forEach(function(w){ vocPool.push(w); }); }
+    // 句子填空池:例句裡真的找得到該單字的才收(片語如 too...to 會被排除)
+    var clozePool=vocPool.filter(function(w){ return w[2] && blankOut(w[2],w[0]); });
     // 文法池:出到「該範圍結束時已學過」的所有文法(g <= 該範圍最高階段)
     var maxPh=1;
     for(var j=a;j<=b;j++){ if(PLAN[j].ph>maxPh) maxPh=PLAN[j].ph; }
@@ -1748,36 +1836,51 @@
     if(!gramPool.length){ // 只選第1階(發音週)時還沒學文法 → 給第2階入門題
       GRAMMAR.forEach(function(L,idx){ if(L.g===2){ (PRACTICE[idx]||[]).forEach(function(pq){ gramPool.push({q:pq[0],a:pq[1],lesson:L.t}); }); } });
     }
-    // 閱讀:依最高階段挑難度
-    var rIdx = maxPh>=4 ? 2 : (maxPh>=3 ? 1 : 0);
-    var passage=READINGS[rIdx];
+    // 閱讀:從「不超過該範圍階段」的文章中挑,優先挑最貼近的階段
+    var readable=READINGS.filter(function(P){ return P.st<=maxPh; });
+    if(!readable.length) readable=[READINGS[0]];
+    var topSt=Math.max.apply(null,readable.map(function(P){return P.st;}));
+    var best=readable.filter(function(P){ return P.st===topSt; });
+    var passage=shuffle(best.slice())[0];
 
     var vocQs=pickN(vocPool,nVoc);
+    var clozeQs=pickN(clozePool,nCloze);
     var gramQs=pickN(gramPool,nGram);
-    var keys=[], qn=0, html='';
+    var keys=[], qn=0, html='', part=0;
+    var totalQ=vocQs.length+clozeQs.length+gramQs.length+(wantRead?passage.comp.length:0);
+    var perQ=totalQ?Math.round(100/totalQ):0;
 
     html+='<div class="ph-head"><h2>英文自學課程 · 隨堂測驗</h2>'+
-      '<div class="meta">測驗範圍:第 '+(a+1)+' 週 – 第 '+(b+1)+' 週(Day '+(a*7+1)+'–'+(b*7+7)+')</div></div>'+
+      '<div class="meta">測驗範圍:第 '+(a+1)+' 週 – 第 '+(b+1)+' 週(Day '+(a*7+1)+'–'+(b*7+7)+')· 共 '+totalQ+' 題,每題約 '+perQ+' 分</div></div>'+
       '<div class="ph-info"><span>姓名:______________</span><span>日期:______ / ______ / ______</span><span>得分:__________</span></div>';
 
-    // 一、單字
+    // 單字選擇
     if(vocQs.length){
-      html+='<h3 class="part">一、單字選擇('+vocQs.length+' 題,每題 '+(Math.round(100/(vocQs.length+gramQs.length+(wantRead?passage.comp.length:0)))||2)+' 分)</h3><ol class="qs">';
+      html+='<h3 class="part">'+romanize(part++)+'、單字選擇('+vocQs.length+' 題)</h3><ol class="qs">';
       vocQs.forEach(function(w){
         qn++;
         var wrong=shuffle(vocPool.filter(function(x){return x[1]!==w[1];})).slice(0,3);
         var opts=shuffle([w[1],wrong[0]?wrong[0][1]:'—',wrong[1]?wrong[1][1]:'—',wrong[2]?wrong[2][1]:'—']);
         var letters=['(A)','(B)','(C)','(D)'];
-        var correctLetter=letters[opts.indexOf(w[1])];
-        keys.push({n:qn,a:correctLetter+' '+w[1]});
+        keys.push({n:qn,a:letters[opts.indexOf(w[1])]+' '+w[1]});
         html+='<li>(&nbsp;&nbsp;&nbsp;&nbsp;) <b>'+w[0]+'</b><div class="opts-inline">'+
           opts.map(function(o,k){return letters[k]+' '+o;}).join('')+'</div></li>';
       });
       html+='</ol>';
     }
-    // 二、文法填空
+    // 句子填空(用單字例句挖空)
+    if(clozeQs.length){
+      html+='<h3 class="part">'+romanize(part++)+'、句子填空('+clozeQs.length+' 題,依中文提示填入正確英文單字)</h3><ol class="qs">';
+      clozeQs.forEach(function(w){
+        qn++;
+        keys.push({n:qn,a:w[0]+' — '+w[2]});
+        html+='<li>'+blankOut(w[2],w[0])+' <span style="color:#888;font-size:.86rem">('+w[1]+')</span></li>';
+      });
+      html+='</ol>';
+    }
+    // 文法填空
     if(gramQs.length){
-      html+='<h3 class="part">二、文法填空('+gramQs.length+' 題)</h3><ol class="qs">';
+      html+='<h3 class="part">'+romanize(part++)+'、文法填空('+gramQs.length+' 題)</h3><ol class="qs">';
       gramQs.forEach(function(g){
         qn++;
         keys.push({n:qn,a:g.a});
@@ -1785,9 +1888,9 @@
       });
       html+='</ol>';
     }
-    // 三、閱讀
+    // 閱讀
     if(wantRead){
-      html+='<h3 class="part">三、閱讀測驗</h3>'+
+      html+='<h3 class="part">'+romanize(part++)+'、閱讀測驗('+passage.lv+')</h3>'+
         '<div class="rp"><b>'+passage.title+'</b>'+passage.text.join(' ')+'</div><ol class="qs">';
       passage.comp.forEach(function(c){
         qn++;
