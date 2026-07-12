@@ -341,6 +341,43 @@
   :root[data-theme="dark"] .week-banner .ph.p6,
   :root:not([data-theme="light"]) .week-banner .ph.p6{color:#E8808C;}
 
+  /* exam generator */
+  .exam-controls{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px;}
+  .ec-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+  .ec-row label{font-size:.88rem; color:var(--ink-soft); display:flex; align-items:center; gap:6px;}
+  .ec-row select{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:8px; padding:5px 8px; font-size:.88rem;}
+  .ec-row input[type=checkbox]{width:17px; height:17px; accent-color:var(--teal); cursor:pointer;}
+  .ec-hint{font-size:.82rem; color:var(--muted);}
+  .paper-sheet{margin-top:22px; background:#fff; color:#1a1a1a; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:34px 38px;}
+  .paper-sheet .ph-head{text-align:center; border-bottom:2px solid #1a1a1a; padding-bottom:12px; margin-bottom:8px;}
+  .paper-sheet .ph-head h2{font-size:1.5rem; color:#1a1a1a; margin-bottom:4px;}
+  .paper-sheet .ph-head .meta{font-size:.82rem; color:#555;}
+  .paper-sheet .ph-info{display:flex; justify-content:space-between; font-size:.85rem; color:#333; margin:10px 0 22px; border-bottom:1px dashed #bbb; padding-bottom:10px;}
+  .paper-sheet h3.part{font-size:1.05rem; color:#1a1a1a; margin:24px 0 12px; padding-left:10px; border-left:4px solid #157A6E;}
+  .paper-sheet ol.qs{margin:0; padding-left:26px;}
+  .paper-sheet ol.qs > li{margin-bottom:13px; line-height:1.75; color:#1a1a1a;}
+  .paper-sheet .opts-inline{display:flex; flex-wrap:wrap; gap:6px 20px; margin-top:4px; font-size:.92rem; color:#333;}
+  .paper-sheet .blank{display:inline-block; min-width:96px; border-bottom:1px solid #333; margin:0 4px;}
+  .paper-sheet .rp{background:#f4f4f2; border:1px solid #ddd; border-radius:8px; padding:14px 16px; line-height:1.95; margin-bottom:12px; color:#1a1a1a;}
+  .paper-sheet .rp b{display:block; margin-bottom:6px;}
+  .paper-sheet .keyhead{text-align:center; border-bottom:2px solid #B77A15; padding-bottom:10px; margin-bottom:16px;}
+  .paper-sheet .keyhead h2{color:#B77A15; font-size:1.3rem;}
+  .paper-sheet .keys{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:7px; font-size:.9rem; color:#1a1a1a;}
+  .paper-sheet .keys div{padding:4px 8px; background:#f6f2e8; border-radius:6px;}
+  .page-break{page-break-before:always; break-before:page; margin-top:34px; padding-top:20px; border-top:2px dashed #ccc;}
+
+  @media print{
+    nav, header.hero, .backup, footer, .exam-controls{display:none !important;}
+    section{display:none !important; padding:0 !important;}
+    section#exam{display:block !important;}
+    section#exam .sec-head, section#exam .sec-sub{display:none !important;}
+    html, body, .wrap{background:#fff !important; color:#000 !important;}
+    .wrap{max-width:none; padding:0;}
+    .paper-sheet{border:none; box-shadow:none; border-radius:0; padding:0; margin:0;}
+    .page-break{border-top:none; margin-top:0; padding-top:0;}
+    @page{margin:16mm 14mm;}
+  }
+
   /* backup / restore */
   .backup{margin-top:34px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);}
   .backup h3{font-size:1.02rem; margin-bottom:4px;}
@@ -411,7 +448,8 @@
   <a href="#lessons">教材庫</a>
   <a href="#daily">每日循環</a>
   <a href="#weekly">週日程</a>
-  <a href="#plan90">90天課表</a>
+  <a href="#plan90">課表</a>
+  <a href="#exam">出考卷</a>
   <a href="#resources">資源庫</a>
   <a href="#practice">出題與測驗</a>
   <button class="themebtn" id="themeToggle" type="button">◐ 主題</button>
@@ -510,8 +548,11 @@
   </div>
 
   <div class="ltab-panel" id="tab-vocab" hidden>
-    <p class="lead" style="margin-bottom:14px">點任一單字會發音。建議搭配 Quizlet 或 Anki 把它們做成單字卡複習。</p>
-    <div id="vocabList"></div>
+    <p class="lead" style="margin-bottom:14px">單字<b>跟著課表每週更換</b>,和該週的文法主題配套,難度隨階段爬升。點任一單字會發音。開啟時會自動跳到你目前進行中的那一週。</p>
+    <div class="week-pills" id="vocPills"></div>
+    <div class="week-banner" id="vocBanner"></div>
+    <div class="voc-grid" id="vocGrid"></div>
+    <div class="tip" style="margin-top:16px">💡 <b>用法:</b>每週一次把該週 10 個字丟進 Quizlet 或 Anki,每天花 15 分鐘複習。一週 10 字 × 39 週 ≈ 390 個核心字,再加上閱讀時撿到的生字,就是你的單字庫。</div>
   </div>
 
   <div class="ltab-panel" id="tab-reading" hidden>
@@ -572,9 +613,41 @@
   <div class="day-grid" id="dayGrid"></div>
 </section>
 
+<!-- EXAM GENERATOR -->
+<section id="exam">
+  <div class="sec-head"><span class="num">05</span><h2>出考卷 · 匯出 PDF</h2></div>
+  <p class="sec-sub">讀完一段進度後,用這裡出一份考卷驗收。題目<b>依你選的週次範圍即時產生</b>,題型比照會考/學測(單字選擇、文法填空、閱讀測驗),每次按都是<b>新的一份</b>。印出來或存成 PDF 都可以。</p>
+
+  <div class="exam-controls">
+    <div class="ec-row">
+      <label>範圍:從第
+        <select id="exFrom"></select> 週
+      </label>
+      <label>到第
+        <select id="exTo"></select> 週
+      </label>
+      <button class="btn ghost" id="exThisWeek" type="button">只考本週</button>
+      <button class="btn ghost" id="exAll" type="button">全部範圍</button>
+    </div>
+    <div class="ec-row">
+      <label>單字題 <select id="exVocN"><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+      <label>文法題 <select id="exGramN"><option>5</option><option selected>10</option><option>15</option><option>20</option></select> 題</label>
+      <label><input type="checkbox" id="exRead" checked> 含閱讀測驗</label>
+      <label><input type="checkbox" id="exKey" checked> 附解答卷</label>
+    </div>
+    <div class="ec-row">
+      <button class="btn" id="exGen" type="button">📝 產生考卷</button>
+      <button class="btn ghost" id="exPrint" type="button" disabled>🖨 列印 / 存成 PDF</button>
+      <span class="ec-hint" id="exHint"></span>
+    </div>
+  </div>
+
+  <div id="paperSheet" class="paper-sheet" hidden></div>
+</section>
+
 <!-- RESOURCES -->
 <section id="resources">
-  <div class="sec-head"><span class="num">05</span><h2>免費資源庫</h2></div>
+  <div class="sec-head"><span class="num">06</span><h2>免費資源庫</h2></div>
   <p class="sec-sub">全部免費(或有免費方案)。台灣官方的<b>酷英 Cool English</b>特別推薦:專為台灣學生設計、分級完整,還對應會考學測。點連結會另開新分頁。</p>
   <div class="res-grid">
     <div class="res r-tw"><div class="cat">台灣官方 · 分級完整</div><ul>
@@ -609,7 +682,7 @@
 
 <!-- PRACTICE -->
 <section id="practice">
-  <div class="sec-head"><span class="num">06</span><h2>怎麼出題 & 隨手測驗</h2></div>
+  <div class="sec-head"><span class="num">07</span><h2>怎麼出題 & 隨手測驗</h2></div>
   <p class="sec-sub">你不需要買題庫。把下面的 prompt 複製給任何 AI,它就能依你的程度無限出題並訂正。右邊的小測驗可以現在就玩玩看,試試不同程度的單字。</p>
   <div class="two-col">
     <div>
@@ -1538,23 +1611,72 @@
     });
   });
 
-  /* vocab */
-  var VOCAB=[
-    {t:"食物與飲食",sub:"最常出現的吃喝單字",w:[["rice","飯"],["noodle","麵"],["bread","麵包"],["egg","蛋"],["meat","肉"],["fish","魚"],["fruit","水果"],["water","水"],["milk","牛奶"],["juice","果汁"]]},
-    {t:"家庭稱謂",sub:"介紹家人時會用到",w:[["father","爸爸"],["mother","媽媽"],["brother","兄弟"],["sister","姊妹"],["grandfather","祖父"],["grandmother","祖母"],["son","兒子"],["daughter","女兒"],["uncle","叔伯"],["aunt","阿姨"]]},
-    {t:"學校用品",sub:"教室裡的東西",w:[["pen","筆"],["pencil","鉛筆"],["book","書"],["bag","書包"],["desk","書桌"],["chair","椅子"],["ruler","尺"],["eraser","橡皮擦"],["notebook","筆記本"],["classroom","教室"]]},
-    {t:"身體部位",sub:"看醫生、描述都需要",w:[["head","頭"],["hair","頭髮"],["eye","眼睛"],["ear","耳朵"],["nose","鼻子"],["mouth","嘴巴"],["hand","手"],["foot","腳"],["arm","手臂"],["leg","腿"]]},
-    {t:"情緒感受",sub:"表達心情的形容詞",w:[["happy","快樂的"],["sad","難過的"],["angry","生氣的"],["tired","累的"],["excited","興奮的"],["bored","無聊的"],["scared","害怕的"],["surprised","驚訝的"],["nervous","緊張的"],["proud","驕傲的"]]},
-    {t:"常用動詞",sub:"每天都會用的動作",w:[["go","去"],["come","來"],["eat","吃"],["drink","喝"],["read","讀"],["write","寫"],["listen","聽"],["speak","說"],["run","跑"],["walk","走"]]}
+  /* 每週單字(對應 PLAN 的 39 週,難度隨階段爬升) */
+  var WEEKLY_VOCAB=[
+    {t:"字母例字",w:[["apple","蘋果"],["ball","球"],["cat","貓"],["dog","狗"],["egg","蛋"],["fish","魚"],["goat","山羊"],["hat","帽子"],["jam","果醬"],["kite","風箏"]]},
+    {t:"CVC 拼讀字族",w:[["cat","貓"],["hat","帽子"],["hen","母雞"],["pen","筆"],["pig","豬"],["big","大的"],["hot","熱的"],["pot","鍋子"],["cup","杯子"],["sun","太陽"]]},
+    {t:"數字 · 顏色 · 家庭",w:[["one","一"],["two","二"],["three","三"],["red","紅色"],["blue","藍色"],["green","綠色"],["father","爸爸"],["mother","媽媽"],["brother","兄弟"],["sister","姊妹"]]},
+    {t:"食物與飲料",w:[["rice","飯"],["noodle","麵"],["bread","麵包"],["meat","肉"],["fruit","水果"],["water","水"],["milk","牛奶"],["juice","果汁"],["tea","茶"],["coffee","咖啡"]]},
+    {t:"日常動作",w:[["eat","吃"],["drink","喝"],["run","跑"],["walk","走"],["sleep","睡覺"],["study","讀書"],["work","工作"],["play","玩"],["get up","起床"],["go to school","上學"]]},
+    {t:"學校用品",w:[["pen","筆"],["pencil","鉛筆"],["book","書"],["bag","書包"],["desk","書桌"],["chair","椅子"],["ruler","尺"],["eraser","橡皮擦"],["notebook","筆記本"],["classroom","教室"]]},
+    {t:"休閒與天氣",w:[["read","閱讀"],["swim","游泳"],["sing","唱歌"],["dance","跳舞"],["draw","畫畫"],["sunny","晴朗的"],["rainy","下雨的"],["cloudy","多雲的"],["windy","有風的"],["snowy","下雪的"]]},
+    {t:"職業與地點",w:[["teacher","老師"],["doctor","醫生"],["nurse","護士"],["cook","廚師"],["driver","司機"],["park","公園"],["store","商店"],["hospital","醫院"],["library","圖書館"],["station","車站"]]},
+    {t:"傢俱與身體",w:[["table","桌子"],["bed","床"],["door","門"],["window","窗戶"],["head","頭"],["hand","手"],["foot","腳"],["eye","眼睛"],["nose","鼻子"],["mouth","嘴巴"]]},
+    {t:"時間詞(過去式必備)",w:[["yesterday","昨天"],["today","今天"],["tomorrow","明天"],["last night","昨晚"],["this morning","今天早上"],["ago","以前"],["then","那時"],["later","後來"],["already","已經"],["just","剛剛"]]},
+    {t:"不規則動詞過去式",w:[["went","去(過去)"],["saw","看見(過去)"],["ate","吃(過去)"],["had","有(過去)"],["did","做(過去)"],["made","製作(過去)"],["came","來(過去)"],["took","拿(過去)"],["got","得到(過去)"],["gave","給(過去)"]]},
+    {t:"未來與計劃",w:[["next week","下週"],["soon","很快"],["later","稍後"],["plan","計劃"],["hope","希望"],["decide","決定"],["prepare","準備"],["future","未來"],["maybe","也許"],["probably","可能"]]},
+    {t:"情緒感受",w:[["happy","快樂的"],["sad","難過的"],["angry","生氣的"],["tired","累的"],["excited","興奮的"],["bored","無聊的"],["scared","害怕的"],["surprised","驚訝的"],["nervous","緊張的"],["proud","驕傲的"]]},
+    {t:"常用過去分詞",w:[["finished","完成"],["lived","居住"],["eaten","吃(p.p.)"],["seen","看見(p.p.)"],["been","是/去過(p.p.)"],["done","做(p.p.)"],["written","寫(p.p.)"],["spoken","說(p.p.)"],["taken","拿(p.p.)"],["given","給(p.p.)"]]},
+    {t:"完成式時間副詞",w:[["already","已經"],["yet","尚未"],["ever","曾經"],["never","從未"],["since","自從"],["for","持續(一段時間)"],["recently","最近"],["lately","近來"],["so far","到目前為止"],["by then","到那時"]]},
+    {t:"製作與使用(被動常用)",w:[["make","製作"],["build","建造"],["write","寫"],["speak","說"],["break","打破"],["use","使用"],["produce","生產"],["design","設計"],["create","創造"],["invent","發明"]]},
+    {t:"人物描述(關代常用)",w:[["person","人"],["man","男人"],["woman","女人"],["friend","朋友"],["neighbor","鄰居"],["stranger","陌生人"],["expert","專家"],["author","作者"],["artist","藝術家"],["scientist","科學家"]]},
+    {t:"接 to V / Ving 的動詞",w:[["want","想要"],["hope","希望"],["decide","決定"],["plan","計劃"],["need","需要"],["enjoy","享受"],["finish","完成"],["keep","持續"],["avoid","避免"],["mind","介意"]]},
+    {t:"會考高頻形容詞",w:[["important","重要的"],["difficult","困難的"],["popular","受歡迎的"],["useful","有用的"],["dangerous","危險的"],["healthy","健康的"],["expensive","昂貴的"],["safe","安全的"],["famous","有名的"],["careful","小心的"]]},
+    {t:"思考與認知動詞",w:[["think","認為"],["believe","相信"],["know","知道"],["realize","意識到"],["understand","理解"],["wonder","想知道"],["doubt","懷疑"],["suppose","假定"],["imagine","想像"],["remember","記得"]]},
+    {t:"轉折與連接詞",w:[["however","然而"],["therefore","因此"],["moreover","此外"],["besides","除此之外"],["although","雖然"],["since","既然/自從"],["while","當…時"],["unless","除非"],["otherwise","否則"],["thus","因而"]]},
+    {t:"願望與可能性",w:[["wish","但願"],["would","將會"],["could","可能/能夠"],["might","也許"],["suppose","假設"],["chance","機會"],["possible","可能的"],["impossible","不可能的"],["likely","可能的"],["unlikely","不太可能的"]]},
+    {t:"分詞形容詞對比",w:[["interesting","令人感興趣的"],["interested","感到有興趣的"],["boring","令人無聊的"],["bored","感到無聊的"],["exciting","令人興奮的"],["excited","感到興奮的"],["surprising","令人驚訝的"],["surprised","感到驚訝的"],["tiring","令人疲倦的"],["confused","感到困惑的"]]},
+    {t:"閱讀題幹用語",w:[["main idea","主旨"],["purpose","目的"],["infer","推論"],["imply","暗示"],["refer to","指的是"],["suggest","顯示/建議"],["according to","根據"],["passage","文章"],["paragraph","段落"],["conclusion","結論"]]},
+    {t:"寫作連接語",w:[["first","首先"],["second","其次"],["finally","最後"],["for example","舉例來說"],["in addition","此外"],["on the other hand","另一方面"],["in conclusion","總結來說"],["as a result","結果"],["in short","簡言之"],["overall","整體而言"]]},
+    {t:"學測核心形容詞",w:[["significant","重要的"],["various","各式各樣的"],["similar","相似的"],["different","不同的"],["common","常見的"],["specific","具體的"],["general","一般的"],["particular","特定的"],["major","主要的"],["minor","次要的"]]},
+    {t:"字首字根實戰",w:[["unhappy","不快樂的"],["disagree","不同意"],["rewrite","重寫"],["preview","預習"],["mislead","誤導"],["export","出口"],["predict","預測"],["inspect","檢查"],["construct","建造"],["reduce","減少"]]},
+    {t:"學術與新聞詞彙",w:[["policy","政策"],["economy","經濟"],["crisis","危機"],["official","官方的"],["research","研究"],["evidence","證據"],["technology","科技"],["data","數據"],["environment","環境"],["society","社會"]]},
+    {t:"語氣與態度",w:[["positive","正面的"],["negative","負面的"],["neutral","中立的"],["critical","批判的"],["objective","客觀的"],["subjective","主觀的"],["optimistic","樂觀的"],["pessimistic","悲觀的"],["supportive","支持的"],["doubtful","懷疑的"]]},
+    {t:"論證用語",w:[["argue","主張"],["claim","宣稱"],["assume","假設"],["conclude","下結論"],["support","支持"],["oppose","反對"],["prove","證明"],["indicate","指出"],["demonstrate","證明"],["reveal","揭露"]]},
+    {t:"邏輯關係詞",w:[["cause","原因"],["effect","結果"],["contrast","對比"],["compare","比較"],["similarly","同樣地"],["in contrast","相反地"],["consequently","因此"],["furthermore","再者"],["nevertheless","儘管如此"],["thus","於是"]]},
+    {t:"高頻動詞片語",w:[["take place","發生"],["carry out","執行"],["bring about","造成"],["look into","調查"],["deal with","處理"],["result in","導致"],["lead to","導致"],["depend on","取決於"],["focus on","專注於"],["come up with","想出"]]},
+    {t:"翻譯必備句型",w:[["not only...but also","不僅…而且"],["as...as","和…一樣"],["too...to","太…以致無法"],["so...that","如此…以致"],["the more...the more","越…越"],["rather than","而不是"],["instead of","代替"],["in order to","為了"],["thanks to","多虧"],["due to","由於"]]},
+    {t:"作文結構用語",w:[["introduction","引言"],["thesis","論點"],["body","主體"],["topic sentence","主題句"],["supporting detail","支持細節"],["evidence","證據"],["conclusion","結論"],["restate","重述"],["transition","轉折"],["outline","大綱"]]},
+    {t:"立場表達",w:[["in my opinion","依我之見"],["I believe","我相信"],["it seems","似乎"],["arguably","可以說"],["undoubtedly","無疑地"],["on the contrary","相反地"],["admittedly","誠然"],["indeed","確實"],["ultimately","最終"],["to sum up","總而言之"]]},
+    {t:"升級字彙(高分作文)",w:[["beneficial","有益的"],["crucial","關鍵的"],["essential","必要的"],["remarkable","顯著的"],["tremendous","巨大的"],["profound","深遠的"],["vital","至關重要的"],["substantial","可觀的"],["considerable","相當大的"],["efficient","有效率的"]]},
+    {t:"考試指令用語",w:[["choose","選擇"],["fill in","填入"],["complete","完成"],["translate","翻譯"],["describe","描述"],["explain","解釋"],["summarize","摘要"],["compare","比較"],["discuss","討論"],["evaluate","評估"]]},
+    {t:"學測高頻動詞",w:[["achieve","達成"],["apply","應用/申請"],["benefit","受益"],["contribute","貢獻"],["establish","建立"],["maintain","維持"],["obtain","獲得"],["provide","提供"],["require","需要"],["various","各種的"]]},
+    {t:"進階抽象名詞",w:[["ability","能力"],["concept","概念"],["factor","因素"],["impact","影響"],["influence","影響力"],["method","方法"],["process","過程"],["purpose","目的"],["result","結果"],["solution","解決方法"]]}
   ];
-  var vlEl=document.getElementById('vocabList');
-  VOCAB.forEach(function(G){
-    var grp=document.createElement('div'); grp.className='voc-group';
-    var cards=G.w.map(function(w){return '<div class="vcard" data-en="'+w[0]+'"><div class="ven">'+w[0]+'</div><div class="vzh">'+w[1]+'</div></div>';}).join('');
-    grp.innerHTML='<h3>'+G.t+'</h3><p class="vsub">'+G.sub+'</p><div class="voc-grid">'+cards+'</div>';
-    vlEl.appendChild(grp);
-    Array.prototype.forEach.call(grp.querySelectorAll('.vcard'),function(c){ c.addEventListener('click',function(){ speak(c.getAttribute('data-en'),0.85,c); }); });
+
+  var vocPills=document.getElementById('vocPills');
+  var vocWeek=curWeek;
+  WEEKLY_VOCAB.forEach(function(V,i){
+    var b=document.createElement('button'); b.type='button'; b.className='wpill'; b.textContent='第'+(i+1)+'週';
+    b.addEventListener('click',function(){ vocWeek=i; renderVocWeek(); });
+    vocPills.appendChild(b);
   });
+  function renderVocWeek(){
+    Array.prototype.forEach.call(vocPills.children,function(b,i){ b.classList.toggle('active',i===vocWeek); });
+    var V=WEEKLY_VOCAB[vocWeek], W=PLAN[vocWeek];
+    document.getElementById('vocBanner').innerHTML=
+      '<span class="ph p'+W.ph+'">第 '+W.ph+' 階</span><h3>'+V.t+'</h3>'+
+      '<span class="wk">第 '+(vocWeek+1)+' 週 · 搭配「'+W.theme+'」· Day '+(vocWeek*7+1)+'–'+(vocWeek*7+7)+'</span>';
+    var grid=document.getElementById('vocGrid'); grid.innerHTML='';
+    V.w.forEach(function(w){
+      var c=document.createElement('div'); c.className='vcard'; c.setAttribute('data-en',w[0]);
+      c.innerHTML='<div class="ven">'+w[0]+'</div><div class="vzh">'+w[1]+'</div>';
+      c.addEventListener('click',function(){ speak(w[0],0.85,c); });
+      grid.appendChild(c);
+    });
+  }
+  renderVocWeek();
+  renderWeek(); // 重新渲染課表週,讓 banner 帶出本週單字主題
 
   /* reading */
   var READINGS=[
@@ -1593,6 +1715,106 @@
     pas.querySelector('.pbtn').addEventListener('click',function(){ if(!TTS) return; window.speechSynthesis.cancel(); P.text.forEach(function(s){ window.speechSynthesis.speak(utter(s,0.85)); }); });
     Array.prototype.forEach.call(pas.querySelectorAll('.comp .cq'),function(cq){ cq.querySelector('button').addEventListener('click',function(){ cq.classList.add('show'); this.style.display='none'; }); });
   });
+
+  /* ---------- exam generator ---------- */
+  var exFrom=document.getElementById('exFrom'), exTo=document.getElementById('exTo');
+  for(var wI=0; wI<PLAN.length; wI++){
+    var o1=document.createElement('option'); o1.value=wI; o1.textContent=(wI+1); exFrom.appendChild(o1);
+    var o2=document.createElement('option'); o2.value=wI; o2.textContent=(wI+1); exTo.appendChild(o2);
+  }
+  exFrom.value=0; exTo.value=curWeek;
+
+  function pickN(arr,n){ return shuffle(arr.slice()).slice(0,Math.min(n,arr.length)); }
+  function romanize(i){ return ['一','二','三','四'][i]||String(i+1); }
+
+  function buildPaper(){
+    var a=+exFrom.value, b=+exTo.value;
+    if(a>b){ var t=a; a=b; b=t; }
+    var nVoc=+document.getElementById('exVocN').value;
+    var nGram=+document.getElementById('exGramN').value;
+    var wantRead=document.getElementById('exRead').checked;
+    var wantKey=document.getElementById('exKey').checked;
+
+    // 單字池:選定週次範圍內的所有單字
+    var vocPool=[];
+    for(var i=a;i<=b;i++){ WEEKLY_VOCAB[i].w.forEach(function(w){ vocPool.push(w); }); }
+    // 文法池:出到「該範圍結束時已學過」的所有文法(g <= 該範圍最高階段)
+    var maxPh=1;
+    for(var j=a;j<=b;j++){ if(PLAN[j].ph>maxPh) maxPh=PLAN[j].ph; }
+    var gramPool=[];
+    GRAMMAR.forEach(function(L,idx){
+      if(L.g<=maxPh){ (PRACTICE[idx]||[]).forEach(function(pq){ gramPool.push({q:pq[0],a:pq[1],lesson:L.t}); }); }
+    });
+    if(!gramPool.length){ // 只選第1階(發音週)時還沒學文法 → 給第2階入門題
+      GRAMMAR.forEach(function(L,idx){ if(L.g===2){ (PRACTICE[idx]||[]).forEach(function(pq){ gramPool.push({q:pq[0],a:pq[1],lesson:L.t}); }); } });
+    }
+    // 閱讀:依最高階段挑難度
+    var rIdx = maxPh>=4 ? 2 : (maxPh>=3 ? 1 : 0);
+    var passage=READINGS[rIdx];
+
+    var vocQs=pickN(vocPool,nVoc);
+    var gramQs=pickN(gramPool,nGram);
+    var keys=[], qn=0, html='';
+
+    html+='<div class="ph-head"><h2>英文自學課程 · 隨堂測驗</h2>'+
+      '<div class="meta">測驗範圍:第 '+(a+1)+' 週 – 第 '+(b+1)+' 週(Day '+(a*7+1)+'–'+(b*7+7)+')</div></div>'+
+      '<div class="ph-info"><span>姓名:______________</span><span>日期:______ / ______ / ______</span><span>得分:__________</span></div>';
+
+    // 一、單字
+    if(vocQs.length){
+      html+='<h3 class="part">一、單字選擇('+vocQs.length+' 題,每題 '+(Math.round(100/(vocQs.length+gramQs.length+(wantRead?passage.comp.length:0)))||2)+' 分)</h3><ol class="qs">';
+      vocQs.forEach(function(w){
+        qn++;
+        var wrong=shuffle(vocPool.filter(function(x){return x[1]!==w[1];})).slice(0,3);
+        var opts=shuffle([w[1],wrong[0]?wrong[0][1]:'—',wrong[1]?wrong[1][1]:'—',wrong[2]?wrong[2][1]:'—']);
+        var letters=['(A)','(B)','(C)','(D)'];
+        var correctLetter=letters[opts.indexOf(w[1])];
+        keys.push({n:qn,a:correctLetter+' '+w[1]});
+        html+='<li>(&nbsp;&nbsp;&nbsp;&nbsp;) <b>'+w[0]+'</b><div class="opts-inline">'+
+          opts.map(function(o,k){return letters[k]+' '+o;}).join('')+'</div></li>';
+      });
+      html+='</ol>';
+    }
+    // 二、文法填空
+    if(gramQs.length){
+      html+='<h3 class="part">二、文法填空('+gramQs.length+' 題)</h3><ol class="qs">';
+      gramQs.forEach(function(g){
+        qn++;
+        keys.push({n:qn,a:g.a});
+        html+='<li>'+g.q.replace(/___/g,'<span class="blank"></span>')+'</li>';
+      });
+      html+='</ol>';
+    }
+    // 三、閱讀
+    if(wantRead){
+      html+='<h3 class="part">三、閱讀測驗</h3>'+
+        '<div class="rp"><b>'+passage.title+'</b>'+passage.text.join(' ')+'</div><ol class="qs">';
+      passage.comp.forEach(function(c){
+        qn++;
+        keys.push({n:qn,a:c.a});
+        html+='<li>'+c.q.replace(/^\d+\.\s*/,'')+'<div class="opts-inline" style="color:#888">作答:______________________________________</div></li>';
+      });
+      html+='</ol>';
+    }
+    // 解答卷
+    if(wantKey){
+      html+='<div class="page-break"><div class="keyhead"><h2>✅ 解答卷</h2>'+
+        '<div class="meta" style="font-size:.82rem;color:#777">第 '+(a+1)+' 週 – 第 '+(b+1)+' 週 · 共 '+qn+' 題</div></div>'+
+        '<div class="keys">'+keys.map(function(k){return '<div><b>'+k.n+'.</b> '+k.a+'</div>';}).join('')+'</div></div>';
+    }
+
+    var sheet=document.getElementById('paperSheet');
+    sheet.innerHTML=html;
+    sheet.hidden=false;
+    document.getElementById('exPrint').disabled=false;
+    document.getElementById('exHint').textContent='✅ 已產生 '+qn+' 題(第 '+(a+1)+'–'+(b+1)+' 週)。再按一次會換一份新題目。';
+    sheet.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  document.getElementById('exGen').addEventListener('click',buildPaper);
+  document.getElementById('exPrint').addEventListener('click',function(){ window.print(); });
+  document.getElementById('exThisWeek').addEventListener('click',function(){ exFrom.value=curWeek; exTo.value=curWeek; buildPaper(); });
+  document.getElementById('exAll').addEventListener('click',function(){ exFrom.value=0; exTo.value=PLAN.length-1; buildPaper(); });
 
   /* ---------- backup / restore ---------- */
   var BK_KEYS=['eng_miles','eng_days','eng_p90','eng_theme'];
