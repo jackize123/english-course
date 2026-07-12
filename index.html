@@ -1,0 +1,1628 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的英文自學路線圖 · 從發音到學測</title>
+<meta name="description" content="成人自學英文完整課程:六階段路線圖、發音教室、文法教材庫、273天每日課表。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%96%3C%2Ftext%3E%3C%2Fsvg%3E">
+</head>
+<body>
+<style>
+  :root{
+    --paper:#F6F3EC; --surface:#FFFFFF; --card:#FCFAF5;
+    --ink:#1C2B2C; --ink-soft:#48595A; --muted:#7E8A86;
+    --line:#E5DFD2; --line-soft:#EFEBDF;
+    --teal:#157A6E; --teal-deep:#0E5A50; --teal-tint:#E4F0ED;
+    --gold:#B77A15; --gold-tint:#F6ECD6;
+    --blue:#3A6EA5; --blue-tint:#E6EEF7;
+    --good:#2E8B57; --locked:#AEB6B1;
+    --shadow:0 1px 2px rgba(28,43,44,.04),0 8px 24px rgba(28,43,44,.06);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#111516; --surface:#191F20; --card:#1B2223;
+      --ink:#ECE7DA; --ink-soft:#B4BEBA; --muted:#7E8B87;
+      --line:#2A3231; --line-soft:#232B2A;
+      --teal:#43BCA9; --teal-deep:#5FCEBC; --teal-tint:#16302C;
+      --gold:#E0A94A; --gold-tint:#2E2413;
+      --blue:#78A6D6; --blue-tint:#182634;
+      --good:#57C98A; --locked:#586460;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#F6F3EC; --surface:#FFFFFF; --card:#FCFAF5;
+    --ink:#1C2B2C; --ink-soft:#48595A; --muted:#7E8A86;
+    --line:#E5DFD2; --line-soft:#EFEBDF;
+    --teal:#157A6E; --teal-deep:#0E5A50; --teal-tint:#E4F0ED;
+    --gold:#B77A15; --gold-tint:#F6ECD6;
+    --blue:#3A6EA5; --blue-tint:#E6EEF7;
+    --good:#2E8B57; --locked:#AEB6B1;
+    --shadow:0 1px 2px rgba(28,43,44,.04),0 8px 24px rgba(28,43,44,.06);
+  }
+  :root[data-theme="dark"]{
+    --paper:#111516; --surface:#191F20; --card:#1B2223;
+    --ink:#ECE7DA; --ink-soft:#B4BEBA; --muted:#7E8B87;
+    --line:#2A3231; --line-soft:#232B2A;
+    --teal:#43BCA9; --teal-deep:#5FCEBC; --teal-tint:#16302C;
+    --gold:#E0A94A; --gold-tint:#2E2413;
+    --blue:#78A6D6; --blue-tint:#182634;
+    --good:#57C98A; --locked:#586460;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap,html{
+    font-family:system-ui,-apple-system,"Segoe UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    color:var(--ink); background:var(--paper);
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:Georgia,"Times New Roman","Songti TC",serif;}
+  .mono{font-family:ui-monospace,"Cascadia Code",Consolas,"Courier New",monospace;}
+  h1,h2,h3{font-family:Georgia,"Times New Roman","Songti TC",serif; text-wrap:balance; margin:0;}
+  a{color:var(--teal-deep); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2.5px solid var(--teal); outline-offset:2px; border-radius:4px;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px 90px;}
+
+  /* nav */
+  nav{
+    position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--paper) 88%,transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    margin:0 -20px 0; padding:10px 20px;
+    display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+  }
+  nav .brand{font-family:Georgia,serif; font-weight:700; margin-right:auto; letter-spacing:.2px;}
+  nav a{
+    color:var(--ink-soft); font-size:.82rem; padding:5px 10px; border-radius:20px;
+    white-space:nowrap;
+  }
+  nav a:hover{background:var(--teal-tint); color:var(--teal-deep); text-decoration:none;}
+  .themebtn{
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-soft);
+    border-radius:20px; padding:5px 12px; cursor:pointer; font-size:.82rem;
+  }
+  .themebtn:hover{border-color:var(--teal);}
+
+  /* hero */
+  header.hero{padding:52px 0 30px; display:grid; grid-template-columns:1.5fr 1fr; gap:36px; align-items:center;}
+  .eyebrow{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; color:var(--gold); font-weight:700;}
+  header.hero h1{font-size:2.7rem; line-height:1.12; margin:.35em 0 .3em; letter-spacing:-.5px;}
+  header.hero p{color:var(--ink-soft); max-width:46ch; margin:0;}
+  .ring-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:24px; text-align:center;
+  }
+  .ring-card .lbl{font-size:.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em;}
+  .ring{position:relative; width:150px; height:150px; margin:8px auto 4px;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring .pct{
+    position:absolute; inset:0; display:grid; place-content:center;
+    font-family:Georgia,serif; font-size:2.1rem; font-weight:700; color:var(--teal-deep);
+    font-variant-numeric:tabular-nums;
+  }
+  .ring .pct small{display:block; font-size:.7rem; color:var(--muted); font-family:system-ui; font-weight:400; letter-spacing:.1em;}
+
+  /* section shell */
+  section{padding-top:46px; scroll-margin-top:64px;}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px;}
+  .sec-head .num{font-family:Georgia,serif; color:var(--gold); font-size:1.05rem; font-weight:700;}
+  .sec-head h2{font-size:1.6rem;}
+  .sec-sub{color:var(--ink-soft); margin:0 0 22px; max-width:62ch;}
+
+  /* roadmap */
+  .stages{display:flex; flex-direction:column; gap:14px;}
+  .stage{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); overflow:hidden;
+  }
+  .stage-top{
+    display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center;
+    padding:16px 20px; cursor:pointer;
+  }
+  .badge{
+    width:44px; height:44px; border-radius:12px; display:grid; place-content:center;
+    font-family:Georgia,serif; font-weight:700; font-size:1.15rem; color:#fff;
+    background:linear-gradient(140deg,var(--teal),var(--teal-deep));
+  }
+  .stage[data-tone="2"] .badge{background:linear-gradient(140deg,#2C9A88,#157A6E);}
+  .stage[data-tone="3"] .badge{background:linear-gradient(140deg,#3A8FA0,#2C6E8C);}
+  .stage[data-tone="4"] .badge{background:linear-gradient(140deg,#3A6EA5,#2C5480);}
+  .stage[data-tone="5"] .badge{background:linear-gradient(140deg,#8A6BB0,#634A87);}
+  .stage[data-tone="6"] .badge{background:linear-gradient(140deg,#B77A15,#8A5A0F);}
+  .stage-title h3{font-size:1.14rem;}
+  .stage-title .grade{font-size:.78rem; color:var(--muted); letter-spacing:.03em;}
+  .stage-meter{display:flex; align-items:center; gap:10px; min-width:120px; justify-content:flex-end;}
+  .stage-meter .track{width:64px; height:7px; background:var(--line); border-radius:99px; overflow:hidden;}
+  .stage-meter .fill{height:100%; width:0; background:var(--teal); border-radius:99px; transition:width .35s ease;}
+  .stage-meter .mpct{font-size:.78rem; color:var(--ink-soft); font-variant-numeric:tabular-nums; min-width:32px; text-align:right;}
+  .chev{color:var(--muted); transition:transform .25s ease; font-size:.9rem;}
+  .stage.open .chev{transform:rotate(90deg);}
+  .stage-body{display:none; padding:0 20px 20px; border-top:1px solid var(--line-soft);}
+  .stage.open .stage-body{display:block;}
+  .stage-body .goal{color:var(--ink-soft); margin:14px 0 16px; padding-left:12px; border-left:3px solid var(--gold);}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px 28px;}
+  .block-label{font-size:.74rem; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:700; margin-bottom:8px;}
+  .skills li{margin-bottom:4px; color:var(--ink-soft);}
+  .checks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .checks li{display:flex; gap:10px; align-items:flex-start;}
+  .checks input{margin-top:3px; width:17px; height:17px; accent-color:var(--teal); flex:none; cursor:pointer;}
+  .checks label{cursor:pointer; font-size:.95rem;}
+  .checks input:checked + label{color:var(--muted); text-decoration:line-through;}
+
+  /* daily cycle */
+  .cycle{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .block{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; box-shadow:var(--shadow); position:relative;
+  }
+  .block .min{font-family:Georgia,serif; font-size:1.5rem; color:var(--teal-deep); font-weight:700;}
+  .block .min span{font-size:.8rem; color:var(--muted); font-family:system-ui;}
+  .block h4{margin:6px 0 6px; font-size:1.02rem;}
+  .block p{margin:0; font-size:.86rem; color:var(--ink-soft);}
+  .block .tag{display:inline-block; margin-top:10px; font-size:.72rem; padding:2px 9px; border-radius:20px; background:var(--teal-tint); color:var(--teal-deep);}
+
+  /* streak / checkin */
+  .checkin{
+    margin-top:18px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center; box-shadow:var(--shadow);
+  }
+  .streak-num{font-family:Georgia,serif; font-size:2.6rem; font-weight:700; color:var(--gold); line-height:1; font-variant-numeric:tabular-nums;}
+  .checkin .meta{font-size:.85rem; color:var(--ink-soft);}
+  .checkin .meta b{color:var(--ink); font-size:1.05rem;}
+  .btn{
+    border:none; border-radius:10px; padding:11px 20px; font-size:.92rem; font-weight:600;
+    cursor:pointer; background:var(--teal); color:#fff; box-shadow:var(--shadow);
+  }
+  .btn:hover{background:var(--teal-deep);}
+  .btn.ghost{background:var(--surface); color:var(--teal-deep); border:1px solid var(--teal);}
+  .btn:disabled{opacity:.5; cursor:default;}
+
+  /* weekly table */
+  .tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);}
+  table{border-collapse:collapse; width:100%; min-width:560px; background:var(--surface);}
+  th,td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--line-soft); font-size:.9rem;}
+  th{background:var(--card); font-family:Georgia,serif; font-size:.9rem; color:var(--ink); position:sticky; left:0;}
+  td:first-child{font-weight:600; color:var(--teal-deep); white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+
+  /* resources */
+  .res-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px;}
+  .res{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column;
+  }
+  .res .cat{font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:700; margin-bottom:10px;}
+  .res.r-tw .cat{color:var(--gold);} .res.r-vocab .cat{color:var(--teal);}
+  .res.r-read .cat{color:var(--blue);} .res.r-listen .cat{color:var(--teal-deep);}
+  .res.r-gram .cat{color:var(--gold);} .res.r-ai .cat{color:var(--blue);}
+  .res ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  .res li .name{font-weight:600;}
+  .res li .desc{display:block; font-size:.8rem; color:var(--muted); margin-top:1px;}
+
+  /* AI prompt + quiz */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;}
+  .prompt-box{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);}
+  .prompt-box h4{margin:0 0 10px; font-size:1rem;}
+  pre.mono{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:12px 14px; font-size:.82rem; line-height:1.6; color:var(--ink-soft);
+    overflow-x:auto; white-space:pre-wrap; margin:0 0 12px;
+  }
+  .quiz{
+    background:linear-gradient(160deg,var(--teal-tint),var(--card));
+    border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+  }
+  .quiz .qword{font-family:Georgia,serif; font-size:2rem; font-weight:700; color:var(--teal-deep); text-align:center; margin:4px 0 2px;}
+  .quiz .qlvl{text-align:center; font-size:.75rem; color:var(--muted); margin-bottom:16px;}
+  .opts{display:grid; gap:9px;}
+  .opt{
+    border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:11px 14px;
+    text-align:left; cursor:pointer; font-size:.95rem; color:var(--ink); transition:.12s;
+  }
+  .opt:hover{border-color:var(--teal);}
+  .opt.correct{background:var(--teal); color:#fff; border-color:var(--teal);}
+  .opt.wrong{background:#d9534f22; border-color:#d9534f; color:#d9534f;}
+  .quiz-foot{display:flex; justify-content:space-between; align-items:center; margin-top:16px;}
+  .quiz-foot .score{font-size:.85rem; color:var(--ink-soft);} .quiz-foot .score b{color:var(--teal-deep); font-variant-numeric:tabular-nums;}
+
+  .tip{background:var(--gold-tint); border-radius:var(--radius); padding:16px 18px; font-size:.9rem; color:var(--ink-soft); border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);}
+  .tip b{color:var(--ink);}
+  footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; text-align:center;}
+
+  /* lesson library */
+  .lesson-tabs{display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;}
+  .ltab{border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); border-radius:10px; padding:9px 16px; cursor:pointer; font-size:.9rem; font-weight:600;}
+  .ltab:hover{border-color:var(--teal);}
+  .ltab.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+  .lesson{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;}
+  .lesson-top{display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center; padding:15px 18px; cursor:pointer;}
+  .lesson .stg{font-size:.68rem; font-weight:700; letter-spacing:.06em; padding:3px 8px; border-radius:20px; white-space:nowrap;}
+  .lesson .stg.s2{background:var(--blue-tint); color:var(--blue);}
+  .lesson .stg.s3{background:var(--gold-tint); color:var(--gold);}
+  .lesson .stg.s4{background:color-mix(in srgb,#8A6BB0 18%,transparent); color:#8A6BB0;}
+  .lesson .stg.s5{background:color-mix(in srgb,#C8871F 20%,transparent); color:var(--gold);}
+  .lesson-top h3{font-size:1.08rem;}
+  .lesson-top .chev{color:var(--muted); transition:transform .25s ease; font-size:.85rem;}
+  .lesson.open .chev{transform:rotate(90deg);}
+  .lesson-body{display:none; padding:2px 18px 20px; border-top:1px solid var(--line-soft);}
+  .lesson.open .lesson-body{display:block;}
+  .lesson-body .concept{color:var(--ink-soft); margin:14px 0 16px; padding-left:12px; border-left:3px solid var(--teal); line-height:1.7;}
+  .lesson-body h4{font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:16px 0 8px;}
+  .rules{margin:0; padding-left:20px;} .rules li{color:var(--ink-soft); margin-bottom:5px;}
+  .exlist{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .exline{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 12px; cursor:pointer; transition:border-color .12s;}
+  .exline:hover{border-color:var(--teal);}
+  .exline.speaking{border-color:var(--gold); background:var(--gold-tint);}
+  .exline .en{color:var(--ink); font-weight:500;}
+  .exline .en::before{content:"🔊 "; font-size:.85em;}
+  .exline .zh{display:block; font-size:.85rem; color:var(--muted); margin-top:2px;}
+  .lesson .tip{margin-top:14px; font-size:.88rem;}
+  .practice{margin-top:14px; background:var(--surface); border:1px dashed var(--teal); border-radius:10px; padding:12px 14px;}
+  .practice .q{font-size:.95rem; margin-bottom:8px;}
+  .practice .ans{display:none; color:var(--teal-deep); font-weight:600; margin-top:6px;}
+  .practice.show .ans{display:block;}
+  .practice button{border:1px solid var(--teal); background:transparent; color:var(--teal-deep); border-radius:8px; padding:5px 12px; font-size:.82rem; cursor:pointer;}
+
+  /* vocab in lessons */
+  .voc-group{margin-bottom:22px;}
+  .voc-group h3{font-size:1.06rem; margin-bottom:4px;}
+  .voc-group .vsub{font-size:.8rem; color:var(--muted); margin:0 0 12px;}
+  .voc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px;}
+  .vcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:11px 13px; cursor:pointer; box-shadow:var(--shadow); transition:.12s;}
+  .vcard:hover{border-color:var(--teal); transform:translateY(-2px);}
+  .vcard.speaking{border-color:var(--gold); background:var(--gold-tint);}
+  .vcard .ven{font-weight:600; color:var(--teal-deep);}
+  .vcard .ven::before{content:"🔊 "; font-size:.8em;}
+  .vcard .vzh{font-size:.82rem; color:var(--ink-soft); margin-top:1px;}
+
+  /* reading */
+  .passage{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:18px;}
+  .passage .plevel{font-size:.72rem; font-weight:700; letter-spacing:.06em; color:var(--blue); text-transform:uppercase; margin-bottom:8px;}
+  .passage h3{font-size:1.15rem; margin-bottom:12px;}
+  .passage .ptext{line-height:1.9; color:var(--ink);}
+  .passage .ptext span{cursor:pointer; border-radius:3px;}
+  .passage .ptext span:hover{background:var(--teal-tint);}
+  .passage .ptrans{display:none; margin-top:12px; padding:12px 14px; background:var(--surface); border-radius:10px; color:var(--ink-soft); line-height:1.8; border:1px solid var(--line-soft);}
+  .passage.showtrans .ptrans{display:block;}
+  .passage .prow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+  .passage .prow button{border:1px solid var(--teal); background:transparent; color:var(--teal-deep); border-radius:8px; padding:7px 14px; font-size:.85rem; cursor:pointer;}
+  .passage .prow button:hover{background:var(--teal-tint);}
+  .gloss{margin-top:16px;} .gloss h4{font-size:.75rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:8px;}
+  .gloss ul{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:6px;}
+  .gloss li{font-size:.85rem; color:var(--ink-soft);} .gloss li b{color:var(--teal-deep); font-weight:600;}
+  .comp{margin-top:16px;} .comp h4{font-size:.75rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:8px;}
+  .comp .cq{margin-bottom:10px;} .comp .cq .cqt{font-size:.92rem; margin-bottom:4px;}
+  .comp .ca{display:none; color:var(--teal-deep); font-weight:600; font-size:.9rem;}
+  .comp .cq.show .ca{display:block;}
+  .comp .cq button{border:1px solid var(--teal); background:transparent; color:var(--teal-deep); border-radius:8px; padding:4px 11px; font-size:.8rem; cursor:pointer;}
+
+  /* 90-day plan */
+  .plan-top{display:flex; align-items:center; gap:16px; margin-bottom:18px; flex-wrap:wrap;}
+  .plan-meter{flex:1; min-width:160px;}
+  .plan-meter .track{height:9px; background:var(--line); border-radius:99px; overflow:hidden;}
+  .plan-meter .fill{height:100%; width:0; background:linear-gradient(90deg,var(--teal),var(--gold)); border-radius:99px; transition:width .4s ease;}
+  .plan-count{font-size:.9rem; color:var(--ink-soft); white-space:nowrap;}
+  .plan-count b{font-family:Georgia,serif; font-size:1.15rem; color:var(--teal-deep); font-variant-numeric:tabular-nums;}
+  .week-pills{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px;}
+  .wpill{
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-soft);
+    border-radius:20px; padding:6px 13px; cursor:pointer; font-size:.82rem; position:relative; transition:.12s;
+  }
+  .wpill:hover{border-color:var(--teal);}
+  .wpill.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+  .wpill.wdone::after{content:"✓"; margin-left:5px; color:var(--good); font-weight:700;}
+  .wpill.active.wdone::after{color:#fff;}
+  .week-banner{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 18px; margin-bottom:16px; box-shadow:var(--shadow);
+    display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  }
+  .week-banner .ph{font-size:.72rem; font-weight:700; letter-spacing:.08em; padding:3px 10px; border-radius:20px;}
+  .week-banner .ph.p1{background:var(--teal-tint); color:var(--teal-deep);}
+  .week-banner .ph.p2{background:var(--blue-tint); color:var(--blue);}
+  .week-banner .ph.p3{background:var(--gold-tint); color:var(--gold);}
+  .week-banner .ph.p4{background:color-mix(in srgb,#8A6BB0 20%,transparent); color:#8A6BB0;}
+  .week-banner .ph.p5{background:color-mix(in srgb,#C8871F 22%,transparent); color:var(--gold);}
+  .week-banner .ph.p6{background:color-mix(in srgb,#B23A48 20%,transparent); color:#B23A48;}
+  :root[data-theme="dark"] .week-banner .ph.p6,
+  :root:not([data-theme="light"]) .week-banner .ph.p6{color:#E8808C;}
+
+  /* backup / restore */
+  .backup{margin-top:34px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);}
+  .backup h3{font-size:1.02rem; margin-bottom:4px;}
+  .backup p{margin:0 0 12px; font-size:.85rem; color:var(--ink-soft);}
+  .backup .brow{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
+  .backup textarea{width:100%; min-height:80px; border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--surface); color:var(--ink); font-family:ui-monospace,Consolas,monospace; font-size:.78rem; resize:vertical;}
+  .backup .msg{font-size:.82rem; color:var(--teal-deep); margin-top:8px; min-height:1em;}
+  .week-banner h3{font-size:1.14rem;}
+  .week-banner .wk{font-size:.8rem; color:var(--muted);}
+  .day-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(272px,1fr)); gap:14px;}
+  .day{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 16px 14px; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:border-color .12s;
+  }
+  .day.done{border-color:var(--teal); background:color-mix(in srgb,var(--teal-tint) 40%,var(--surface));}
+  .day-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .day-head .dn{font-family:Georgia,serif; font-weight:700; color:var(--teal-deep); font-size:1.05rem;}
+  .day-head label{display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--muted); cursor:pointer;}
+  .day-head input{width:18px; height:18px; accent-color:var(--teal); cursor:pointer;}
+  .day-focus{font-weight:600; font-size:.95rem; margin-bottom:8px; color:var(--ink);}
+  .day.done .day-focus{color:var(--muted);}
+  .day-tasks{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px;}
+  .day-tasks li{font-size:.85rem; color:var(--ink-soft); line-height:1.55;}
+  .day-tasks li::marker{color:var(--gold);}
+  .day .test{color:var(--gold); font-weight:600;}
+
+  /* phonics classroom */
+  .sub-block{margin-top:28px;}
+  .sub-block h3{font-size:1.16rem; margin-bottom:4px;}
+  .sub-block .lead{color:var(--ink-soft); margin:0 0 14px; font-size:.92rem; max-width:64ch;}
+  .speak-note{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; font-size:.85rem;}
+  .abc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:10px;}
+  .ltile{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 6px; text-align:center; cursor:pointer; box-shadow:var(--shadow); transition:transform .12s,border-color .12s;}
+  .ltile:hover{border-color:var(--teal); transform:translateY(-2px);}
+  .ltile:active{transform:translateY(0);}
+  .ltile.speaking{border-color:var(--gold); background:var(--gold-tint);}
+  .ltile .lt{font-family:Georgia,serif; font-size:1.75rem; font-weight:700; color:var(--teal-deep); line-height:1;}
+  .ltile .ipa{font-size:.78rem; color:var(--gold); margin:3px 0; font-family:ui-monospace,"Cascadia Code",Consolas,monospace;}
+  .ltile .wd{font-size:.8rem; color:var(--ink-soft);}
+  .mini-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(122px,1fr)); gap:10px;}
+  .mcard{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 10px; text-align:center; cursor:pointer; box-shadow:var(--shadow); transition:transform .12s,border-color .12s;}
+  .mcard:hover{border-color:var(--teal); transform:translateY(-2px);}
+  .mcard.speaking{border-color:var(--gold); background:var(--gold-tint);}
+  .mcard .big{font-family:Georgia,serif; font-size:1.5rem; font-weight:700; color:var(--teal-deep); line-height:1.1;}
+  .mcard .big em{font-style:normal; color:var(--gold);}
+  .mcard .sub{font-size:.78rem; color:var(--muted); margin-top:4px;}
+  .mcard .spell{font-size:.8rem; color:var(--ink-soft); margin-top:4px; letter-spacing:.06em; font-family:ui-monospace,monospace;}
+
+  @media (max-width:820px){
+    header.hero{grid-template-columns:1fr; gap:24px;}
+    header.hero h1{font-size:2.1rem;}
+    .grid2{grid-template-columns:1fr;}
+    .cycle{grid-template-columns:1fr 1fr;}
+    .two-col{grid-template-columns:1fr;}
+    .checkin{grid-template-columns:1fr; text-align:center; justify-items:center;}
+    nav .brand{width:100%; margin-bottom:4px;}
+  }
+  @media (max-width:520px){ .cycle{grid-template-columns:1fr;} }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;} }
+</style>
+
+<div class="wrap">
+
+<nav>
+  <span class="brand">英文自學路線圖</span>
+  <a href="#roadmap">路線圖</a>
+  <a href="#phonics">發音教室</a>
+  <a href="#lessons">教材庫</a>
+  <a href="#daily">每日循環</a>
+  <a href="#weekly">週日程</a>
+  <a href="#plan90">90天課表</a>
+  <a href="#resources">資源庫</a>
+  <a href="#practice">出題與測驗</a>
+  <button class="themebtn" id="themeToggle" type="button">◐ 主題</button>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">成人自學 · 每天 60 分鐘 · 從零到學測</div>
+    <h1>從自然發音<br>一路讀到英文原文</h1>
+    <p>一套為你量身規劃的十級進階課程,分成六個階段、對應小三到高三的認知程度。手把手從發音築基開始,每天一小時的固定循環,搭配免費線上資源與 AI 出題,穩定累積聽說讀寫。所有進度都會自動存在這個頁面裡,隨時打開就能接著走。</p>
+  </div>
+  <div class="ring-card">
+    <div class="lbl">整體進度</div>
+    <div class="ring">
+      <svg width="150" height="150" viewBox="0 0 150 150">
+        <circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="12"/>
+        <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="var(--teal)" stroke-width="12"
+          stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+      </svg>
+      <div class="pct"><span id="ovPct">0</span>%<small>里程碑</small></div>
+    </div>
+    <div class="lbl" style="margin-top:6px"><span id="ovDone">0</span> / <span id="ovTotal">0</span> 個里程碑完成</div>
+  </div>
+</header>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="sec-head"><span class="num">01</span><h2>學習路線圖 · 六階段</h2></div>
+  <p class="sec-sub">點開每個階段看目標、核心技能與檢核清單。每完成一項就打勾,上方的進度環會即時更新。原則:<b>階段內全部打勾再往下一階</b>,寧慢勿跳。</p>
+  <div class="stages" id="stages"></div>
+</section>
+
+<!-- PHONICS CLASSROOM -->
+<section id="phonics">
+  <div class="sec-head"><span class="num">★</span><h2>發音教室 · 第 1 階實作課</h2></div>
+  <p class="sec-sub">這一節我<b>直接在頁面裡教你發音</b>,不用另外連出去。點任何字母或單字都會發出聲音(用你裝置內建的語音,<b>請先開喇叭</b>)。先聽、再跟著唸出聲——這是打地基最重要的動作。</p>
+
+  <div class="tip" style="margin-bottom:24px"><b>先懂一個關鍵觀念:字母「名」 ≠ 字母「音」。</b><br>字母 B 的名字唸「bee」,但它在單字裡發的音是 /b/(像 ball 的開頭)。自然發音(Phonics)學的是「音」,這樣看到陌生單字才拼得出來。下面每個字母都標了它的<b>發音符號</b>和一個代表字。</div>
+
+  <div class="sub-block">
+    <h3>① 26 字母與它們的發音</h3>
+    <p class="lead">點任一字母會唸出「字母名 + 例字」。第一次先按下方「從頭聽一遍」,跟著唸過 A 到 Z。</p>
+    <div class="speak-note">
+      <button class="btn" id="playAll" type="button">▶ 從頭聽一遍 A→Z</button>
+      <button class="btn ghost" id="stopSpeak" type="button">■ 停止</button>
+      <span id="ttsWarn" style="color:var(--gold)"></span>
+    </div>
+    <div class="abc-grid" id="abcGrid"></div>
+  </div>
+
+  <div class="sub-block">
+    <h3>② 五個短母音(拼讀的核心地基)</h3>
+    <p class="lead">母音 a e i o u 的「短音」是拼讀關鍵。點卡片聽發音,記住每個母音配一個代表字。</p>
+    <div class="mini-cards" id="vowelCards"></div>
+  </div>
+
+  <div class="sub-block">
+    <h3>③ 拼讀練習:子音 + 母音 + 子音(CVC)</h3>
+    <p class="lead">把單音「黏」在一起就成了單字。點單字先聽整個字(放慢速度),再試著自己把三個音慢慢連起來:c-a-t → cat。</p>
+    <div class="mini-cards" id="cvcCards"></div>
+  </div>
+
+  <div class="sub-block">
+    <h3>④ 常見雙字母組合(Digraphs)</h3>
+    <p class="lead">兩個字母合起來只發一個音,這些超常出現,先認得它們。</p>
+    <div class="mini-cards" id="digraphCards"></div>
+  </div>
+
+  <div class="sub-block">
+    <h3>⑤ 聽力小測驗:你聽到哪個字?</h3>
+    <p class="lead">按「播放單字」聽一個字,從三個選項選出你聽到的,訓練耳朵分辨相近的音。</p>
+    <div class="quiz" id="earQuiz">
+      <div style="text-align:center; margin:4px 0 16px"><button class="btn" id="earPlay" type="button">🔊 播放單字</button></div>
+      <div class="opts" id="earOpts"></div>
+      <div class="quiz-foot">
+        <span class="score">答對 <b id="earScore">0</b> / <span id="earTotal">0</span> 題</span>
+        <button class="btn ghost" id="earNext" type="button">下一題 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON LIBRARY -->
+<section id="lessons">
+  <div class="sec-head"><span class="num">★</span><h2>教材庫 · 分階課程內容</h2></div>
+  <p class="sec-sub">這裡是真正的「上課」內容:每個文法觀念都用中文講清楚、附例句(<b>點例句會發音</b>)、小提醒和即時練習。課表叫你「讀某某課」時就來這裡。分成三塊:文法課、主題單字、閱讀課。</p>
+
+  <div class="lesson-tabs" id="lessonTabs">
+    <button class="ltab active" data-tab="grammar" type="button">📘 文法課</button>
+    <button class="ltab" data-tab="vocab" type="button">🗂 主題單字</button>
+    <button class="ltab" data-tab="reading" type="button">📖 閱讀課</button>
+  </div>
+
+  <div class="ltab-panel" id="tab-grammar">
+    <div class="stages" id="grammarList"></div>
+  </div>
+
+  <div class="ltab-panel" id="tab-vocab" hidden>
+    <p class="lead" style="margin-bottom:14px">點任一單字會發音。建議搭配 Quizlet 或 Anki 把它們做成單字卡複習。</p>
+    <div id="vocabList"></div>
+  </div>
+
+  <div class="ltab-panel" id="tab-reading" hidden>
+    <p class="lead" style="margin-bottom:14px">先讀英文、猜大意,再點「顯示中文翻譯」對照,最後做理解題。生字表在每篇下方。</p>
+    <div id="readingList"></div>
+  </div>
+</section>
+
+<!-- DAILY -->
+<section id="daily">
+  <div class="sec-head"><span class="num">02</span><h2>每日 60 分鐘循環</h2></div>
+  <p class="sec-sub">固定的四段式節奏,不用每天想「今天要學什麼」。前期(第 1–2 階段)可把「單字」換成「自然發音練習」;後期閱讀與寫作比重加大。關鍵是<b>每天都碰</b>,量小但不斷。</p>
+  <div class="cycle">
+    <div class="block"><div class="min">15<span> 分</span></div><h4>單字記憶</h4><p>用 Anki／Quizlet 做間隔複習,每天新學 5–10 個、複習昨天的。看到就唸出聲。</p><span class="tag">Anki · Quizlet</span></div>
+    <div class="block"><div class="min">20<span> 分</span></div><h4>分級閱讀</h4><p>讀比目前程度略難一點的短文,先讀懂大意再查生字,把生字丟進單字卡。</p><span class="tag">News in Levels</span></div>
+    <div class="block"><div class="min">15<span> 分</span></div><h4>聽力 + 跟讀</h4><p>看一段有字幕的短影片,聽完暫停,一句一句「跟讀」模仿發音語調。</p><span class="tag">VoiceTube · shadowing</span></div>
+    <div class="block"><div class="min">10<span> 分</span></div><h4>文法／寫作</h4><p>單日輪替:今天學一個文法點,明天用它造 3 個句子或寫兩句日記。</p><span class="tag">交替進行</span></div>
+  </div>
+
+  <div class="checkin">
+    <div class="streak-num" id="streakNum">0</div>
+    <div class="meta">
+      <div>目前<b>連續打卡</b>天數 · 累計學習 <b id="totalDays">0</b> 天</div>
+      <div style="color:var(--muted); margin-top:2px">完成今天的循環後就按右邊打卡,養成不斷鏈的習慣。</div>
+    </div>
+    <button class="btn" id="checkinBtn" type="button">✓ 今天完成了</button>
+  </div>
+</section>
+
+<!-- WEEKLY -->
+<section id="weekly">
+  <div class="sec-head"><span class="num">03</span><h2>每週節奏表</h2></div>
+  <p class="sec-sub">週一到週五走核心循環,週六總複習+自我測驗,週日輕鬆吸收(看影片、聽 podcast)。這樣一週有 <b>張有弛</b>,不容易累垮而放棄。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>時段</th><th>主軸</th><th>具體任務</th></tr></thead>
+      <tbody>
+        <tr><td>週一 / 三 / 五</td><td>核心循環</td><td>單字 + 分級閱讀 + 聽力跟讀 + 文法點</td></tr>
+        <tr><td>週二 / 四</td><td>核心循環</td><td>單字 + 分級閱讀 + 聽力跟讀 + 造句／寫作</td></tr>
+        <tr><td>週六</td><td>統整測驗</td><td>ReadTheory 閱讀測驗 + 用 AI 出 20 題單字/文法小考 + 訂正</td></tr>
+        <tr><td>週日</td><td>沉浸放鬆</td><td>看一部有興趣的英文影片/影集(先中英字幕,再純英文),不查字典只享受</td></tr>
+        <tr><td>每月最後一週</td><td>階段檢核</td><td>回到路線圖檢查里程碑;做一次該階段模擬題,決定是否升階</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 90-DAY PLAN -->
+<section id="plan90">
+  <div class="sec-head"><span class="num">04</span><h2>270 天完整課程表</h2></div>
+  <p class="sec-sub">一份實際可執行的 39 週每日課表,<b>第 1 階到第 6 階一次走完</b>:從字母發音 → 現在式 → 過去/未來式 → 完成式與被動 → 關係代名詞與假設語氣 → 7000字、批判閱讀、中譯英與英文作文,最後以學測模考驗收。每天約 60 分鐘,做完就打勾。每週<b>前 5 天上新課、第 6 天週測、第 7 天沉浸複習</b>。遇到新文法時,課表會請你先讀「<b>教材庫</b>」對應的課。點下方週次切換。</p>
+  <div class="plan-top">
+    <div class="plan-meter"><div class="track"><div class="fill" id="p90fill"></div></div></div>
+    <div class="plan-count">已完成 <b id="p90done">0</b> / <span id="p90total">0</span> 天</div>
+  </div>
+  <div class="week-pills" id="weekPills"></div>
+  <div class="week-banner" id="weekBanner"></div>
+  <div class="day-grid" id="dayGrid"></div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="sec-head"><span class="num">05</span><h2>免費資源庫</h2></div>
+  <p class="sec-sub">全部免費(或有免費方案)。台灣官方的<b>酷英 Cool English</b>特別推薦:專為台灣學生設計、分級完整,還對應會考學測。點連結會另開新分頁。</p>
+  <div class="res-grid">
+    <div class="res r-tw"><div class="cat">台灣官方 · 分級完整</div><ul>
+      <li><a href="https://www.coolenglish.edu.tw" target="_blank" rel="noopener"><span class="name">Cool English 酷英 ↗</span></a><span class="desc">教育部免費平台,聽說讀寫分級、含會考學測題型</span></li>
+      <li><a href="https://www.junyiacademy.org" target="_blank" rel="noopener"><span class="name">均一教育平台 ↗</span></a><span class="desc">中文教學影片,適合打文法基礎</span></li>
+    </ul></div>
+    <div class="res r-vocab"><div class="cat">單字記憶</div><ul>
+      <li><a href="https://apps.ankiweb.net" target="_blank" rel="noopener"><span class="name">Anki ↗</span></a><span class="desc">間隔重複記憶,背單字最有效的工具</span></li>
+      <li><a href="https://quizlet.com" target="_blank" rel="noopener"><span class="name">Quizlet ↗</span></a><span class="desc">現成單字卡、遊戲式複習,上手快</span></li>
+    </ul></div>
+    <div class="res r-read"><div class="cat">分級閱讀</div><ul>
+      <li><a href="https://www.newsinlevels.com" target="_blank" rel="noopener"><span class="name">News in Levels ↗</span></a><span class="desc">同一則新聞分三種難度,附朗讀</span></li>
+      <li><a href="https://readtheory.org" target="_blank" rel="noopener"><span class="name">ReadTheory ↗</span></a><span class="desc">自動依程度出閱讀測驗題,免費</span></li>
+      <li><a href="https://breakingnewsenglish.com" target="_blank" rel="noopener"><span class="name">Breaking News English ↗</span></a><span class="desc">每則新聞 7 種難度 + 大量練習題</span></li>
+    </ul></div>
+    <div class="res r-listen"><div class="cat">聽力 · 口說</div><ul>
+      <li><a href="https://www.voicetube.com" target="_blank" rel="noopener"><span class="name">VoiceTube ↗</span></a><span class="desc">影片學英文(台灣),中英雙字幕、可逐句重播</span></li>
+      <li><a href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener"><span class="name">BBC Learning English ↗</span></a><span class="desc">正統英式教學,短單元含逐字稿</span></li>
+      <li><a href="https://www.elllo.org" target="_blank" rel="noopener"><span class="name">Elllo ↗</span></a><span class="desc">大量真人對話聽力,附文字與測驗</span></li>
+    </ul></div>
+    <div class="res r-gram"><div class="cat">文法 · 綜合</div><ul>
+      <li><a href="https://www.perfect-english-grammar.com" target="_blank" rel="noopener"><span class="name">Perfect English Grammar ↗</span></a><span class="desc">文法解說清楚,附免費練習</span></li>
+      <li><a href="https://www.duolingo.com" target="_blank" rel="noopener"><span class="name">Duolingo ↗</span></a><span class="desc">遊戲化每日練習,適合維持手感</span></li>
+      <li><a href="https://dictionary.cambridge.org" target="_blank" rel="noopener"><span class="name">Cambridge Dictionary ↗</span></a><span class="desc">查字典首選,有英英解釋、例句、發音</span></li>
+    </ul></div>
+    <div class="res r-ai"><div class="cat">AI 出題 · 對話</div><ul>
+      <li><span class="name">ChatGPT / Gemini / Claude</span><span class="desc">出客製化題目、當你的對話練習對象、講解你看不懂的句子</span></li>
+      <li><span class="name">用法見下方第 05 節</span><span class="desc">附可直接複製的出題咒語(prompt)</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice">
+  <div class="sec-head"><span class="num">06</span><h2>怎麼出題 & 隨手測驗</h2></div>
+  <p class="sec-sub">你不需要買題庫。把下面的 prompt 複製給任何 AI,它就能依你的程度無限出題並訂正。右邊的小測驗可以現在就玩玩看,試試不同程度的單字。</p>
+  <div class="two-col">
+    <div>
+      <div class="prompt-box">
+        <h4>① 單字/文法出題咒語</h4>
+        <pre class="mono">你是我的英文家教。我的程度大約是台灣國中一年級。
+請針對「現在完成式」出 10 題選擇題,
+每題 4 個選項,難度由淺到深。
+先只列題目,等我回答後再一次公布答案並中文解說我錯的地方。</pre>
+        <h4>② 閱讀理解咒語</h4>
+        <pre class="mono">請寫一篇約 120 字、適合國中程度的英文短文,主題是「校園生活」。
+文章後面出 5 題閱讀測驗(含主旨與細節題)。
+附上生字表(英文 + KK音標 + 中文)。
+先別給答案,等我作答。</pre>
+        <div class="tip"><b>訣竅:</b>把「台灣國中一年級」換成你目前的階段(見左邊路線圖),AI 就會自動調整難度。答錯時追問「為什麼」,它會變成你的專屬老師。</div>
+      </div>
+    </div>
+    <div class="quiz" id="quiz">
+      <div class="qlvl" id="qLvl">程度:基礎</div>
+      <div class="qword" id="qWord">—</div>
+      <div class="opts" id="qOpts"></div>
+      <div class="quiz-foot">
+        <span class="score">答對 <b id="qScore">0</b> / <span id="qTotal">0</span> 題</span>
+        <button class="btn ghost" id="qNext" type="button">下一題 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="backup">
+  <h3>💾 進度備份 / 還原</h3>
+  <p>進度存在<b>這個瀏覽器</b>裡,換裝置或換帳號不會跟著走。要搬家時:在舊的地方按「匯出」複製那串文字,到新的地方貼上再按「匯入」。</p>
+  <div class="brow">
+    <button class="btn ghost" id="btnExport" type="button">匯出進度</button>
+    <button class="btn ghost" id="btnImport" type="button">匯入進度</button>
+    <button class="btn ghost" id="btnCopy" type="button">複製</button>
+  </div>
+  <textarea id="backupBox" placeholder="按「匯出進度」會在這裡產生一串備份文字;要還原就把備份文字貼進來,再按「匯入進度」。"></textarea>
+  <div class="msg" id="backupMsg"></div>
+</div>
+
+<footer>
+  你的進度儲存在這個瀏覽器裡 · 把這個頁面加入書籤,每天打開接著走。<br>
+  堅持比速度重要 —— 每天 60 分鐘,一年後你會認不出現在的自己。
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = {
+    get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}},
+    set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  };
+
+  /* ---------- theme toggle ---------- */
+  var tbtn=document.getElementById('themeToggle');
+  var saved=LS.get('eng_theme',null);
+  if(saved){document.documentElement.setAttribute('data-theme',saved);}
+  tbtn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    if(!cur){cur=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+    var next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    LS.set('eng_theme',next);
+  });
+
+  /* ---------- roadmap data ---------- */
+  var STAGES=[
+    {tone:1,title:"發音築基",grade:"對應 小三–小四 · 約 300 字",
+     goal:"看到英文字能唸出來、聽到單字能拼出來。這一階不求快,把發音地基打穩,後面才不會卡。",
+     skills:["26 字母大小寫、書寫與發音","自然發音 Phonics:子音+母音拼讀","KK 音標入門對照","300 個最常用生活單字(顏色、數字、家庭、食物)","簡單問候句:What's your name? / I am…"],
+     miles:["能默寫 26 字母並唸出字母音","看到 cat / dog / sun 等 CVC 單字能自己拼讀","背完 300 基礎單字(能中英互看)","能開口說 5 句自我介紹"]},
+    {tone:2,title:"生活基礎",grade:"對應 小五–小六 · 約 800 字",
+     goal:"用簡單句子表達日常,讀懂三五句的短對話。開始建立「英文句子有結構」的直覺。",
+     skills:["八大詞類概念(名/動/形/副…)","be 動詞 vs 一般動詞","現在簡單式、現在進行式","單複數、人稱代名詞","800 生活單字 + 簡短對話閱讀"],
+     miles:["能分辨 be 動詞與一般動詞並正確使用","能用現在式描述每天做的事(5 句以上)","讀懂一段 5–6 句的生活對話","累積單字量達 800"]},
+    {tone:3,title:"文法骨架",grade:"對應 國一–國二 · 約 2000 字",
+     goal:"補齊時態與句型骨架,能讀懂一整段文章。這是最關鍵的一階,文法通了閱讀就會起飛。",
+     skills:["過去式、未來式、完成式","助動詞、情態動詞(can/will/should)","比較級最高級、連接詞","五大基本句型","2000 字 + 段落閱讀"],
+     miles:["三大時態(現在/過去/未來)能自由切換","能讀懂 100–150 字的短文並抓住大意","能用連接詞寫出複合句","累積單字量達 2000"]},
+    {tone:4,title:"會考程度",grade:"對應 國三 · 綜合應用",
+     goal:"整合聽說讀寫,能應付台灣國中會考題型:克漏字、閱讀測驗、聽力。",
+     skills:["關係代名詞、被動語態、假設語氣入門","克漏字與文意理解","聽力測驗題型","短文寫作(看圖/主題)","會考歷屆題演練"],
+     miles:["克漏字正確率達 70%","能完成一篇 80 字的主題短文","聽力測驗能聽懂日常情境對話","做一份會考模擬卷達到理想分數"]},
+    {tone:5,title:"學測基礎",grade:"對應 高一–高二 · 約 4500 字",
+     goal:"進入長篇閱讀與篇章結構,單字量往學測核心 4500 字推進,開始練有架構的寫作。",
+     skills:["4500 核心單字","長篇閱讀、篇章結構與代名詞指涉","進階文法:分詞構句、名詞子句","段落寫作與主題句","字首字根字尾擴充單字"],
+     miles:["能讀懂 250 字以上的文章並答對細節題","認得學測核心 4500 字的八成","能寫出結構完整的一段英文(主題句+支持句)","看得懂沒字幕的簡單英文影片大意"]},
+    {tone:6,title:"學測進階",grade:"對應 高三 · 約 7000 字",
+     goal:"衝刺學測程度:批判性閱讀、中譯英、英文作文,以及模考實戰。到這裡你已能讀原文文章。",
+     skills:["7000 字、學術與新聞詞彙","批判閱讀:推論、作者語氣、主旨","中譯英與 120 字英文作文","混合題型與跨領域閱讀","歷屆學測/模考計時演練"],
+     miles:["能讀完並理解一篇英文新聞或短篇故事","中譯英兩句翻譯通順達意","能寫出 120 字、切題有例證的英文作文","一份學測模擬卷達到目標級分"]}
+  ];
+
+  var stagesEl=document.getElementById('stages');
+  var totalMiles=0;
+  STAGES.forEach(function(s,si){
+    totalMiles+=s.miles.length;
+    var stg=document.createElement('div');
+    stg.className='stage'; stg.setAttribute('data-tone',s.tone);
+    var skillsHtml=s.skills.map(function(x){return '<li>'+x+'</li>';}).join('');
+    var milesHtml=s.miles.map(function(m,mi){
+      var id='ms_'+si+'_'+mi;
+      return '<li><input type="checkbox" id="'+id+'" data-mile><label for="'+id+'">'+m+'</label></li>';
+    }).join('');
+    stg.innerHTML=
+      '<div class="stage-top" role="button" tabindex="0">'+
+        '<div class="badge">'+(si+1)+'</div>'+
+        '<div class="stage-title"><h3>'+s.title+'</h3><div class="grade">'+s.grade+'</div></div>'+
+        '<div class="stage-meter"><div class="track"><div class="fill" data-fill="'+si+'"></div></div><span class="mpct" data-mpct="'+si+'">0%</span><span class="chev">▶</span></div>'+
+      '</div>'+
+      '<div class="stage-body">'+
+        '<p class="goal">'+s.goal+'</p>'+
+        '<div class="grid2">'+
+          '<div><div class="block-label">核心技能</div><ul class="skills" style="margin:0;padding-left:18px">'+skillsHtml+'</ul></div>'+
+          '<div><div class="block-label">里程碑檢核 · 打勾記錄</div><ul class="checks">'+milesHtml+'</ul></div>'+
+        '</div>'+
+      '</div>';
+    stagesEl.appendChild(stg);
+
+    var top=stg.querySelector('.stage-top');
+    function toggle(){stg.classList.toggle('open');}
+    top.addEventListener('click',toggle);
+    top.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
+
+  /* ---------- progress restore + compute ---------- */
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('[data-mile]'));
+  var savedMiles=LS.get('eng_miles',{});
+  boxes.forEach(function(b){ if(savedMiles[b.id]) b.checked=true; b.addEventListener('change',onMileChange); });
+
+  document.getElementById('ovTotal').textContent=totalMiles;
+
+  function onMileChange(){
+    var state={};
+    boxes.forEach(function(b){ if(b.checked) state[b.id]=1; });
+    LS.set('eng_miles',state);
+    computeProgress();
+  }
+
+  function computeProgress(){
+    var done=0;
+    // per stage
+    STAGES.forEach(function(s,si){
+      var total=s.miles.length, d=0;
+      for(var mi=0;mi<total;mi++){ if(document.getElementById('ms_'+si+'_'+mi).checked) d++; }
+      done+=d;
+      var pct=Math.round(d/total*100);
+      document.querySelector('[data-fill="'+si+'"]').style.width=pct+'%';
+      document.querySelector('[data-mpct="'+si+'"]').textContent=pct+'%';
+    });
+    var ovPct=totalMiles?Math.round(done/totalMiles*100):0;
+    document.getElementById('ovPct').textContent=ovPct;
+    document.getElementById('ovDone').textContent=done;
+    var circ=402;
+    document.getElementById('ringFill').style.strokeDashoffset=circ-(circ*ovPct/100);
+  }
+  computeProgress();
+
+  /* ---------- streak / check-in ---------- */
+  function todayStr(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+  function dayNum(str){var p=str.split('-');return Math.floor(new Date(p[0],p[1]-1,p[2]).getTime()/86400000);}
+  function renderStreak(){
+    var days=LS.get('eng_days',[]);
+    document.getElementById('totalDays').textContent=days.length;
+    // consecutive streak ending today or yesterday
+    var set={}; days.forEach(function(d){set[dayNum(d)]=1;});
+    var t=dayNum(todayStr()); var streak=0; var cur=t;
+    if(!set[cur]) cur=t-1; // allow streak if not yet checked today
+    while(set[cur]){streak++;cur--;}
+    document.getElementById('streakNum').textContent=streak;
+    var btn=document.getElementById('checkinBtn');
+    if(set[t]){btn.disabled=true;btn.textContent='✓ 今天已打卡';}
+  }
+  document.getElementById('checkinBtn').addEventListener('click',function(){
+    var days=LS.get('eng_days',[]); var t=todayStr();
+    if(days.indexOf(t)===-1){days.push(t);LS.set('eng_days',days);}
+    renderStreak();
+  });
+  renderStreak();
+
+  /* ---------- vocab quiz ---------- */
+  var WORDS=[
+    {en:"apple",zh:"蘋果",lv:"基礎"},{en:"family",zh:"家庭",lv:"基礎"},
+    {en:"happy",zh:"快樂的",lv:"基礎"},{en:"water",zh:"水",lv:"基礎"},
+    {en:"school",zh:"學校",lv:"基礎"},{en:"animal",zh:"動物",lv:"基礎"},
+    {en:"weather",zh:"天氣",lv:"生活"},{en:"borrow",zh:"借入",lv:"生活"},
+    {en:"decide",zh:"決定",lv:"生活"},{en:"famous",zh:"有名的",lv:"生活"},
+    {en:"invite",zh:"邀請",lv:"生活"},{en:"careful",zh:"小心的",lv:"生活"},
+    {en:"experience",zh:"經驗",lv:"國中"},{en:"increase",zh:"增加",lv:"國中"},
+    {en:"pollution",zh:"污染",lv:"國中"},{en:"suggest",zh:"建議",lv:"國中"},
+    {en:"realize",zh:"意識到",lv:"國中"},{en:"opinion",zh:"意見",lv:"國中"},
+    {en:"available",zh:"可獲得的",lv:"會考"},{en:"prevent",zh:"預防",lv:"會考"},
+    {en:"provide",zh:"提供",lv:"會考"},{en:"appreciate",zh:"感激",lv:"會考"},
+    {en:"confident",zh:"有信心的",lv:"會考"},{en:"purpose",zh:"目的",lv:"會考"},
+    {en:"consequence",zh:"後果",lv:"學測"},{en:"establish",zh:"建立",lv:"學測"},
+    {en:"significant",zh:"重要的",lv:"學測"},{en:"reduce",zh:"減少",lv:"學測"},
+    {en:"contribute",zh:"貢獻",lv:"學測"},{en:"tendency",zh:"傾向",lv:"學測"},
+    {en:"inevitable",zh:"不可避免的",lv:"進階"},{en:"perceive",zh:"察覺",lv:"進階"},
+    {en:"substantial",zh:"大量的",lv:"進階"},{en:"advocate",zh:"提倡",lv:"進階"},
+    {en:"comprehensive",zh:"全面的",lv:"進階"},{en:"controversial",zh:"有爭議的",lv:"進階"}
+  ];
+  var qScore=0,qTotal=0,answered=false;
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function nextQ(){
+    answered=false;
+    var idx=Math.floor(Math.random()*WORDS.length); var w=WORDS[idx];
+    document.getElementById('qWord').textContent=w.en;
+    document.getElementById('qLvl').textContent='程度:'+w.lv;
+    var pool=WORDS.filter(function(x){return x.zh!==w.zh;});
+    shuffle(pool);
+    var opts=shuffle([w.zh,pool[0].zh,pool[1].zh,pool[2].zh]);
+    var box=document.getElementById('qOpts'); box.innerHTML='';
+    opts.forEach(function(o){
+      var b=document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=o;
+      b.addEventListener('click',function(){
+        if(answered) return; answered=true; qTotal++;
+        if(o===w.zh){b.classList.add('correct');qScore++;}
+        else{b.classList.add('wrong');
+          Array.prototype.forEach.call(box.children,function(c){if(c.textContent===w.zh)c.classList.add('correct');});
+        }
+        document.getElementById('qScore').textContent=qScore;
+        document.getElementById('qTotal').textContent=qTotal;
+      });
+      box.appendChild(b);
+    });
+  }
+  document.getElementById('qNext').addEventListener('click',nextQ);
+  nextQ();
+
+  /* ---------- phonics: text-to-speech ---------- */
+  var TTS=('speechSynthesis' in window);
+  var voiceList=[];
+  function loadVoices(){ if(TTS) voiceList=window.speechSynthesis.getVoices()||[]; }
+  if(TTS){ loadVoices(); if(typeof speechSynthesis.onvoiceschanged!=='undefined'){ speechSynthesis.onvoiceschanged=loadVoices; } }
+  function enVoice(){
+    if(!voiceList.length) loadVoices();
+    var en=voiceList.filter(function(v){return /^en[-_]/i.test(v.lang);});
+    return en.length?en[0]:null;
+  }
+  function utter(text,rate){
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US'; u.rate=rate||0.85;
+    var v=enVoice(); if(v) u.voice=v;
+    return u;
+  }
+  function speak(text,rate,el){
+    if(!TTS) return;
+    window.speechSynthesis.cancel();
+    var u=utter(text,rate);
+    if(el){ el.classList.add('speaking'); u.onend=u.onerror=function(){el.classList.remove('speaking');}; }
+    window.speechSynthesis.speak(u);
+  }
+  if(!TTS){
+    document.getElementById('ttsWarn').textContent='⚠ 這個瀏覽器不支援內建語音,發音請改用資源庫的 VoiceTube 或 Cambridge 字典。';
+  }
+
+  var ALPHA=[
+    ["A","/æ/","apple"],["B","/b/","ball"],["C","/k/","cat"],["D","/d/","dog"],
+    ["E","/ɛ/","egg"],["F","/f/","fish"],["G","/g/","goat"],["H","/h/","hat"],
+    ["I","/ɪ/","igloo"],["J","/dʒ/","jam"],["K","/k/","kite"],["L","/l/","lion"],
+    ["M","/m/","moon"],["N","/n/","nest"],["O","/ɒ/","octopus"],["P","/p/","pig"],
+    ["Q","/kw/","queen"],["R","/r/","rain"],["S","/s/","sun"],["T","/t/","top"],
+    ["U","/ʌ/","umbrella"],["V","/v/","van"],["W","/w/","web"],["X","/ks/","box"],
+    ["Y","/j/","yes"],["Z","/z/","zoo"]
+  ];
+  var VOWELS=[["a","/æ/","apple","貓 cat"],["e","/ɛ/","egg","床 bed"],["i","/ɪ/","igloo","豬 pig"],["o","/ɒ/","octopus","狗 dog"],["u","/ʌ/","umbrella","杯 cup"]];
+  var CVC=[["cat","c-a-t"],["dog","d-o-g"],["sun","s-u-n"],["hen","h-e-n"],["pig","p-i-g"],["bus","b-u-s"],["map","m-a-p"],["red","r-e-d"],["box","b-o-x"],["cup","c-u-p"],["bat","b-a-t"],["net","n-e-t"]];
+  var DIGRAPHS=[["sh","ship","/ʃ/"],["ch","chair","/tʃ/"],["th","thumb","/θ/"],["wh","whale","/w/"],["ng","ring","/ŋ/"],["ck","duck","/k/"]];
+
+  // 26 letters
+  var abc=document.getElementById('abcGrid');
+  ALPHA.forEach(function(a){
+    var t=document.createElement('div'); t.className='ltile'; t.setAttribute('role','button'); t.setAttribute('tabindex','0');
+    t.innerHTML='<div class="lt">'+a[0]+'</div><div class="ipa">'+a[1]+'</div><div class="wd">'+a[2]+'</div>';
+    function say(){ speak(a[0]+', '+a[2],0.8,t); }
+    t.addEventListener('click',say);
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();say();}});
+    abc.appendChild(t);
+  });
+  document.getElementById('playAll').addEventListener('click',function(){
+    if(!TTS) return;
+    window.speechSynthesis.cancel();
+    ALPHA.forEach(function(a){ window.speechSynthesis.speak(utter(a[0]+', '+a[2],0.8)); });
+  });
+  document.getElementById('stopSpeak').addEventListener('click',function(){ if(TTS) window.speechSynthesis.cancel(); });
+
+  // vowels
+  var vc=document.getElementById('vowelCards');
+  VOWELS.forEach(function(v){
+    var c=document.createElement('div'); c.className='mcard'; c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+    c.innerHTML='<div class="big">'+v[0]+' <em>'+v[1]+'</em></div><div class="sub">'+v[2]+'</div><div class="spell">'+v[3]+'</div>';
+    function say(){ speak(v[2],0.85,c); }
+    c.addEventListener('click',say);
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();say();}});
+    vc.appendChild(c);
+  });
+
+  // CVC blending
+  var cc=document.getElementById('cvcCards');
+  CVC.forEach(function(w){
+    var c=document.createElement('div'); c.className='mcard'; c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+    c.innerHTML='<div class="big">'+w[0]+'</div><div class="spell">'+w[1]+'</div>';
+    function say(){ speak(w[0],0.6,c); }
+    c.addEventListener('click',say);
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();say();}});
+    cc.appendChild(c);
+  });
+
+  // digraphs
+  var dc=document.getElementById('digraphCards');
+  DIGRAPHS.forEach(function(d){
+    var c=document.createElement('div'); c.className='mcard'; c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+    c.innerHTML='<div class="big">'+d[0]+' <em>'+d[2]+'</em></div><div class="sub">'+d[1]+'</div>';
+    function say(){ speak(d[1],0.8,c); }
+    c.addEventListener('click',say);
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();say();}});
+    dc.appendChild(c);
+  });
+
+  // ear-training quiz
+  var earScore=0,earTotal=0,earWord=null,earAnswered=false;
+  var earWords=CVC.map(function(w){return w[0];});
+  function newEar(){
+    earAnswered=false;
+    var pool=shuffle(earWords.slice());
+    earWord=pool[0];
+    var opts=shuffle([pool[0],pool[1],pool[2]]);
+    var box=document.getElementById('earOpts'); box.innerHTML='';
+    opts.forEach(function(o){
+      var b=document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=o;
+      b.addEventListener('click',function(){
+        if(earAnswered) return; earAnswered=true; earTotal++;
+        if(o===earWord){b.classList.add('correct');earScore++;}
+        else{b.classList.add('wrong');
+          Array.prototype.forEach.call(box.children,function(x){if(x.textContent===earWord)x.classList.add('correct');});
+        }
+        document.getElementById('earScore').textContent=earScore;
+        document.getElementById('earTotal').textContent=earTotal;
+      });
+      box.appendChild(b);
+    });
+  }
+  document.getElementById('earPlay').addEventListener('click',function(){ if(earWord) speak(earWord,0.75); });
+  document.getElementById('earNext').addEventListener('click',newEar);
+  newEar();
+
+  /* ---------- 90-day plan ---------- */
+  var PLAN=[
+    {ph:1,theme:"字母與字母音",days:[
+      {f:"字母 A–G",a:["發音教室按「▶從頭聽A→Z」跟讀2遍","專練 A B C D E F G:字母名+發音","抄寫 A–G 大小寫各3行,邊寫邊唸"]},
+      {f:"字母 H–N",a:["發音教室點 H–N 各聽3次並跟讀","短母音 a:apple / cat / hat / bat 各唸5次","複習 A–G,遮住例字自己說"]},
+      {f:"字母 O–T",a:["發音教室點 O–T 跟讀","短母音 e:egg / bed / hen / red","CVC 拼讀:cat, hat, bat, mat(先聽再自己拼)"]},
+      {f:"字母 U–Z",a:["發音教室點 U–Z 跟讀","短母音 i:igloo / pig / big / sit","CVC:pig, big, sit, pin"]},
+      {f:"字母 A–Z 總複習",a:["按「▶從頭聽A→Z」不看字母跟著默唸","短母音 o:octopus / dog / box / hot","CVC:dog, box, hot, pot"]},
+      {f:"週測",a:["短母音 u:umbrella / cup / bus / sun","CVC:cup, bus, sun, run","【測驗】發音教室⑤聽力小測驗做10題,記下分數"]},
+      {f:"沉浸日",a:["VoiceTube 搜「ABC song / phonics song」跟唱1支","複習本週五個短母音各一遍","到「每日循環」按「✓今天完成了」打卡"]}
+    ]},
+    {ph:1,theme:"CVC 拼讀熟練",days:[
+      {f:"-at / -an 家族",a:["-at:cat sat hat mat rat","-an:can man pan fan","每字抄寫並唸3次"]},
+      {f:"-en / -et 家族",a:["-en:hen pen ten men","-et:net wet get pet","聽力小測驗8題"]},
+      {f:"-ig / -in 家族",a:["-ig:pig big dig fig","-in:pin win bin fin","複習 -at / -an"]},
+      {f:"-og / -ot 家族",a:["-og:dog log fog jog","-ot:hot pot dot got","聽力小測驗8題"]},
+      {f:"-ug / -un 家族",a:["-ug:bug rug hug mug","-un:sun run fun bun","複習 -ig / -in"]},
+      {f:"週測",a:["把本週20個字連著唸一遍","【測驗】聽力小測驗12題","用 AI 出10題「聽音拼字」(prompt見出題那節)"]},
+      {f:"沉浸日",a:["VoiceTube 看1支「short vowel / CVC」教學短片","複習五大母音家族","打卡"]}
+    ]},
+    {ph:1,theme:"子母組合 + 基礎單字",days:[
+      {f:"sh / ch",a:["發音教室④ sh(ship)、ch(chair)","單字:ship shop fish / chair chip lunch","抄寫並唸"]},
+      {f:"th / wh",a:["th(thumb)、wh(whale)","this that the / what when where","複習 sh / ch"]},
+      {f:"ng / ck",a:["ng(ring)、ck(duck)","ring sing king / duck kick sock","聽力小測驗8題"]},
+      {f:"主題單字—數字",a:["one~ten 聽讀跟唱","eleven~twenty","用 Quizlet 建一組「數字」單字卡"]},
+      {f:"主題單字—顏色",a:["red blue green yellow black white","造句:It is red. / I like blue.","複習數字"]},
+      {f:"週測",a:["主題單字—家庭:father mother brother sister","【測驗】用 AI 出15題(數字+顏色+家庭)","訂正錯題"]},
+      {f:"沉浸日 + 第1階里程碑",a:["回「學習路線圖」第1階,打勾已達成的里程碑","看1支簡單英文兒歌","打卡,慶祝完成發音地基!"]}
+    ]},
+    {ph:2,theme:"be 動詞與自我介紹",days:[
+      {f:"be 動詞 am/is/are",a:["規則:I am / You are / He is","造句:I am a student.(5句)","主題單字—食物:rice noodle egg milk"]},
+      {f:"自我介紹",a:["What's your name? My name is…","I am from Taiwan. I am ten.","錄下自己說5句自我介紹"]},
+      {f:"be 動詞否定",a:["I am not / He isn't","造句5句","複習食物單字"]},
+      {f:"be 動詞疑問",a:["Are you…? Is he…? Yes/No 回答","一問一答練習","主題單字—飲料:water juice tea coffee"]},
+      {f:"a / an 冠詞",a:["a book / an apple","5個名詞加正確冠詞","複習 be 動詞"]},
+      {f:"週測",a:["綜合造句10句(be動詞)","【測驗】ReadTheory 註冊並做1篇","訂正"]},
+      {f:"沉浸日",a:["VoiceTube 搜「self introduction」跟讀","對著鏡子說自我介紹","打卡"]}
+    ]},
+    {ph:2,theme:"現在簡單式(一般動詞)",days:[
+      {f:"一般動詞",a:["I like / I have / I go","造句5句","主題單字—動作:eat drink run walk"]},
+      {f:"第三人稱 -s",a:["He likes / She goes","把 I 開頭句改成 He/She","複習動作動詞"]},
+      {f:"do / does 疑問",a:["Do you…? Does he…?","問答練習","主題單字—作息:get up, go to school"]},
+      {f:"don't / doesn't 否定",a:["I don't like / He doesn't eat","5句否定句","複習 -s 規則"]},
+      {f:"描述我的一天",a:["用現在式寫「我每天做的事」5句","大聲唸出來","News in Levels 讀 Level 1 一則"]},
+      {f:"週測",a:["現在式綜合造句10句","【測驗】AI 出15題現在式選擇","訂正"]},
+      {f:"沉浸日",a:["VoiceTube 日常對話1支","複習本週動詞","打卡"]}
+    ]},
+    {ph:2,theme:"名詞、代名詞、單複數",days:[
+      {f:"單複數 -s",a:["book→books, box→boxes","10個名詞變複數","主題單字—學校:pen desk book bag"]},
+      {f:"this/that/these/those",a:["指示代名詞用法","造句5句","複習複數"]},
+      {f:"人稱代名詞",a:["I you he she it we they","受格 me/him/her","主題單字—身體:head hand foot eye"]},
+      {f:"所有格",a:["my your his her","This is my bag.(5句)","複習代名詞"]},
+      {f:"There is / are",a:["There is a cat. There are two dogs.","描述房間5句","News in Levels 讀1則"]},
+      {f:"週測",a:["綜合造句10句","【測驗】ReadTheory 1篇 + 聽力小測驗","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習本週重點","打卡"]}
+    ]},
+    {ph:2,theme:"現在進行式",days:[
+      {f:"be + Ving",a:["I am reading. He is running.","Ving 拼法(run→running)","主題單字—休閒:read play swim sing"]},
+      {f:"What are you doing?",a:["問答練習","看圖說「他正在…」5句","複習 Ving 拼法"]},
+      {f:"現在式 vs 進行式",a:["「每天做」對比「正在做」","兩者各造3句","News in Levels 1則"]},
+      {f:"進行式否定/疑問",a:["isn't Ving / Are you Ving?","問答練習","複習"]},
+      {f:"描述圖片",a:["找一張圖用進行式描述5句","大聲唸出來","主題單字—天氣:sunny rainy cloudy windy"]},
+      {f:"週測",a:["進行式造句10句","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:2,theme:"Wh- 問句與疑問句",days:[
+      {f:"What / Who",a:["What is this? Who is he?","問答練習","主題單字—職業:teacher doctor nurse cook"]},
+      {f:"Where / When",a:["Where…? When…?","問答練習","複習 What/Who"]},
+      {f:"How / Why",a:["How are you? Why…? Because…","問答練習","News in Levels 1則"]},
+      {f:"How many / much",a:["How many books?","數量問答","主題單字—地點:park store home school"]},
+      {f:"綜合問答",a:["用5個 Wh- 各問一句並自答","大聲唸","複習"]},
+      {f:"週測",a:["Wh- 問句10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:2,theme:"介系詞 · 日常描述 · 800字",days:[
+      {f:"地方介系詞",a:["in / on / under / behind","描述物品位置5句","主題單字—傢俱:table chair bed door"]},
+      {f:"時間介系詞",a:["in / on / at(時間)","at 7 / on Monday / in July","複習地方介系詞"]},
+      {f:"描述我的一天",a:["用現在式+時間寫作息8句","大聲唸","News in Levels 1則"]},
+      {f:"描述我的家",a:["用 There is/are + 介系詞描述房間","大聲唸","複習主題單字"]},
+      {f:"綜合口說",a:["把自我介紹+我的一天+我的家串成1分鐘口說","錄下來聽","複習"]},
+      {f:"週測 + 第2階里程碑",a:["【測驗】綜合卷(be+現在式+進行式+Wh-)","回路線圖第2階打勾,確認800字達標","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習整個第2階","打卡,準備進入第3階!"]}
+    ]},
+    {ph:3,theme:"過去簡單式(規則)",days:[
+      {f:"-ed 規則",a:["played / worked / wanted","造句5句(加 yesterday)","主題單字—時間:yesterday today tomorrow"]},
+      {f:"-ed 發音三種",a:["/t/ /d/ /ɪd/ 分類","把10個動詞歸類唸出","複習"]},
+      {f:"過去 be:was/were",a:["I was / They were","造句5句","News in Levels 讀一則過去式故事"]},
+      {f:"過去否定/疑問",a:["didn't / Did you…?","問答練習","複習規則動詞"]},
+      {f:"描述昨天",a:["寫「我昨天做的事」6句","大聲唸","複習動詞過去式"]},
+      {f:"週測",a:["過去式造句10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:3,theme:"過去式(不規則) + 連接詞",days:[
+      {f:"不規則動詞 ①",a:["go→went, see→saw, eat→ate","各造1句","背熟這5個"]},
+      {f:"不規則動詞 ②",a:["have→had, do→did, make→made","各造1句","背熟這5個"]},
+      {f:"不規則動詞 ③",a:["come→came, take→took, get→got","各造1句","News in Levels 1則"]},
+      {f:"連接詞 and / but / or",a:["用連接詞合併句子","造5句","複習不規則動詞"]},
+      {f:"連接詞 because / so",a:["因果句練習","造5句","主題單字擴充"]},
+      {f:"週測",a:["不規則動詞測驗","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["News in Levels Level 2 讀一篇短篇故事","複習","打卡"]}
+    ]},
+    {ph:3,theme:"未來式 + 段落閱讀入門",days:[
+      {f:"will",a:["I will go / I will call you","計劃句5句","主題單字—未來:next week, soon, later"]},
+      {f:"be going to",a:["I am going to…","造5句","複習 will"]},
+      {f:"未來否定/疑問",a:["won't / Will you…?","問答練習","News in Levels 1則"]},
+      {f:"段落閱讀 ①",a:["讀一段80字短文","找出文章主旨","把生字放進單字卡"]},
+      {f:"段落閱讀 ②",a:["讀一段100字短文","回答3題細節問題","複習生字"]},
+      {f:"週測",a:["未來式造句10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["挑一支有興趣主題的英文影片","複習","打卡"]}
+    ]},
+    {ph:3,theme:"綜合複習 + 閱讀 + 90天檢核",days:[
+      {f:"時態總複習",a:["現在/過去/未來對照造句各3句","大聲唸","整理錯題本"]},
+      {f:"閱讀馬拉松",a:["讀 News in Levels Level 2 兩篇","各回答理解題","複習生字"]},
+      {f:"寫作入門",a:["用學過時態寫8句「我的一週」短文","貼給 AI 幫你訂正","照建議修改"]},
+      {f:"聽力強化",a:["Elllo 或 VoiceTube 聽1段對話","逐句跟讀","試著聽寫幾句"]},
+      {f:"單字盤點",a:["複習累積的所有單字卡","挑不熟的重背","用不熟的字各造1句"]},
+      {f:"90天總測驗",a:["【大測驗】用 AI 出30題綜合模擬(單字+文法+閱讀)","核對分數","記錄成績"]},
+      {f:"里程碑 + 規劃下半季",a:["回路線圖檢視第1–3階打勾狀況","慶祝完成前90天!","依成績決定下一階段重點,打卡"]}
+    ]},
+    {ph:4,theme:"現在完成式",days:[
+      {f:"have/has + 過去分詞",a:["讀教材庫「現在完成式」課,弄懂「到現在為止」的概念","造句5句:I have finished my homework.","主題單字—動作三態複習"]},
+      {f:"過去分詞(規則)",a:["-ed 過去分詞","寫出10個規則動詞的三態(原形/過去/p.p.)","複習概念"]},
+      {f:"過去分詞(不規則)",a:["go-went-gone 等","背熟10個不規則三態","News in Levels 讀1則"]},
+      {f:"for / since / already / yet",a:["完成式常用副詞","各造1句","複習三態"]},
+      {f:"完成式 vs 過去式",a:["「經驗/持續」對比「單純過去」","各造3句","讀1則短文找時態"]},
+      {f:"週測",a:["現在完成式10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習三態表","打卡"]}
+    ]},
+    {ph:4,theme:"過去完成 & 完成進行",days:[
+      {f:"had + p.p.(過去完成)",a:["概念:比某個過去更早發生","讀例句並造句","複習現在完成式"]},
+      {f:"時間先後 before/after",a:["過去完成搭配時間詞","造句5句","複習"]},
+      {f:"have been Ving(完成進行)",a:["動作持續到現在","造句","News in Levels 1則"]},
+      {f:"三種完成式對照",a:["現在/過去/現在完成進行","各造2句","複習"]},
+      {f:"綜合閱讀",a:["讀含完成式的短文","圈出並判斷時態","生字入卡"]},
+      {f:"週測",a:["完成式綜合10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:4,theme:"被動語態",days:[
+      {f:"be + p.p.(被動)",a:["讀教材庫「被動語態」課","把5個主動句改成被動","造句"]},
+      {f:"各時態的被動",a:["is made / was made / will be made","時態轉換練習","複習"]},
+      {f:"by + 行為者",a:["何時要 by、何時可省略","造句","News in Levels 1則"]},
+      {f:"被動的疑問與否定",a:["Is it made? / isn't made","問答練習","複習"]},
+      {f:"主動⇄被動轉換",a:["10句互相轉換","大聲唸","讀1則短文"]},
+      {f:"週測",a:["被動語態10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:4,theme:"關係代名詞",days:[
+      {f:"who / which / that",a:["讀教材庫「關係代名詞」課,懂「把兩句合一」","合併5組句子","造句"]},
+      {f:"主格關代",a:["The man who lives here…","造句5句","複習"]},
+      {f:"受格關代",a:["The book (which) I read…","造句5句","News in Levels 1則"]},
+      {f:"whose / where / when",a:["進階關代","各造1句","複習"]},
+      {f:"關代綜合",a:["讀含關代的長句並拆解","造句","讀1則短文"]},
+      {f:"週測",a:["關代10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:4,theme:"不定詞與動名詞",days:[
+      {f:"to V(不定詞)",a:["want to / hope to / decide to","造句5句","主題單字擴充"]},
+      {f:"V-ing(動名詞)",a:["enjoy / finish / keep + Ving","造句5句","複習"]},
+      {f:"to V vs Ving",a:["哪些動詞後接哪一個","對比練習10題","News in Levels 1則"]},
+      {f:"不定詞表目的",a:["to V 表「為了…」","造句5句","複習"]},
+      {f:"綜合",a:["讀含兩者的短文並圈出","判斷用哪個","讀1則短文"]},
+      {f:"週測",a:["不定詞/動名詞10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:4,theme:"會考綜合 + 第4階里程碑",days:[
+      {f:"克漏字技巧",a:["練1篇克漏字","分析每個選項為何對錯","訂正"]},
+      {f:"閱讀測驗",a:["ReadTheory 做2篇","練抓主旨與細節","生字入卡"]},
+      {f:"聽力訓練",a:["Cool English 聽力1單元","逐句跟讀","複習"]},
+      {f:"主題寫作",a:["寫一篇80字短文","貼給 AI 訂正","照建議修改"]},
+      {f:"會考模擬",a:["Cool English 或歷屆題做1回","計時","對答案"]},
+      {f:"週測 + 里程碑",a:["【大測驗】會考模擬卷","回路線圖第4階打勾","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習第4階文法","打卡,進入第5階!"]}
+    ]},
+    {ph:5,theme:"名詞子句",days:[
+      {f:"that 子句",a:["讀教材庫「名詞子句」課","I think that…造句5句","主題單字擴充"]},
+      {f:"whether / if 子句",a:["表「是否」","造句5句","複習"]},
+      {f:"wh- 名詞子句",a:["what / why / how 引導","造句","News in Levels 1則"]},
+      {f:"當主詞或受詞",a:["名詞子句放句首或句尾","造句","複習"]},
+      {f:"綜合",a:["讀含名詞子句的長句並拆解","造句","讀1則短文"]},
+      {f:"週測",a:["名詞子句10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:5,theme:"副詞子句 + 連接副詞",days:[
+      {f:"時間副詞子句",a:["when / while / after / before","造句5句","主題單字"]},
+      {f:"原因與結果",a:["because / so that","造句5句","複習"]},
+      {f:"條件與讓步",a:["if / although / even though","造句","News in Levels 1則"]},
+      {f:"連接副詞",a:["however / therefore / moreover","造句並注意標點","複習"]},
+      {f:"綜合",a:["讀含副詞子句的短文並分析","造句","讀1則短文"]},
+      {f:"週測",a:["副詞子句10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:5,theme:"假設語氣",days:[
+      {f:"與現在事實相反",a:["讀教材庫「假設語氣」課","If I were…, I would… 造句3句","複習"]},
+      {f:"與過去事實相反",a:["If I had…, I would have…","造句3句","複習"]},
+      {f:"與未來/可能",a:["If + 現在式, will…","三型對照","News in Levels 1則"]},
+      {f:"wish / would rather",a:["願望句型","造句","複習"]},
+      {f:"綜合",a:["讀含假設語氣的句子並判斷型別","造句","讀1則短文"]},
+      {f:"週測",a:["假設語氣10題","【測驗】AI 出15題","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習三型","打卡"]}
+    ]},
+    {ph:5,theme:"分詞與分詞構句",days:[
+      {f:"分詞當形容詞",a:["interesting vs interested 差別","造句5句","主題單字"]},
+      {f:"分詞片語修飾名詞",a:["the man standing there…","造句","複習"]},
+      {f:"分詞構句(主動)",a:["Walking home, I saw…","改寫句子","News in Levels 1則"]},
+      {f:"分詞構句(被動/完成)",a:["Being tired… / Having finished…","改寫句子","複習"]},
+      {f:"綜合",a:["把5組句子改寫成分詞構句","大聲唸","讀1則短文"]},
+      {f:"週測",a:["分詞10題","【測驗】ReadTheory 1篇","訂正"]},
+      {f:"沉浸日",a:["英文影片1支","複習","打卡"]}
+    ]},
+    {ph:5,theme:"長篇閱讀技巧",days:[
+      {f:"篇章結構",a:["找每段的主旨句","讀1篇並標出段旨","生字入卡"]},
+      {f:"代名詞指涉",a:["it / they / this 指的是什麼","練習找指涉","讀1則短文"]},
+      {f:"上下文猜字義",a:["不查字典先猜生字","練1篇","複習"]},
+      {f:"推論題",a:["讀出作者的言外之意","練習推論題","讀1則短文"]},
+      {f:"略讀與掃讀",a:["skim & scan 快速找答案","計時練習","生字複習"]},
+      {f:"週測",a:["【測驗】學測型閱讀2篇","計時作答","訂正"]},
+      {f:"沉浸日",a:["讀一篇有興趣的英文文章","複習技巧","打卡"]}
+    ]},
+    {ph:5,theme:"段落寫作",days:[
+      {f:"主題句",a:["一段只講一個中心","寫3個主題句","複習連接詞"]},
+      {f:"支持句與例證",a:["用 for example 舉例","把主題句擴寫成一段","複習"]},
+      {f:"起承轉合",a:["first / also / however / finally","把句子排成通順段落","News in Levels 1則"]},
+      {f:"短文結構",a:["開頭—主體—結尾","寫一篇100字短文","貼給 AI 訂正"]},
+      {f:"改寫與潤飾",a:["依 AI 建議修改","換上更精準的字","再寫一篇"]},
+      {f:"週測",a:["【測驗】寫一篇120字作文","AI 評分並給建議","訂正"]},
+      {f:"沉浸日",a:["讀一篇範文","複習","打卡"]}
+    ]},
+    {ph:5,theme:"綜合複習 + 180天檢核",days:[
+      {f:"文法總盤點",a:["用教材庫快速複習弱項","把錯題重做一遍","整理錯題本"]},
+      {f:"4500字盤點",a:["複習核心單字卡","挑不熟的重背","用生字各造1句"]},
+      {f:"閱讀衝刺",a:["學測型閱讀3篇","計時作答","訂正"]},
+      {f:"寫作衝刺",a:["中譯英2句 + 120字作文","貼給 AI 訂正","照建議修改"]},
+      {f:"聽力衝刺",a:["Cool English / VoiceTube 聽力","逐句跟讀","試著聽寫"]},
+      {f:"180天總測驗",a:["【大測驗】學測模擬卷1回","計時、對分數","記錄成績"]},
+      {f:"里程碑 + 進入第6階",a:["回路線圖檢視第1–5階打勾","慶祝完成180天!","打卡,正式進入第6階衝刺"]}
+    ]},
+    {ph:6,theme:"7000字策略:字首字根字尾",days:[
+      {f:"字首(prefix)",a:["un- / dis- / re- / pre- / mis- 的意思","用字首推測 20 個生字","建立字首單字卡"]},
+      {f:"字根(root)",a:["port(攜帶)/ dict(說)/ spect(看)/ struct(建)","由字根推測生字","建立字根單字卡"]},
+      {f:"字尾(suffix)",a:["-tion / -ment / -able / -ive 判斷詞性","同一字根變不同詞性(create→creation→creative)","造句"]},
+      {f:"詞性轉換",a:["名詞↔動詞↔形容詞↔副詞","20組轉換練習","複習"]},
+      {f:"猜字實戰",a:["讀1篇文章,不查字典先用字根猜","再查證對錯","生字入卡"]},
+      {f:"週測",a:["【測驗】字根字首30題","AI 出題並解說","訂正"]},
+      {f:"沉浸日",a:["英文文章1篇","複習本週字根","打卡"]}
+    ]},
+    {ph:6,theme:"學術與新聞詞彙",days:[
+      {f:"新聞常見詞",a:["policy / economy / crisis / official","讀1則英文新聞","生字入卡"]},
+      {f:"科學與科技詞",a:["research / evidence / technology / data","讀1則科普短文","生字入卡"]},
+      {f:"社會與環境詞",a:["environment / pollution / society / culture","讀1則環境議題","生字入卡"]},
+      {f:"抽象概念詞",a:["concept / factor / impact / benefit","造句","複習"]},
+      {f:"搭配詞(collocation)",a:["make a decision / take action / play a role","背10組搭配","造句"]},
+      {f:"週測",a:["【測驗】學術詞彙30題","AI 出題","訂正"]},
+      {f:"沉浸日",a:["英文新聞1則","複習","打卡"]}
+    ]},
+    {ph:6,theme:"批判閱讀①:主旨與語氣",days:[
+      {f:"找主旨(main idea)",a:["每段主旨句 + 全文主旨","練2篇並寫出一句主旨","生字入卡"]},
+      {f:"作者語氣(tone)",a:["positive / negative / neutral / critical","判斷文章語氣","練習"]},
+      {f:"作者立場(attitude)",a:["支持?反對?保留?","找出關鍵字判斷","練習"]},
+      {f:"標題與段落功能",a:["每段在全文的作用","分析文章架構","練習"]},
+      {f:"綜合",a:["讀1篇長文並分析主旨+語氣","寫下分析","複習"]},
+      {f:"週測",a:["【測驗】學測型閱讀2篇(主旨/語氣題)","計時","訂正"]},
+      {f:"沉浸日",a:["英文文章1篇","複習","打卡"]}
+    ]},
+    {ph:6,theme:"批判閱讀②:推論與態度",days:[
+      {f:"推論題(inference)",a:["讀出言外之意,不是找原句","練習5題","生字入卡"]},
+      {f:"因果關係",a:["找出文中的原因與結果","練習","複習"]},
+      {f:"比較與對比",a:["作者如何對比兩個概念","練習","閱讀1篇"]},
+      {f:"例證與論點",a:["分辨主張 vs 支持證據","練習","複習"]},
+      {f:"綜合",a:["讀1篇評論文並拆解論證","寫下摘要","生字複習"]},
+      {f:"週測",a:["【測驗】學測型閱讀2篇(推論題)","計時","訂正"]},
+      {f:"沉浸日",a:["英文評論1篇","複習","打卡"]}
+    ]},
+    {ph:6,theme:"篇章結構與混合題型",days:[
+      {f:"篇章結構題",a:["把句子填回文章正確位置","練習2篇","生字入卡"]},
+      {f:"連貫與銜接",a:["靠代名詞、連接詞判斷順序","練習","複習"]},
+      {f:"克漏字進階",a:["文意 + 文法雙重判斷","練習2篇","訂正"]},
+      {f:"圖表題",a:["讀懂圖表數據描述","練習","複習"]},
+      {f:"混合題型",a:["非選擇 + 選擇混合","練習1回","訂正"]},
+      {f:"週測",a:["【測驗】篇章結構 + 克漏字各1篇","計時","訂正"]},
+      {f:"沉浸日",a:["英文文章1篇","複習","打卡"]}
+    ]},
+    {ph:6,theme:"中譯英①:基本句型",days:[
+      {f:"中英句構差異",a:["中文重意合、英文重形合","分析10句中譯英陷阱","筆記"]},
+      {f:"翻譯基本句型",a:["主動/被動、there be、it 句型","翻10句","AI 訂正"]},
+      {f:"時態選擇",a:["中文沒時態標記,要自己判斷","翻10句","訂正"]},
+      {f:"介系詞與冠詞",a:["中譯英最常錯的兩個","翻10句","訂正"]},
+      {f:"綜合",a:["翻譯一段中文(3-4句)","AI 訂正並解說","修改"]},
+      {f:"週測",a:["【測驗】中譯英10句","AI 評分","訂正"]},
+      {f:"沉浸日",a:["讀範例譯文","複習","打卡"]}
+    ]},
+    {ph:6,theme:"中譯英②:進階句型與慣用語",days:[
+      {f:"關係子句翻譯",a:["中文的『…的』→ 英文關代","翻10句","訂正"]},
+      {f:"分詞與不定詞翻譯",a:["簡化句子的技巧","翻10句","訂正"]},
+      {f:"常見慣用語",a:["not only…but also / as…as / too…to","翻10句","背句型"]},
+      {f:"連接詞與轉折",a:["however / therefore / nevertheless","翻10句","訂正"]},
+      {f:"綜合",a:["翻譯學測歷屆中譯英題","AI 訂正","修改"]},
+      {f:"週測",a:["【測驗】中譯英學測題型2題","AI 評分","訂正"]},
+      {f:"沉浸日",a:["讀範例譯文","複習","打卡"]}
+    ]},
+    {ph:6,theme:"英文作文①:結構",days:[
+      {f:"作文結構",a:["開頭段 / 主體段 / 結論段","畫出大綱模板","背模板"]},
+      {f:"開頭段寫法",a:["引言 + 主旨句(thesis)","寫3個開頭段","AI 訂正"]},
+      {f:"主體段寫法",a:["主題句 + 支持句 + 例證","寫2個主體段","AI 訂正"]},
+      {f:"結論段寫法",a:["重述 + 收尾,不加新論點","寫3個結論段","AI 訂正"]},
+      {f:"完整短文",a:["寫一篇120字看圖/主題作文","AI 訂正","修改"]},
+      {f:"週測",a:["【測驗】120字作文1篇","AI 依學測標準評分","訂正"]},
+      {f:"沉浸日",a:["讀2篇高分範文","分析結構","打卡"]}
+    ]},
+    {ph:6,theme:"英文作文②:論說與論證",days:[
+      {f:"表達立場",a:["I believe / In my opinion / It seems","寫立場句5句","複習"]},
+      {f:"正反論證",a:["On the one hand… On the other hand…","寫一組正反論述","AI 訂正"]},
+      {f:"舉例與數據",a:["For example / For instance / According to","擴寫論證","訂正"]},
+      {f:"反駁與讓步",a:["Although some argue… , I believe…","寫讓步段","AI 訂正"]},
+      {f:"完整論說文",a:["寫一篇120字論說文","AI 訂正","修改"]},
+      {f:"週測",a:["【測驗】論說文1篇","AI 評分","訂正"]},
+      {f:"沉浸日",a:["讀範文","複習","打卡"]}
+    ]},
+    {ph:6,theme:"英文作文③:潤飾與高分句型",days:[
+      {f:"高分句型①",a:["not only…but also / It is…that(強調)","造5句","背句型"]},
+      {f:"高分句型②",a:["分詞構句 / 倒裝(Never have I…)","造5句","背句型"]},
+      {f:"換字升級",a:["good→beneficial;important→crucial","升級20個常用字","筆記"]},
+      {f:"避免中式英文",a:["常見 Chinglish 錯誤","改正10句","筆記"]},
+      {f:"潤飾實戰",a:["拿之前寫的作文重寫一次","用上高分句型","AI 對比評分"]},
+      {f:"週測",a:["【測驗】作文1篇(要求用3個高分句型)","AI 評分","訂正"]},
+      {f:"沉浸日",a:["讀範文","複習句型","打卡"]}
+    ]},
+    {ph:6,theme:"學測模考①(計時實戰)",days:[
+      {f:"詞彙+綜合測驗",a:["計時做詞彙15題 + 綜合15題","對答案","訂正並記錄弱項"]},
+      {f:"文意選填+篇章結構",a:["計時作答","對答案","訂正"]},
+      {f:"閱讀測驗",a:["計時做閱讀4篇","對答案","訂正"]},
+      {f:"混合題+非選",a:["計時作答","AI 批改","訂正"]},
+      {f:"作文",a:["計時50分鐘寫中譯英+作文","AI 評分","修改"]},
+      {f:"整卷模考",a:["【大測驗】完整學測英文卷(100分鐘)","計時、對分數","記錄級分"]},
+      {f:"檢討日",a:["逐題檢討錯題","整理弱項清單","打卡"]}
+    ]},
+    {ph:6,theme:"模考②+弱項補強",days:[
+      {f:"弱項補強①",a:["針對模考最弱項目集中練習","回教材庫複習該文法","練20題"]},
+      {f:"弱項補強②",a:["第二弱項集中練習","複習","練20題"]},
+      {f:"單字補強",a:["把模考不會的字全部入卡","集中複習","造句"]},
+      {f:"閱讀速度",a:["計時閱讀,提升每分鐘字數","練3篇","記錄速度"]},
+      {f:"作文再練",a:["寫1篇作文","AI 評分","比對上次進步"]},
+      {f:"整卷模考",a:["【大測驗】第二回完整學測卷","計時、對分數","比較進步"]},
+      {f:"檢討日",a:["逐題檢討","更新弱項清單","打卡"]}
+    ]},
+    {ph:6,theme:"總複習 + 270天檢核",days:[
+      {f:"文法總盤點",a:["用教材庫21課快速掃過","重做所有錯題","整理"]},
+      {f:"單字總盤點",a:["複習7000字核心卡","挑不熟的重背","造句"]},
+      {f:"閱讀總複習",a:["讀3篇學測型長文","計時","訂正"]},
+      {f:"寫作總複習",a:["中譯英 + 作文各1回","AI 評分","修改"]},
+      {f:"聽力總複習",a:["聽力測驗1回","跟讀","訂正"]},
+      {f:"270天總驗收",a:["【大測驗】最終學測模擬卷","計時、對分數","和第180天成績比較"]},
+      {f:"畢業日 🎓",a:["回路線圖把第6階里程碑打勾","慶祝完成270天全課程!","規劃下一步:考檢定 / 讀原文書 / 看無字幕影集"]}
+    ]}
+  ];
+
+  var doneP90=LS.get('eng_p90',{});
+  var curWeek=0;
+  // default to first week that isn't fully done
+  for(var wi=0; wi<PLAN.length; wi++){
+    var allDone=true;
+    for(var di=0; di<7; di++){ if(!doneP90[wi*7+di+1]){allDone=false;break;} }
+    if(!allDone){ curWeek=wi; break; }
+  }
+
+  var pillsEl=document.getElementById('weekPills');
+  PLAN.forEach(function(w,i){
+    var b=document.createElement('button'); b.type='button'; b.className='wpill'; b.textContent='第'+(i+1)+'週';
+    b.addEventListener('click',function(){ curWeek=i; renderWeek(); });
+    pillsEl.appendChild(b);
+  });
+
+  function weekDone(wi){ for(var di=0;di<7;di++){ if(!doneP90[wi*7+di+1]) return false; } return true; }
+
+  function renderWeek(){
+    // pills state
+    Array.prototype.forEach.call(pillsEl.children,function(b,i){
+      b.classList.toggle('active',i===curWeek);
+      b.classList.toggle('wdone',weekDone(i));
+    });
+    var w=PLAN[curWeek];
+    var banner=document.getElementById('weekBanner');
+    banner.innerHTML='<span class="ph p'+w.ph+'">第 '+w.ph+' 階</span><h3>'+w.theme+'</h3><span class="wk">第 '+(curWeek+1)+' 週 · Day '+(curWeek*7+1)+'–'+(curWeek*7+7)+'</span>';
+    var grid=document.getElementById('dayGrid'); grid.innerHTML='';
+    w.days.forEach(function(day,di){
+      var gd=curWeek*7+di+1;
+      var card=document.createElement('div'); card.className='day'+(doneP90[gd]?' done':'');
+      var tasks=day.a.map(function(t){
+        t=t.replace(/(【[^】]+】)/g,'<span class="test">$1</span>');
+        return '<li>'+t+'</li>';
+      }).join('');
+      card.innerHTML=
+        '<div class="day-head"><span class="dn">Day '+gd+'</span>'+
+        '<label><input type="checkbox" data-day="'+gd+'"'+(doneP90[gd]?' checked':'')+'>完成</label></div>'+
+        '<div class="day-focus">'+day.f+'</div>'+
+        '<ol class="day-tasks">'+tasks+'</ol>';
+      card.querySelector('input').addEventListener('change',function(e){
+        var d=+e.target.getAttribute('data-day');
+        if(e.target.checked) doneP90[d]=1; else delete doneP90[d];
+        LS.set('eng_p90',doneP90);
+        card.classList.toggle('done',e.target.checked);
+        updateP90();
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  var TOTAL_DAYS=PLAN.length*7;
+  document.getElementById('p90total').textContent=TOTAL_DAYS;
+  function updateP90(){
+    var n=0; for(var k in doneP90){ if(doneP90[k]) n++; }
+    document.getElementById('p90done').textContent=n;
+    document.getElementById('p90fill').style.width=(n/TOTAL_DAYS*100)+'%';
+    Array.prototype.forEach.call(pillsEl.children,function(b,i){ b.classList.toggle('wdone',weekDone(i)); });
+  }
+
+  renderWeek();
+  updateP90();
+
+  /* ---------- lesson library ---------- */
+  var STAGE_LABEL={2:"第2階",3:"第3階",4:"第4階",5:"第5階"};
+  var GRAMMAR=[
+    {g:2,t:"be 動詞:am / is / are",concept:"be 動詞就是中文的「是／在」。主詞不一樣,用的 be 動詞就不一樣,這是英文最基本的骨架。",
+     rules:["I 用 am","you / we / they 和複數名詞 用 are","he / she / it 和單數名詞 用 is","否定:be + not(isn't / aren't);疑問:把 be 動詞移到句首"],
+     ex:[["I am a teacher.","我是老師。"],["She is very kind.","她很親切。"],["They are at home.","他們在家。"],["Are you OK? Yes, I am.","你還好嗎?我很好。"]],
+     tip:"一個句子通常只有一個動詞。有 be 動詞就別再加一般動詞:別說 I am go,要說 I go 或 I am going。",
+     p:{q:"___ she your sister?(填 be 動詞)",a:"Is — Is she your sister?"}},
+    {g:2,t:"現在簡單式(一般動詞)",concept:"描述習慣、事實、經常做的事,用現在簡單式,例如每天的作息。",
+     rules:["主詞 I / you / we / they:動詞用原形(I play)","主詞 he / she / it:動詞字尾加 -s(He plays)","否定用 don't / doesn't + 原形","疑問用 Do / Does 開頭"],
+     ex:[["I go to school every day.","我每天上學。"],["He likes coffee.","他喜歡咖啡。"],["We don't watch TV at night.","我們晚上不看電視。"],["Does she speak English?","她會說英文嗎?"]],
+     tip:"只有第三人稱單數(he/she/it)動詞才加 -s;這是初學最常見的錯。",
+     p:{q:"He ___ (go) to work by bus.(填空)",a:"goes — He goes to work by bus."}},
+    {g:2,t:"名詞單複數與冠詞",concept:"英文名詞分「一個」和「很多個」,還要搭配冠詞 a / an / the。",
+     rules:["複數一般加 -s;字尾 s/x/ch/sh 加 -es(box→boxes)","子音 + y 改成 -ies(baby→babies)","a 用在子音開頭、an 用在母音開頭","特指某個東西用 the"],
+     ex:[["I have two dogs.","我有兩隻狗。"],["She eats an egg every morning.","她每天早上吃一顆蛋。"],["The book on the table is mine.","桌上那本書是我的。"],["There are many boxes here.","這裡有很多箱子。"]],
+     tip:"a / an 看「發音」不是看字母:an hour(h 不發音)、a university(發 you 音)。",
+     p:{q:"___ apple a day...(填 a 或 an)",a:"An — An apple a day."}},
+    {g:2,t:"代名詞(主格 / 受格 / 所有格)",concept:"代名詞用來代替名詞,依它在句中的角色分主格、受格、所有格。",
+     rules:["主格(當主詞):I you he she it we they","受格(當受詞):me you him her it us them","所有格(表『的』):my your his her its our their","所有格代名詞:mine yours his hers ours theirs"],
+     ex:[["She loves him.","她愛他。"],["This is my bag.","這是我的包包。"],["Give it to me.","把它給我。"],["The red car is theirs.","那台紅車是他們的。"]],
+     tip:"『的』後面有沒有名詞決定用哪個:my book(my + 名詞)vs. This book is mine(mine 單獨用)。",
+     p:{q:"This pen is ___.(它是我的)",a:"mine — This pen is mine."}},
+    {g:2,t:"現在進行式",concept:"表示「現在正在做」的動作,用 be 動詞 + 動詞-ing。",
+     rules:["結構:am / is / are + Ving","加 ing:play→playing;字尾 e 去 e(make→making);短母音重複尾子音(run→running)","否定:be + not + Ving","疑問:be 移到句首"],
+     ex:[["I am reading a book now.","我正在看書。"],["They are playing soccer.","他們正在踢足球。"],["She isn't sleeping.","她沒在睡覺。"],["What are you doing?","你在做什麼?"]],
+     tip:"現在簡單式=平常習慣;現在進行式=此刻正在做。I read every day. / I am reading now.",
+     p:{q:"He ___ ___ (run) right now.(填兩字)",a:"is running — He is running right now."}},
+    {g:2,t:"Wh- 問句",concept:"用 what / who / where 等疑問詞問「具體資訊」,不是只回答 yes / no。",
+     rules:["常見疑問詞:What Who Where When Why How","結構:疑問詞 + 助動詞 / be + 主詞…","回答 Why 用 Because…","How many / much 問數量"],
+     ex:[["Where do you live?","你住哪裡?"],["Why are you late?","你為什麼遲到?"],["How many books do you have?","你有幾本書?"],["When does the movie start?","電影何時開始?"]],
+     tip:"疑問詞後面若接一般動詞,別忘了加 do / does / did:Where do you go?(不是 Where you go?)",
+     p:{q:"___ is your teacher?(問『誰』)",a:"Who — Who is your teacher?"}},
+    {g:2,t:"介系詞(時間 / 地點)",concept:"介系詞表達時間、地點等關係,用法和中文不完全對應,要靠例句記。",
+     rules:["地點:in(裡面)on(上面)under(下面)at(某點)","時間:at + 鐘點、on + 日期星期、in + 月份年份","移動:to(往)from(從)","口訣:大範圍用 in,平面用 on,精確點用 at"],
+     ex:[["The cat is under the table.","貓在桌子底下。"],["I get up at seven.","我七點起床。"],["We meet on Sunday.","我們星期天見面。"],["She was born in 2000.","她在 2000 年出生。"]],
+     tip:"時間 at→on→in 是由小到大:at 7(點)→ on Monday(天)→ in May(月)。",
+     p:{q:"See you ___ Monday.(填介系詞)",a:"on — See you on Monday."}},
+    {g:3,t:"過去簡單式",concept:"描述「過去發生、已結束」的事,動詞要變過去式。",
+     rules:["規則動詞加 -ed(work→worked)","be 動詞過去式:was(單數)/ were(複數)","否定用 didn't + 原形","疑問用 Did + 主詞 + 原形"],
+     ex:[["I watched a movie yesterday.","我昨天看了電影。"],["She was happy last night.","她昨晚很開心。"],["We didn't go to school.","我們沒去上學。"],["Did you finish it?","你完成了嗎?"]],
+     tip:"用 did 時,主要動詞要變回原形:Did you go?(不是 Did you went?)",
+     p:{q:"They ___ (play) basketball yesterday.(填空)",a:"played — They played basketball yesterday."}},
+    {g:3,t:"不規則動詞",concept:"有些常用動詞過去式不加 -ed,而是整個變化,必須背起來。",
+     rules:["go → went → gone","see → saw → seen","eat → ate → eaten","have→had;do→did;make→made;come→came;take→took;get→got"],
+     ex:[["I went to Taipei last week.","我上週去了台北。"],["He ate three apples.","他吃了三顆蘋果。"],["We saw a good film.","我們看了一部好電影。"],["She made a cake.","她做了一個蛋糕。"]],
+     tip:"第三欄(過去分詞)完成式和被動會用到,建議三態一起背。",
+     p:{q:"Yesterday I ___ (see) her at the park.(填空)",a:"saw — I saw her at the park."}},
+    {g:3,t:"未來式(will / be going to)",concept:"表達「未來要做的事」,兩種常見講法:will 和 be going to。",
+     rules:["will + 原形:當下決定或預測","be going to + 原形:早有計劃","否定:won't / am not going to","疑問:Will you…? / Are you going to…?"],
+     ex:[["I will call you tonight.","我今晚會打給你。"],["She is going to study abroad.","她打算出國念書。"],["It won't rain tomorrow.","明天不會下雨。"],["Are you going to join us?","你要加入我們嗎?"]],
+     tip:"臨時起意用 will;本來就規劃好用 be going to。",
+     p:{q:"Look at the clouds! It ___ rain.(will / is going to,較合適者)",a:"is going to — 有徵兆的預測用 be going to。"}},
+    {g:3,t:"情態助動詞(can / must / should)",concept:"can / must / should 等放在動詞前,表達能力、義務、建議等語氣。",
+     rules:["can 能夠;could 過去 / 委婉","must 必須;have to 不得不","should 應該(建議)","may / might 可能、可以(許可);後面一律接原形"],
+     ex:[["I can swim.","我會游泳。"],["You should see a doctor.","你應該去看醫生。"],["We must finish it today.","我們今天必須完成。"],["May I come in?","我可以進來嗎?"]],
+     tip:"情態助動詞後面永遠接原形:He can swims ✗ → He can swim ✓。",
+     p:{q:"He can ___ (swim) very well.(填空)",a:"swim — 情態助動詞後接原形。"}},
+    {g:3,t:"比較級與最高級",concept:"比較兩者用比較級,三者以上最厲害用最高級。",
+     rules:["短形容詞加 -er / -est(tall→taller→tallest)","長形容詞用 more / most(more beautiful)","比較級常搭 than;最高級常搭 the","不規則:good→better→best;bad→worse→worst"],
+     ex:[["He is taller than me.","他比我高。"],["This is more expensive.","這個比較貴。"],["She is the best student.","她是最好的學生。"],["Today is worse than yesterday.","今天比昨天糟。"]],
+     tip:"別重複比較:more taller ✗、most best ✗。加了 -er/-est 就不用 more/most。",
+     p:{q:"This book is ___ (interesting) than that one.(填空)",a:"more interesting — 長形容詞用 more。"}},
+    {g:3,t:"連接詞",concept:"連接詞把字、片語或句子連起來,讓表達更完整。",
+     rules:["and(和)but(但是)or(或)並列","because(因為)表原因;so(所以)表結果","although / though(雖然)表讓步","when / while(當…時)表時間"],
+     ex:[["I like tea and coffee.","我喜歡茶和咖啡。"],["He is poor but happy.","他窮但快樂。"],["I stayed home because it rained.","因為下雨我待在家。"],["Although he is young, he is wise.","雖然他年輕,卻很有智慧。"]],
+     tip:"because 和 so 不能同句一起用:「因為…所以…」英文只能擇一。",
+     p:{q:"I was tired, ___ I went to bed early.(填連接詞)",a:"so — I was tired, so I went to bed early."}},
+    {g:4,t:"現在完成式",concept:"連接「過去到現在」:過去發生、對現在仍有影響或持續。用 have / has + 過去分詞。",
+     rules:["結構:have / has + p.p.(過去分詞)","表經驗:I have been to Japan.","表持續:for(一段時間)/ since(從某時起)","常搭 already, yet, just, ever, never"],
+     ex:[["I have finished my homework.","我已經寫完作業了。"],["She has lived here for ten years.","她住這裡十年了。"],["Have you ever eaten sushi?","你吃過壽司嗎?"],["He hasn't arrived yet.","他還沒到。"]],
+     tip:"明確的過去時間點(yesterday, in 2010)要用過去式,不能用完成式。",
+     p:{q:"I ___ ___ (see) that movie three times.(填兩字)",a:"have seen — I have seen that movie three times."}},
+    {g:4,t:"過去完成 & 完成進行",concept:"要表達「比某個過去更早」用過去完成;要強調「一直持續」用完成進行式。",
+     rules:["過去完成:had + p.p.(比過去更早)","完成進行:have / has been + Ving(持續到現在)","過去完成常搭 before / after / when","by the time… 常引導過去完成"],
+     ex:[["The train had left before I arrived.","我到之前火車已經開走了。"],["I have been studying for two hours.","我已經讀了兩小時了。"],["She had never seen snow before.","她之前從沒看過雪。"],["It has been raining all day.","雨下了一整天。"]],
+     tip:"兩件過去的事,先發生的用「過去完成(had)」,後發生的用「過去式」。",
+     p:{q:"When I got home, she had already ___ (leave).(填空)",a:"left — she had already left."}},
+    {g:4,t:"被動語態",concept:"當「動作承受者」比「做的人」更重要時,用被動:be + 過去分詞。",
+     rules:["結構:be + p.p.(依時態改 be)","現在 is/are made;過去 was/were made;未來 will be made","做的人用 by 帶出(常可省略)","主動改被動:受詞移到句首當主詞"],
+     ex:[["English is spoken here.","這裡說英文。"],["The window was broken by the boy.","窗戶被那男孩打破了。"],["The report will be finished tomorrow.","報告明天會完成。"],["This song is loved by many people.","這首歌受很多人喜愛。"]],
+     tip:"被動一定有「be 動詞 + 過去分詞」兩個部分,少一個就錯。",
+     p:{q:"The cake ___ ___ (make) by my mom.(過去被動,填兩字)",a:"was made — The cake was made by my mom."}},
+    {g:4,t:"關係代名詞",concept:"用 who / which / that 把兩個句子合併,補充說明前面的名詞,讓句子更精簡。",
+     rules:["人用 who;物用 which;人物皆可用 that","關代同時當後面子句的主詞或受詞","The man who lives next door(who 指 the man)","受格關代常可省略:the book (that) I read"],
+     ex:[["I know the girl who won the prize.","我認識那個得獎的女孩。"],["This is the house which he built.","這是他蓋的房子。"],["The movie that we saw was great.","我們看的那部電影很棒。"],["She is the teacher who helped me.","她是幫助我的老師。"]],
+     tip:"先看關代代替的名詞是「人」還是「物」,再決定用 who 還是 which。",
+     p:{q:"The book ___ is on the table is mine.(填關代)",a:"which / that — The book which is on the table is mine."}},
+    {g:4,t:"不定詞與動名詞",concept:"動詞當名詞用時有兩種形式:to + 原形(不定詞)和 -ing(動名詞),不同動詞後面接不同的。",
+     rules:["接 to V:want, hope, decide, plan, need","接 Ving:enjoy, finish, keep, mind, avoid","to V 也可表『目的』(為了…)","少數兩者皆可但意思不同(stop to do / stop doing)"],
+     ex:[["I want to learn English.","我想學英文。"],["She enjoys reading books.","她喜歡看書。"],["He finished doing his homework.","他寫完了作業。"],["I went there to see her.","我去那裡是為了見她。"]],
+     tip:"背幾個關鍵動詞就好:want/hope/decide 接 to;enjoy/finish/keep 接 Ving。",
+     p:{q:"I enjoy ___ (swim) in summer.(填空)",a:"swimming — I enjoy swimming."}},
+    {g:5,t:"名詞子句",concept:"一整個子句當名詞用(當主詞或受詞),常由 that / whether / wh- 引導。",
+     rules:["that 引導:I think that he is right.","whether / if(是否)","wh- 引導:what / why / how…","名詞子句內用『主詞 + 動詞』語序,不是問句語序"],
+     ex:[["I believe that you can do it.","我相信你做得到。"],["Do you know where he lives?","你知道他住哪嗎?"],["Whether it rains doesn't matter.","下不下雨都沒關係。"],["That she passed surprised us.","她通過了讓我們很驚訝。"]],
+     tip:"間接問句用直述語序:I know where he is.(不是 where is he)。",
+     p:{q:"Do you know ___ the store opens?(何時)",a:"when — Do you know when the store opens?"}},
+    {g:5,t:"假設語氣(if 三型)",concept:"表達「與事實相反」或「純假設」的情況,動詞時態要「退一步」。",
+     rules:["與現在相反:If + 過去式, 主詞 + would/could + 原形(be 用 were)","與過去相反:If + had p.p., 主詞 + would have p.p.","與未來 / 可能:If + 現在式, 主詞 + will + 原形","wish + 過去式 表『但願』"],
+     ex:[["If I were rich, I would travel the world.","如果我有錢,我會環遊世界。(現在相反)"],["If I had studied, I would have passed.","如果我讀了書就會及格。(過去相反)"],["If it rains, we will stay home.","如果下雨,我們就待在家。(可能)"],["I wish I could fly.","但願我會飛。"]],
+     tip:"與現在事實相反時,be 動詞一律用 were(即使主詞是 I / he)。",
+     p:{q:"If I ___ (be) you, I would say sorry.(填空)",a:"were — If I were you, I would say sorry."}},
+    {g:5,t:"分詞與分詞構句",concept:"把兩個相同主詞的句子,其中一句用分詞(Ving / p.p.)簡化,讓句子更精練。",
+     rules:["主動 → 現在分詞 Ving:Walking home, I met John.","被動 → 過去分詞 p.p.:Written in English, the book is hard.","完成 → Having + p.p.:Having finished, she left.","分詞的主詞要和主句一致"],
+     ex:[["Feeling tired, he went to bed.","覺得累,他就去睡了。"],["Seen from above, the city looks small.","從上面看,城市顯得很小。"],["Having eaten, we went for a walk.","吃完後,我們去散步。"],["Smiling, she opened the door.","她微笑著打開門。"]],
+     tip:"判斷用 Ving 還是 p.p.:主詞「主動做」用 Ving,「被…」用 p.p.。",
+     p:{q:"___ his work, he went home.(finish,用分詞)",a:"Having finished — Having finished his work, he went home."}}
+  ];
+  /* 每課 5 題練習(對應 GRAMMAR 的順序) */
+  var PRACTICE=[
+    [["___ she your sister?(填 be 動詞)","Is — Is she your sister?"],["I ___ a student.","am"],["They ___ my friends.","are"],["He ___ not tired.(填 be 動詞)","is — He is not tired. / He isn't tired."],["___ you happy? Yes, I ___.","Are / am"]],
+    [["He ___ (go) to work by bus.","goes"],["I ___ (like) music.","like"],["She ___ (not / eat) meat.","doesn't eat"],["___ they ___ (play) tennis?","Do … play"],["My father ___ (watch) TV every night.","watches"]],
+    [["___ apple a day…(a 或 an)","An"],["I have three ___ (box).","boxes"],["She is ___ honest girl.(a 或 an)","an — honest 的 h 不發音"],["There are many ___ (baby) here.","babies"],["___ sun is very bright today.","The"]],
+    [["This pen is ___.(我的)","mine"],["She loves ___.(他)","him"],["___ car is new.(他們的)","Their"],["Give the book to ___.(我)","me"],["We invited ___.(他們)","them"]],
+    [["He ___ ___ (run) right now.","is running"],["They ___ (play) soccer now.","are playing"],["I ___ (not / sleep).","am not sleeping"],["What ___ you ___ (do)?","are … doing"],["She ___ (make) a cake.","is making"]],
+    [["___ is your teacher?(誰)","Who"],["___ do you live?(哪裡)","Where"],["___ are you late?(為什麼)","Why"],["___ many books do you have?","How"],["___ does the movie start?(何時)","When"]],
+    [["See you ___ Monday.","on"],["I get up ___ seven.","at"],["She was born ___ 2000.","in"],["The cat is ___ the table.(下面)","under"],["The book is ___ the desk.(上面)","on"]],
+    [["They ___ (play) basketball yesterday.","played"],["She ___ (be) happy last night.","was"],["We ___ (not / go) to school.","didn't go"],["___ you ___ (finish) it?","Did … finish"],["They ___ (be) at home.(複數過去)","were"]],
+    [["Yesterday I ___ (see) her.","saw"],["He ___ (go) to Taipei last week.","went"],["She ___ (make) a cake.","made"],["We ___ (eat) dinner at seven.","ate"],["I ___ (take) a photo.","took"]],
+    [["Look at the clouds! It ___ rain.(will / is going to)","is going to — 有徵兆的預測"],["I ___ (call) you tonight.(臨時決定)","will call"],["She ___ ___ ___ study abroad.(早有計劃)","is going to"],["It ___ (not / rain) tomorrow.","won't rain"],["___ you ___ ___ join us?(be going to 疑問)","Are … going to"]],
+    [["He can ___ (swim) very well.","swim — 情態助動詞後接原形"],["You ___ see a doctor.(建議)","should"],["We ___ finish it today.(必須)","must"],["___ I come in?(請求許可)","May / Can"],["I ___ speak French.(不會)","can't / cannot"]],
+    [["This book is ___ (interesting) than that one.","more interesting"],["He is ___ (tall) than me.","taller"],["She is ___ ___ (good) student in class.","the best"],["Today is ___ (bad) than yesterday.","worse"],["This is ___ (expensive) shirt in the shop.","the most expensive"]],
+    [["I was tired, ___ I went to bed early.","so"],["He is poor ___ happy.","but"],["I stayed home ___ it rained.","because"],["___ he is young, he is wise.","Although / Though"],["I like tea ___ coffee.","and"]],
+    [["I ___ ___ (see) that movie three times.","have seen"],["She ___ ___ (live) here for ten years.","has lived"],["___ you ever ___ (eat) sushi?","Have … eaten"],["He ___ ___ (not / arrive) yet.","hasn't arrived"],["I ___ just ___ (finish) my homework.","have … finished"]],
+    [["When I got home, she had already ___ (leave).","left"],["The train ___ ___ (leave) before I arrived.","had left"],["I ___ ___ ___ (study) for two hours.","have been studying"],["She ___ never ___ (see) snow before.","had … seen"],["It ___ ___ ___ (rain) all day.","has been raining"]],
+    [["The cake ___ ___ (make) by my mom.(過去被動)","was made"],["English ___ ___ (speak) here.(現在被動)","is spoken"],["The report ___ ___ ___ (finish) tomorrow.(未來被動)","will be finished"],["The window ___ ___ (break) by the boy.","was broken"],["These songs ___ ___ (love) by many people.","are loved"]],
+    [["The book ___ is on the table is mine.","which / that"],["I know the girl ___ won the prize.","who / that"],["This is the house ___ he built.","which / that"],["She is the teacher ___ helped me.","who / that"],["The man ___ car is red is my uncle.(誰的)","whose"]],
+    [["I enjoy ___ (swim) in summer.","swimming"],["I want ___ (learn) English.","to learn"],["He finished ___ (do) his homework.","doing"],["She decided ___ (go) abroad.","to go"],["I went there ___ (see) her.(表目的)","to see"]],
+    [["Do you know ___ the store opens?(何時)","when"],["I believe ___ you can do it.","that"],["Do you know where ___ ___?(他住)","he lives — 用直述語序"],["I don't know ___ she will come.(是否)","whether / if"],["___ she passed surprised us.","That"]],
+    [["If I ___ (be) you, I would say sorry.","were"],["If I ___ ___ (study), I would have passed.","had studied"],["If it ___ (rain), we will stay home.","rains"],["I wish I ___ (can) fly.","could"],["If he ___ (have) money, he would buy it.(與現在相反)","had"]],
+    [["___ (finish) his work, he went home.","Having finished"],["___ (feel) tired, he went to bed.","Feeling"],["___ (see) from above, the city looks small.","Seen"],["___ (smile), she opened the door.","Smiling"],["___ (write) in English, the book is hard.","Written"]]
+  ];
+
+  var gl=document.getElementById('grammarList');
+  GRAMMAR.forEach(function(L,idx){
+    var el=document.createElement('div'); el.className='lesson';
+    var rules=L.rules.map(function(r){return '<li>'+r+'</li>';}).join('');
+    var ex=L.ex.map(function(e){return '<li class="exline" data-en="'+e[0].replace(/"/g,'&quot;')+'"><span class="en">'+e[0]+'</span><span class="zh">'+e[1]+'</span></li>';}).join('');
+    var bank=PRACTICE[idx]||[];
+    var prac=bank.length?('<h4>小練習('+bank.length+'題,先自己想再看答案)</h4>'+bank.map(function(pq,qi){
+      return '<div class="practice"><div class="q">✍ '+(qi+1)+'. '+pq[0]+'</div><button type="button">看答案</button><div class="ans">✅ '+pq[1]+'</div></div>';
+    }).join('')):'';
+    el.innerHTML='<div class="lesson-top" role="button" tabindex="0"><span class="stg s'+L.g+'">'+STAGE_LABEL[L.g]+'</span><h3>'+L.t+'</h3><span class="chev">▶</span></div>'+
+      '<div class="lesson-body"><p class="concept">'+L.concept+'</p>'+
+      '<h4>規則</h4><ul class="rules">'+rules+'</ul>'+
+      '<h4>例句(點會發音)</h4><ul class="exlist">'+ex+'</ul>'+
+      (L.tip?'<div class="tip">💡 '+L.tip+'</div>':'')+prac+'</div>';
+    gl.appendChild(el);
+    var top=el.querySelector('.lesson-top');
+    function tog(){el.classList.toggle('open');}
+    top.addEventListener('click',tog);
+    top.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+    Array.prototype.forEach.call(el.querySelectorAll('.exline'),function(exl){
+      exl.addEventListener('click',function(){ speak(exl.getAttribute('data-en'),0.85,exl); });
+    });
+    Array.prototype.forEach.call(el.querySelectorAll('.practice'),function(pr){
+      pr.querySelector('button').addEventListener('click',function(){ pr.classList.add('show'); this.style.display='none'; });
+    });
+  });
+
+  /* vocab */
+  var VOCAB=[
+    {t:"食物與飲食",sub:"最常出現的吃喝單字",w:[["rice","飯"],["noodle","麵"],["bread","麵包"],["egg","蛋"],["meat","肉"],["fish","魚"],["fruit","水果"],["water","水"],["milk","牛奶"],["juice","果汁"]]},
+    {t:"家庭稱謂",sub:"介紹家人時會用到",w:[["father","爸爸"],["mother","媽媽"],["brother","兄弟"],["sister","姊妹"],["grandfather","祖父"],["grandmother","祖母"],["son","兒子"],["daughter","女兒"],["uncle","叔伯"],["aunt","阿姨"]]},
+    {t:"學校用品",sub:"教室裡的東西",w:[["pen","筆"],["pencil","鉛筆"],["book","書"],["bag","書包"],["desk","書桌"],["chair","椅子"],["ruler","尺"],["eraser","橡皮擦"],["notebook","筆記本"],["classroom","教室"]]},
+    {t:"身體部位",sub:"看醫生、描述都需要",w:[["head","頭"],["hair","頭髮"],["eye","眼睛"],["ear","耳朵"],["nose","鼻子"],["mouth","嘴巴"],["hand","手"],["foot","腳"],["arm","手臂"],["leg","腿"]]},
+    {t:"情緒感受",sub:"表達心情的形容詞",w:[["happy","快樂的"],["sad","難過的"],["angry","生氣的"],["tired","累的"],["excited","興奮的"],["bored","無聊的"],["scared","害怕的"],["surprised","驚訝的"],["nervous","緊張的"],["proud","驕傲的"]]},
+    {t:"常用動詞",sub:"每天都會用的動作",w:[["go","去"],["come","來"],["eat","吃"],["drink","喝"],["read","讀"],["write","寫"],["listen","聽"],["speak","說"],["run","跑"],["walk","走"]]}
+  ];
+  var vlEl=document.getElementById('vocabList');
+  VOCAB.forEach(function(G){
+    var grp=document.createElement('div'); grp.className='voc-group';
+    var cards=G.w.map(function(w){return '<div class="vcard" data-en="'+w[0]+'"><div class="ven">'+w[0]+'</div><div class="vzh">'+w[1]+'</div></div>';}).join('');
+    grp.innerHTML='<h3>'+G.t+'</h3><p class="vsub">'+G.sub+'</p><div class="voc-grid">'+cards+'</div>';
+    vlEl.appendChild(grp);
+    Array.prototype.forEach.call(grp.querySelectorAll('.vcard'),function(c){ c.addEventListener('click',function(){ speak(c.getAttribute('data-en'),0.85,c); }); });
+  });
+
+  /* reading */
+  var READINGS=[
+    {lv:"初級 · 現在式",title:"My Day",
+     text:["Hello! My name is Amy.","I am a student.","I get up at seven every morning.","I eat breakfast with my family.","I go to school by bus.","I like English and music.","After school, I play with my dog.","I am very happy."],
+     trans:"哈囉!我叫 Amy。我是學生。我每天早上七點起床。我和家人一起吃早餐。我搭公車上學。我喜歡英文和音樂。放學後,我和我的狗玩。我非常快樂。",
+     gloss:[["student","學生"],["breakfast","早餐"],["by bus","搭公車"],["after school","放學後"],["happy","快樂的"]],
+     comp:[{q:"1. What time does Amy get up?",a:"At seven.(七點)"},{q:"2. How does she go to school?",a:"By bus.(搭公車)"},{q:"3. What does she do after school?",a:"She plays with her dog.(和狗玩)"}]},
+    {lv:"中級 · 過去式",title:"A Rainy Sunday",
+     text:["Last Sunday, it rained all day.","I wanted to go to the park, but I couldn't.","So I stayed at home.","I read a good book and drank hot tea.","In the afternoon, my friend called me.","We talked for an hour.","Later, I cooked dinner for my family.","It was a quiet but nice day."],
+     trans:"上個星期天,雨下了一整天。我本來想去公園,但沒辦法。所以我待在家。我讀了一本好書,喝了熱茶。下午,我朋友打電話給我。我們聊了一小時。後來,我為家人煮了晚餐。那是安靜但美好的一天。",
+     gloss:[["rained","下雨(過去)"],["couldn't","不能(過去)"],["stayed","停留"],["called","打電話"],["quiet","安靜的"]],
+     comp:[{q:"1. How was the weather?",a:"It rained all day.(下了一整天雨)"},{q:"2. Why did the writer stay home?",a:"Because it rained and she couldn't go to the park.(因為下雨)"},{q:"3. What did she do in the afternoon?",a:"She talked with a friend on the phone.(和朋友講電話)"}]},
+    {lv:"進階 · 學測型",title:"Why Reading Matters",
+     text:["Reading is one of the most important habits a person can have.","When we read, we learn new words and ideas that we may never meet in daily life.","Books also allow us to see the world through other people's eyes, which helps us understand others.","Studies have shown that people who read often think more clearly and feel less stressed.","In a world full of short videos, sitting down with a book may seem old-fashioned.","However, the quiet focus that reading requires is exactly what our busy minds need.","So next time you have a free hour, pick up a book instead of your phone."],
+     trans:"閱讀是一個人能擁有的最重要習慣之一。當我們閱讀,會學到日常生活中可能永遠遇不到的新字和新想法。書也讓我們透過別人的眼睛看世界,這幫助我們理解他人。研究顯示,常閱讀的人思考更清晰、壓力更小。在充滿短影片的世界裡,坐下來讀一本書也許顯得過時。然而,閱讀所需要的那份安靜專注,正是我們忙碌的心靈所需要的。所以下次你有空閒的一小時,拿起一本書,而不是手機吧。",
+     gloss:[["habit","習慣"],["ideas","想法"],["through other people's eyes","透過他人的眼睛"],["studies have shown","研究顯示"],["stressed","有壓力的"],["old-fashioned","過時的"],["focus","專注"],["instead of","而不是"]],
+     comp:[{q:"1. What can books help us do?(主旨)",a:"Learn new words / ideas and understand others.(學新字、理解他人)"},{q:"2. What does 'old-fashioned' suggest about reading today?",a:"和短影片相比,讀書看似過時 —— 但作者不認同這個看法。"},{q:"3. What is the writer's main advice?",a:"用空閒時間讀書,而不是滑手機。"}]}
+  ];
+  var rlEl=document.getElementById('readingList');
+  READINGS.forEach(function(P){
+    var pas=document.createElement('div'); pas.className='passage';
+    var sentences=P.text.map(function(s){return '<span data-en="'+s.replace(/"/g,'&quot;')+'">'+s+' </span>';}).join('');
+    var gloss=P.gloss.map(function(g){return '<li><b>'+g[0]+'</b> — '+g[1]+'</li>';}).join('');
+    var comp=P.comp.map(function(c){return '<div class="cq"><div class="cqt">'+c.q+'</div><button type="button">看答案</button><div class="ca">'+c.a+'</div></div>';}).join('');
+    pas.innerHTML='<div class="plevel">'+P.lv+'</div><h3>'+P.title+'</h3>'+
+      '<div class="ptext">'+sentences+'</div>'+
+      '<div class="ptrans">'+P.trans+'</div>'+
+      '<div class="prow"><button class="tbtn" type="button">顯示中文翻譯</button><button class="pbtn" type="button">🔊 朗讀全文</button></div>'+
+      '<div class="gloss"><h4>生字表</h4><ul>'+gloss+'</ul></div>'+
+      '<div class="comp"><h4>理解題(先自己想,再看答案)</h4>'+comp+'</div>';
+    rlEl.appendChild(pas);
+    Array.prototype.forEach.call(pas.querySelectorAll('.ptext span'),function(sp){ sp.addEventListener('click',function(){ speak(sp.getAttribute('data-en'),0.8,null); }); });
+    var tb=pas.querySelector('.tbtn');
+    tb.addEventListener('click',function(){ pas.classList.toggle('showtrans'); tb.textContent=pas.classList.contains('showtrans')?'隱藏中文翻譯':'顯示中文翻譯'; });
+    pas.querySelector('.pbtn').addEventListener('click',function(){ if(!TTS) return; window.speechSynthesis.cancel(); P.text.forEach(function(s){ window.speechSynthesis.speak(utter(s,0.85)); }); });
+    Array.prototype.forEach.call(pas.querySelectorAll('.comp .cq'),function(cq){ cq.querySelector('button').addEventListener('click',function(){ cq.classList.add('show'); this.style.display='none'; }); });
+  });
+
+  /* ---------- backup / restore ---------- */
+  var BK_KEYS=['eng_miles','eng_days','eng_p90','eng_theme'];
+  var bkBox=document.getElementById('backupBox'), bkMsg=document.getElementById('backupMsg');
+  document.getElementById('btnExport').addEventListener('click',function(){
+    var dump={};
+    BK_KEYS.forEach(function(k){ var v=LS.get(k,null); if(v!==null) dump[k]=v; });
+    bkBox.value=JSON.stringify(dump);
+    bkMsg.textContent='✅ 已匯出。請按「複製」,再貼到新裝置的這個欄位。';
+  });
+  document.getElementById('btnCopy').addEventListener('click',function(){
+    if(!bkBox.value){ bkMsg.textContent='⚠ 請先按「匯出進度」。'; return; }
+    bkBox.select();
+    try{ document.execCommand('copy'); bkMsg.textContent='✅ 已複製到剪貼簿。'; }
+    catch(e){ bkMsg.textContent='請手動選取上面的文字複製(Ctrl+C)。'; }
+  });
+  document.getElementById('btnImport').addEventListener('click',function(){
+    var raw=bkBox.value.trim();
+    if(!raw){ bkMsg.textContent='⚠ 請先把備份文字貼進上面的欄位。'; return; }
+    var data;
+    try{ data=JSON.parse(raw); }
+    catch(e){ bkMsg.textContent='❌ 格式不對,請確認貼上的是完整的備份文字。'; return; }
+    if(!data || typeof data!=='object'){ bkMsg.textContent='❌ 格式不對。'; return; }
+    BK_KEYS.forEach(function(k){ if(data[k]!==undefined) LS.set(k,data[k]); });
+    bkMsg.textContent='✅ 匯入成功!正在重新載入…';
+    setTimeout(function(){ location.reload(); },700);
+  });
+
+  /* lesson tabs */
+  var ltabs=document.getElementById('lessonTabs');
+  ltabs.addEventListener('click',function(e){
+    var b=e.target.closest('.ltab'); if(!b) return;
+    Array.prototype.forEach.call(ltabs.children,function(x){x.classList.remove('active');});
+    b.classList.add('active');
+    ['grammar','vocab','reading'].forEach(function(name){
+      document.getElementById('tab-'+name).hidden=(name!==b.getAttribute('data-tab'));
+    });
+  });
+})();
+</script>
+</body>
+</html>
